@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Profile — BlogSpace</title>
+    <link
+      rel="stylesheet"
+      href="./styles/global.css"
+    />
+  </head>
+  <body>
+    {{> header location="profile"}}
+
+    <!-- Main -->
+    <main class="mx-auto w-full max-w-5xl flex-1 px-4 py-12">
+      <div class="mx-auto max-w-2xl">
+        <h1 class="mb-8 text-3xl font-bold text-content-primary">Profile</h1>
+
+        <div
+          class="rounded-xl border border-stroke-primary bg-surface-secondary p-6"
+        >
+          <!-- Avatar + Name -->
+          <div class="mb-6 flex items-center gap-4">
+            <div
+              class="flex h-16 w-16 items-center justify-center rounded-full bg-accent/20 text-2xl font-bold text-accent-hover"
+            >
+              JD
+            </div>
+
+            <div>
+              <h2 class="text-xl font-semibold text-content-primary">
+                John Doe
+              </h2>
+
+              <p class="text-sm text-content-tertiary">
+                Member since January 2026
+              </p>
+            </div>
+          </div>
+
+          <!-- Info table -->
+          <table class="w-full">
+            <tbody
+              class="divide-y divide-stroke-primary text-sm text-content-primary"
+            >
+              <tr class="align-top">
+                <td class="py-3 pr-4 font-medium text-content-secondary">
+                  Username
+                </td>
+
+                <td class="py-3">John Doe</td>
+              </tr>
+
+              <tr class="align-top">
+                <td class="py-3 pr-4 font-medium text-content-secondary">
+                  Email
+                </td>
+
+                <td class="py-3">john.doe@example.com</td>
+              </tr>
+
+              <tr class="align-top">
+                <td class="py-3 pr-4 font-medium text-content-secondary">
+                  Gender
+                </td>
+
+                <td class="py-3">Male</td>
+              </tr>
+
+              <tr class="align-top">
+                <td
+                  class="py-3 pr-4 font-medium text-content-secondary whitespace-nowrap"
+                >
+                  Date of birth
+                </td>
+
+                <td class="py-3">March 15, 1998</td>
+              </tr>
+
+              <tr class="align-top">
+                <td class="py-3 pr-4 font-medium text-content-secondary">
+                  Bio
+                </td>
+
+                <td class="py-3">
+                  Full-stack developer and tech blogger. Passionate about web
+                  standards and open source.
+                </td>
+              </tr>
+
+              <tr class="align-top">
+                <td class="py-3 pr-4 font-medium text-content-secondary">
+                  Posts
+                </td>
+
+                <td class="py-3">12</td>
+              </tr>
+
+              <tr class="align-top">
+                <td class="py-3 pr-4 font-medium text-content-secondary">
+                  Comments
+                </td>
+
+                <td class="py-3">47</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="mt-6">
+            <a
+              href="feed"
+              class="inline-block rounded-lg bg-accent px-5 py-2.5 text-sm font-medium text-content-primary hover:bg-accent-hover"
+            >
+              View my posts
+            </a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    {{> footer}}
+  </body>
+</html>

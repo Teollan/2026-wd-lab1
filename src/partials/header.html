@@ -1,0 +1,150 @@
+<header class="relative border-b border-stroke-primary bg-surface-primary">
+  <div class="mx-auto flex max-w-5xl items-center justify-between px-4 py-4">
+    <a
+      href="/"
+      class="flex items-center gap-2"
+    >
+      <img
+        src="/images/logo.svg"
+        alt="BlogSpace logo"
+        class="h-8 w-8"
+      />
+      <span class="text-lg font-semibold text-content-primary">BlogSpace</span>
+    </a>
+
+    <button
+      id="menu-toggle"
+      class="text-content-secondary hover:text-content-primary md:hidden"
+    >
+      {{> icon-menu}}
+    </button>
+
+    <nav
+      id="nav-menu"
+      class="hidden md:block"
+    >
+      <ul class="flex flex-col gap-1 md:flex-row md:gap-6">
+        <li>
+          <a
+            href="/"
+            class="block px-3 py-2 {{#if (equals location "about")}}text-accent-hover{{else}}text-content-secondary hover:text-content-primary{{/if}}"
+          >
+            About
+          </a>
+        </li>
+
+        <li>
+          <a
+            href="/feed"
+            class="block px-3 py-2 {{#if (equals location "feed")}}text-accent-hover{{else}}text-content-secondary hover:text-content-primary{{/if}}"
+          >
+            Feed
+          </a>
+        </li>
+
+        <li>
+          <a
+            href="/new-post"
+            class="block px-3 py-2 {{#if (equals location "new-post")}}text-accent-hover{{else}}text-content-secondary hover:text-content-primary{{/if}}"
+          >
+            New Post
+          </a>
+        </li>
+
+        <li>
+          <a
+            href="/profile"
+            class="block px-3 py-2 {{#if (equals location "profile")}}text-accent-hover{{else}}text-content-secondary hover:text-content-primary{{/if}}"
+          >
+            Profile
+          </a>
+        </li>
+
+        <li>
+          <a
+            href="/login"
+            class="block px-3 py-2 {{#if (equals location "login")}}text-accent-hover{{else}}text-content-secondary hover:text-content-primary{{/if}}"
+          >
+            Login
+          </a>
+        </li>
+
+        <li>
+          <a
+            href="/register"
+            class="block px-3 py-2 {{#if (equals location "register")}}text-accent-hover{{else}}text-content-secondary hover:text-content-primary{{/if}}"
+          >
+            Register
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <nav
+    id="mobile-menu"
+    class="hidden absolute top-full left-0 w-full border-y border-stroke-primary bg-surface-primary md:hidden"
+  >
+    <ul class="flex flex-col gap-1 px-4 py-3">
+      <li>
+        <a
+          href="/"
+          class="block px-3 py-2 {{#if (equals location "about")}}text-accent-hover{{else}}text-content-secondary hover:text-content-primary{{/if}}"
+        >
+          About
+        </a>
+      </li>
+
+      <li>
+        <a
+          href="/feed"
+          class="block px-3 py-2 {{#if (equals location "feed")}}text-accent-hover{{else}}text-content-secondary hover:text-content-primary{{/if}}"
+        >
+          Feed
+        </a>
+      </li>
+
+      <li>
+        <a
+          href="/new-post"
+          class="block px-3 py-2 {{#if (equals location "new-post")}}text-accent-hover{{else}}text-content-secondary hover:text-content-primary{{/if}}"
+        >
+          New Post
+        </a>
+      </li>
+
+      <li>
+        <a
+          href="/profile"
+          class="block px-3 py-2 {{#if (equals location "profile")}}text-accent-hover{{else}}text-content-secondary hover:text-content-primary{{/if}}"
+        >
+          Profile
+        </a>
+      </li>
+
+      <li>
+        <a
+          href="/login"
+          class="block px-3 py-2 {{#if (equals location "login")}}text-accent-hover{{else}}text-content-secondary hover:text-content-primary{{/if}}"
+        >
+          Login
+        </a>
+      </li>
+
+      <li>
+        <a
+          href="/register"
+          class="block px-3 py-2 {{#if (equals location "register")}}text-accent-hover{{else}}text-content-secondary hover:text-content-primary{{/if}}"
+        >
+          Register
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<script>
+  document.getElementById("menu-toggle").addEventListener("click", () => {
+    document.getElementById("mobile-menu").classList.toggle("hidden");
+  });
+</script>
