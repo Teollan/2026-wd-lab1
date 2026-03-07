@@ -6,7 +6,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0"
     />
-    <title>Feed — BlogSpace</title>
+    <title>My Posts — BlogSpace</title>
     <link
       rel="icon"
       type="image/svg+xml"
@@ -66,7 +66,7 @@
             <li class="hidden auth:list-item">
               <a
                 href="feed"
-                class="block px-3 py-2 text-accent-hover"
+                class="block px-3 py-2 text-content-secondary hover:text-content-primary"
               >
                 Feed
               </a>
@@ -75,7 +75,7 @@
             <li class="hidden auth:list-item">
               <a
                 href="my-posts"
-                class="block px-3 py-2 text-content-secondary hover:text-content-primary"
+                class="block px-3 py-2 text-accent-hover"
               >
                 My Posts
               </a>
@@ -137,7 +137,7 @@
           <li class="hidden auth:list-item">
             <a
               href="feed"
-              class="block px-3 py-2 text-accent-hover"
+              class="block px-3 py-2 text-content-secondary hover:text-content-primary"
             >
               Feed
             </a>
@@ -146,7 +146,7 @@
           <li class="hidden auth:list-item">
             <a
               href="my-posts"
-              class="block px-3 py-2 text-content-secondary hover:text-content-primary"
+              class="block px-3 py-2 text-accent-hover"
             >
               My Posts
             </a>
@@ -194,7 +194,7 @@
 
     <!-- Main -->
     <main class="mx-auto w-full max-w-5xl flex-1 px-4 py-12">
-      <h1 class="mb-8 text-3xl font-bold text-content-primary">Feed</h1>
+      <h1 class="mb-8 text-3xl font-bold text-content-primary">My Posts</h1>
 
       <!-- Posts -->
       <div class="space-y-8">
@@ -202,17 +202,53 @@
         <article
           class="rounded-xl border border-stroke-primary bg-surface-secondary p-6"
         >
-          <div class="mb-3 flex items-center gap-3">
-            <div
-              class="flex h-9 w-9 items-center justify-center rounded-full bg-accent/20 text-sm font-bold text-accent-hover"
-            >
-              JD
+          <div class="mb-3 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <div
+                class="flex h-9 w-9 items-center justify-center rounded-full bg-accent/20 text-sm font-bold text-accent-hover"
+              >
+                JD
+              </div>
+
+              <div>
+                <p class="text-sm font-medium text-content-primary">John Doe</p>
+
+                <p class="text-xs text-content-tertiary">February 28, 2026</p>
+              </div>
             </div>
 
-            <div>
-              <p class="text-sm font-medium text-content-primary">John Doe</p>
+            <div class="flex items-center gap-2">
+              <button class="text-content-tertiary hover:text-accent-hover">
+                <svg
+                  class="h-6 w-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
+                  />
+                </svg>
+              </button>
 
-              <p class="text-xs text-content-tertiary">February 28, 2026</p>
+              <button class="text-content-tertiary hover:text-destructive">
+                <svg
+                  class="h-6 w-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                  />
+                </svg>
+              </button>
             </div>
           </div>
 
@@ -275,7 +311,9 @@
                     Maria S.
                   </span>
 
-                  <span class="text-xs text-content-tertiary">Mar 1, 2026</span>
+                  <span class="text-xs text-content-tertiary">
+                    Mar 1, 2026
+                  </span>
                 </div>
 
                 <p class="text-sm text-content-secondary">
@@ -297,30 +335,66 @@
         <article
           class="rounded-xl border border-stroke-primary bg-surface-secondary p-6"
         >
-          <div class="mb-3 flex items-center gap-3">
-            <div
-              class="flex h-9 w-9 items-center justify-center rounded-full bg-emerald-500/20 text-sm font-bold text-emerald-400"
-            >
-              AK
+          <div class="mb-3 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <div
+                class="flex h-9 w-9 items-center justify-center rounded-full bg-accent/20 text-sm font-bold text-accent-hover"
+              >
+                JD
+              </div>
+
+              <div>
+                <p class="text-sm font-medium text-content-primary">John Doe</p>
+
+                <p class="text-xs text-content-tertiary">February 15, 2026</p>
+              </div>
             </div>
 
-            <div>
-              <p class="text-sm font-medium text-content-primary">Alex K.</p>
+            <div class="flex items-center gap-2">
+              <button class="text-content-tertiary hover:text-accent-hover">
+                <svg
+                  class="h-6 w-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
+                  />
+                </svg>
+              </button>
 
-              <p class="text-xs text-content-tertiary">February 25, 2026</p>
+              <button class="text-content-tertiary hover:text-destructive">
+                <svg
+                  class="h-6 w-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                  />
+                </svg>
+              </button>
             </div>
           </div>
 
           <h2 class="mb-2 text-xl font-semibold text-content-primary">
-            Why I Switched to Vite for Everything
+            My Journey into Open Source
           </h2>
 
           <p class="mb-4 text-content-secondary">
-            After years of webpack and various bundlers, Vite has become my
-            go-to for every new project. The instant HMR, native ESM support,
-            and minimal configuration make the developer experience unmatched.
-            Here is why I think Vite is the best choice for modern web
-            development in 2026.
+            Contributing to open source has been one of the most rewarding
+            experiences of my career. From fixing small typos in documentation
+            to submitting feature PRs, every contribution teaches you something
+            new. Here is how I got started and what I have learned along the
+            way.
           </p>
 
           <!-- Comments -->
@@ -348,79 +422,20 @@
               <div class="rounded-lg bg-surface-tertiary p-3">
                 <div class="mb-1 flex items-center gap-2">
                   <span class="text-sm font-medium text-content-primary">
-                    John Doe
+                    Maria S.
                   </span>
 
                   <span class="text-xs text-content-tertiary">
-                    Feb 26, 2026
+                    Feb 16, 2026
                   </span>
                 </div>
 
                 <p class="text-sm text-content-secondary">
-                  Completely agree! I used Vite for my latest lab project and it
-                  just works.
+                  This is so inspiring! I have been wanting to contribute but
+                  never knew where to start. Thanks for sharing your experience.
                 </p>
               </div>
             </div>
-          </div>
-        </article>
-
-        <!-- Post 3 -->
-        <article
-          class="rounded-xl border border-stroke-primary bg-surface-secondary p-6"
-        >
-          <div class="mb-3 flex items-center gap-3">
-            <div
-              class="flex h-9 w-9 items-center justify-center rounded-full bg-purple-500/20 text-sm font-bold text-purple-400"
-            >
-              MS
-            </div>
-
-            <div>
-              <p class="text-sm font-medium text-content-primary">Maria S.</p>
-
-              <p class="text-xs text-content-tertiary">February 20, 2026</p>
-            </div>
-          </div>
-
-          <h2 class="mb-2 text-xl font-semibold text-content-primary">
-            Responsive Design Tips for 2026
-          </h2>
-
-          <p class="mb-4 text-content-secondary">
-            Mobile-first design is no longer optional — it is the standard. In
-            this post I share practical tips for building responsive layouts
-            using modern CSS features like container queries, the
-            <code class="text-accent-hover">:has()</code>
-            selector, and
-            <code class="text-accent-hover">subgrid</code>
-            . These tools make truly adaptive interfaces easier than ever.
-          </p>
-
-          <!-- Comments -->
-          <div class="border-t border-stroke-primary pt-4">
-            <h3 class="mb-3 text-sm font-semibold text-content-secondary">
-              Comments (0)
-            </h3>
-
-            <form class="mb-4 flex gap-3">
-              <textarea
-                rows="1"
-                placeholder="Add a comment..."
-                class="min-h-9 resize-none flex-1 content-end rounded-lg border border-stroke-secondary bg-surface-tertiary px-4 py-1.5 text-sm field-sizing-content text-content-primary placeholder-content-tertiary focus:border-accent focus:ring-2 focus:ring-accent/20 focus:outline-none"
-              ></textarea>
-
-              <button
-                type="submit"
-                class="cursor-pointer self-end rounded-lg bg-accent px-4 py-2 text-sm font-medium text-content-primary hover:bg-accent-hover focus:ring-2 focus:ring-accent/20 focus:outline-none"
-              >
-                Post
-              </button>
-            </form>
-
-            <p class="text-sm text-content-tertiary">
-              No comments yet. Be the first to share your thoughts!
-            </p>
           </div>
         </article>
       </div>
