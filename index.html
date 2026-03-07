@@ -7,8 +7,8 @@
       content="width=device-width, initial-scale=1.0"
     />
     <title>BlogSpace — Share your ideas</title>
-    <script async type="module" crossorigin src="/2026-wd-lab1/assets/menu-Brqr5gl4.js"></script>
-    <link rel="stylesheet" crossorigin href="/2026-wd-lab1/assets/menu-gBjMG5f2.css">
+    <script async type="module" crossorigin src="/2026-wd-lab1/assets/menu-Dz1rgCP6.js"></script>
+    <link rel="stylesheet" crossorigin href="/2026-wd-lab1/assets/menu-BfydjZju.css">
   </head>
   <body>
     <header class="relative border-b border-stroke-primary bg-surface-primary">
@@ -58,7 +58,7 @@
               </a>
             </li>
     
-            <li class="auth-user">
+            <li class="hidden auth:list-item">
               <a
                 href="feed"
                 class="block px-3 py-2 text-content-secondary hover:text-content-primary"
@@ -67,7 +67,7 @@
               </a>
             </li>
     
-            <li class="auth-user">
+            <li class="hidden auth:list-item">
               <a
                 href="new-post"
                 class="block px-3 py-2 text-content-secondary hover:text-content-primary"
@@ -76,7 +76,7 @@
               </a>
             </li>
     
-            <li class="auth-user">
+            <li class="hidden auth:list-item">
               <a
                 href="profile"
                 class="block px-3 py-2 text-content-secondary hover:text-content-primary"
@@ -85,7 +85,7 @@
               </a>
             </li>
     
-            <li class="auth-guest">
+            <li class="auth:hidden">
               <a
                 href="sign-in"
                 class="block px-3 py-2 text-content-secondary hover:text-content-primary"
@@ -94,7 +94,7 @@
               </a>
             </li>
     
-            <li class="auth-guest">
+            <li class="auth:hidden">
               <a
                 href="sign-up"
                 class="block px-3 py-2 text-content-secondary hover:text-content-primary"
@@ -120,7 +120,7 @@
             </a>
           </li>
     
-          <li class="auth-user">
+          <li class="hidden auth:list-item">
             <a
               href="feed"
               class="block px-3 py-2 text-content-secondary hover:text-content-primary"
@@ -129,7 +129,7 @@
             </a>
           </li>
     
-          <li class="auth-user">
+          <li class="hidden auth:list-item">
             <a
               href="new-post"
               class="block px-3 py-2 text-content-secondary hover:text-content-primary"
@@ -138,7 +138,7 @@
             </a>
           </li>
     
-          <li class="auth-user">
+          <li class="hidden auth:list-item">
             <a
               href="profile"
               class="block px-3 py-2 text-content-secondary hover:text-content-primary"
@@ -147,7 +147,7 @@
             </a>
           </li>
     
-          <li class="auth-guest">
+          <li class="auth:hidden">
             <a
               href="sign-in"
               class="block px-3 py-2 text-content-secondary hover:text-content-primary"
@@ -156,7 +156,7 @@
             </a>
           </li>
     
-          <li class="auth-guest">
+          <li class="auth:hidden">
             <a
               href="sign-up"
               class="block px-3 py-2 text-content-secondary hover:text-content-primary"
@@ -192,14 +192,14 @@
         <div class="mt-8 flex justify-center gap-4">
           <a
             href="feed"
-            class="auth-user rounded-lg bg-accent px-6 py-2.5 font-medium text-content-primary hover:bg-accent-hover"
+            class="hidden auth:inline-block rounded-lg bg-accent px-6 py-2.5 font-medium text-content-primary hover:bg-accent-hover"
           >
             Browse the feed
           </a>
 
           <a
             href="sign-up"
-            class="auth-guest rounded-lg bg-accent px-6 py-2.5 font-medium text-content-primary hover:bg-accent-hover"
+            class="auth:hidden rounded-lg bg-accent px-6 py-2.5 font-medium text-content-primary hover:bg-accent-hover"
           >
             Get started
           </a>
