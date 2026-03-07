@@ -6,14 +6,15 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0"
     />
-    <title>Register — BlogSpace</title>
+    <title>Sign Up — BlogSpace</title>
     <link
       rel="stylesheet"
       href="./styles/global.css"
     />
+    <script src="/scripts/auth.js"></script>
   </head>
   <body>
-    {{> header location="register"}}
+    {{> header location="sign-up"}}
 
     <!-- Main -->
     <main class="mx-auto w-full max-w-5xl flex-1 px-4 py-12">
@@ -27,6 +28,8 @@
         </p>
 
         <form
+          id="sign-up-form"
+          action="/feed"
           class="space-y-5 rounded-xl border border-stroke-primary bg-surface-secondary p-6"
         >
           <div>
@@ -38,8 +41,9 @@
             </label>
 
             <input
-              type="text"
               id="name"
+              type="text"
+              required
               placeholder="John Doe"
               class="w-full rounded-lg border border-stroke-secondary bg-surface-tertiary px-4 py-2.5 text-content-primary placeholder-content-tertiary focus:border-accent focus:ring-2 focus:ring-accent/20 focus:outline-none"
             />
@@ -54,8 +58,9 @@
             </label>
 
             <input
-              type="email"
               id="email"
+              type="email"
+              required
               placeholder="you@example.com"
               class="w-full rounded-lg border border-stroke-secondary bg-surface-tertiary px-4 py-2.5 text-content-primary placeholder-content-tertiary focus:border-accent focus:ring-2 focus:ring-accent/20 focus:outline-none"
             />
@@ -70,8 +75,9 @@
             </label>
 
             <input
-              type="password"
               id="password"
+              type="password"
+              required
               placeholder="••••••••"
               class="w-full rounded-lg border border-stroke-secondary bg-surface-tertiary px-4 py-2.5 text-content-primary placeholder-content-tertiary focus:border-accent focus:ring-2 focus:ring-accent/20 focus:outline-none"
             />
@@ -89,6 +95,7 @@
                 <input
                   type="radio"
                   name="gender"
+                  required
                   value="male"
                   class="border-stroke-secondary bg-surface-tertiary text-accent focus:ring-accent/20"
                 />
@@ -102,6 +109,7 @@
                 <input
                   type="radio"
                   name="gender"
+                  required
                   value="female"
                   class="border-stroke-secondary bg-surface-tertiary text-accent focus:ring-accent/20"
                 />
@@ -115,6 +123,7 @@
                 <input
                   type="radio"
                   name="gender"
+                  required
                   value="other"
                   class="border-stroke-secondary bg-surface-tertiary text-accent focus:ring-accent/20"
                 />
@@ -133,8 +142,10 @@
             </label>
 
             <input
-              type="date"
               id="date-of-birth"
+              type="date"
+              placeholder="You date of birth"
+              required
               class="w-full rounded-lg border border-stroke-secondary bg-surface-tertiary px-4 py-2.5 text-content-primary focus:border-accent focus:ring-2 focus:ring-accent/20 focus:outline-none"
             />
           </div>
@@ -150,7 +161,7 @@
             Already have an account?
 
             <a
-              href="/login"
+              href="/sign-in"
               class="text-accent-hover hover:text-accent-light"
             >
               Sign in
@@ -161,5 +172,10 @@
     </main>
 
     {{> footer}}
+
+    <script
+      src="/scripts/signUp.js"
+      defer
+    ></script>
   </body>
 </html>

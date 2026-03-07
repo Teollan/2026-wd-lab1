@@ -33,7 +33,7 @@
           </a>
         </li>
 
-        <li>
+        <li class="auth-user">
           <a
             href="/feed"
             class="block px-3 py-2 {{#if (equals location "feed")}}text-accent-hover{{else}}text-content-secondary hover:text-content-primary{{/if}}"
@@ -42,7 +42,7 @@
           </a>
         </li>
 
-        <li>
+        <li class="auth-user">
           <a
             href="/new-post"
             class="block px-3 py-2 {{#if (equals location "new-post")}}text-accent-hover{{else}}text-content-secondary hover:text-content-primary{{/if}}"
@@ -51,7 +51,7 @@
           </a>
         </li>
 
-        <li>
+        <li class="auth-user">
           <a
             href="/profile"
             class="block px-3 py-2 {{#if (equals location "profile")}}text-accent-hover{{else}}text-content-secondary hover:text-content-primary{{/if}}"
@@ -60,21 +60,21 @@
           </a>
         </li>
 
-        <li>
+        <li class="auth-guest">
           <a
-            href="/login"
-            class="block px-3 py-2 {{#if (equals location "login")}}text-accent-hover{{else}}text-content-secondary hover:text-content-primary{{/if}}"
+            href="/sign-in"
+            class="block px-3 py-2 {{#if (equals location "sign-in")}}text-accent-hover{{else}}text-content-secondary hover:text-content-primary{{/if}}"
           >
-            Login
+            Sign In
           </a>
         </li>
 
-        <li>
+        <li class="auth-guest">
           <a
-            href="/register"
-            class="block px-3 py-2 {{#if (equals location "register")}}text-accent-hover{{else}}text-content-secondary hover:text-content-primary{{/if}}"
+            href="/sign-up"
+            class="block px-3 py-2 {{#if (equals location "sign-up")}}text-accent-hover{{else}}text-content-secondary hover:text-content-primary{{/if}}"
           >
-            Register
+            Sign Up
           </a>
         </li>
       </ul>
@@ -95,7 +95,7 @@
         </a>
       </li>
 
-      <li>
+      <li class="auth-user">
         <a
           href="/feed"
           class="block px-3 py-2 {{#if (equals location "feed")}}text-accent-hover{{else}}text-content-secondary hover:text-content-primary{{/if}}"
@@ -104,7 +104,7 @@
         </a>
       </li>
 
-      <li>
+      <li class="auth-user">
         <a
           href="/new-post"
           class="block px-3 py-2 {{#if (equals location "new-post")}}text-accent-hover{{else}}text-content-secondary hover:text-content-primary{{/if}}"
@@ -113,7 +113,7 @@
         </a>
       </li>
 
-      <li>
+      <li class="auth-user">
         <a
           href="/profile"
           class="block px-3 py-2 {{#if (equals location "profile")}}text-accent-hover{{else}}text-content-secondary hover:text-content-primary{{/if}}"
@@ -122,29 +122,28 @@
         </a>
       </li>
 
-      <li>
+      <li class="auth-guest">
         <a
-          href="/login"
-          class="block px-3 py-2 {{#if (equals location "login")}}text-accent-hover{{else}}text-content-secondary hover:text-content-primary{{/if}}"
+          href="/sign-in"
+          class="block px-3 py-2 {{#if (equals location "sign-in")}}text-accent-hover{{else}}text-content-secondary hover:text-content-primary{{/if}}"
         >
-          Login
+          Sign In
         </a>
       </li>
 
-      <li>
+      <li class="auth-guest">
         <a
-          href="/register"
-          class="block px-3 py-2 {{#if (equals location "register")}}text-accent-hover{{else}}text-content-secondary hover:text-content-primary{{/if}}"
+          href="/sign-up"
+          class="block px-3 py-2 {{#if (equals location "sign-up")}}text-accent-hover{{else}}text-content-secondary hover:text-content-primary{{/if}}"
         >
-          Register
+          Sign Up
         </a>
       </li>
     </ul>
   </nav>
-</header>
 
-<script>
-  document.getElementById("menu-toggle").addEventListener("click", () => {
-    document.getElementById("mobile-menu").classList.toggle("hidden");
-  });
-</script>
+  <script
+    src="/scripts/menu.js"
+    defer
+  ></script>
+</header>

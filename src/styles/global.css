@@ -16,6 +16,10 @@
   --color-content-secondary: #9ca3af;
   --color-content-tertiary: #6b7280;
 
+  /* Destructive */
+  --color-destructive: #ef4444;
+  --color-destructive-hover: #f87171;
+
   /* Stroke / borders */
   --color-stroke-primary: rgba(255, 255, 255, 0.1);
   --color-stroke-secondary: #374151;
@@ -34,6 +38,22 @@ main {
   height: 100%;
 }
 
-input::-webkit-calendar-picker-indicator {
-  filter: invert(1);
+[data-auth="true"] .auth-guest {
+  display: none;
+}
+
+.auth-user {
+  display: none;
+}
+
+[data-auth="true"] .auth-user {
+  display: unset;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(0.4);
+}
+
+input[type="date"]:invalid::-webkit-datetime-edit {
+  color: var(--color-content-tertiary);
 }

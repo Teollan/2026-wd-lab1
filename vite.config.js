@@ -20,8 +20,8 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, "src/index.html"),
-        login: resolve(__dirname, "src/login.html"),
-        register: resolve(__dirname, "src/register.html"),
+        signIn: resolve(__dirname, "src/sign-in.html"),
+        signUp: resolve(__dirname, "src/sign-up.html"),
         profile: resolve(__dirname, "src/profile.html"),
         feed: resolve(__dirname, "src/feed.html"),
         newPost: resolve(__dirname, "src/new-post.html"),

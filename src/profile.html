@@ -11,6 +11,7 @@
       rel="stylesheet"
       href="./styles/global.css"
     />
+    <script src="/scripts/auth.js"></script>
   </head>
   <body>
     {{> header location="profile"}}
@@ -110,12 +111,20 @@
             </tbody>
           </table>
 
-          <div class="mt-6">
+          <div class="mt-6 flex gap-3">
             <a
-              href="feed"
-              class="inline-block rounded-lg bg-accent px-5 py-2.5 text-sm font-medium text-content-primary hover:bg-accent-hover"
+              href="/feed"
+              class="rounded-lg bg-accent px-5 py-2.5 text-sm font-medium text-content-primary hover:bg-accent-hover"
             >
               View my posts
+            </a>
+
+            <a
+              href="/"
+              id="log-out-button"
+              class="rounded-lg bg-destructive/20 px-5 py-2.5 text-sm font-medium text-destructive hover:bg-destructive/30"
+            >
+              Log Out
             </a>
           </div>
         </div>
@@ -123,5 +132,10 @@
     </main>
 
     {{> footer}}
+
+    <script
+      src="/scripts/logOut.js"
+      defer
+    ></script>
   </body>
 </html>

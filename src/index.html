@@ -11,6 +11,7 @@
       rel="stylesheet"
       href="/styles/global.css"
     />
+    <script src="/scripts/auth.js"></script>
   </head>
   <body>
     {{> header location="about"}}
@@ -38,14 +39,14 @@
         <div class="mt-8 flex justify-center gap-4">
           <a
             href="feed"
-            class="rounded-lg bg-accent px-6 py-2.5 font-medium text-content-primary hover:bg-accent-hover"
+            class="auth-user rounded-lg bg-accent px-6 py-2.5 font-medium text-content-primary hover:bg-accent-hover"
           >
             Browse the feed
           </a>
 
           <a
-            href="register"
-            class="rounded-lg border border-stroke-primary px-6 py-2.5 font-medium text-content-secondary hover:text-content-primary"
+            href="sign-up"
+            class="auth-guest rounded-lg bg-accent px-6 py-2.5 font-medium text-content-primary hover:bg-accent-hover"
           >
             Get started
           </a>

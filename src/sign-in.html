@@ -6,14 +6,15 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0"
     />
-    <title>Login — BlogSpace</title>
+    <title>Sign In — BlogSpace</title>
     <link
       rel="stylesheet"
       href="./styles/global.css"
     />
+    <script src="/scripts/auth.js"></script>
   </head>
   <body>
-    {{> header location="login"}}
+    {{> header location="sign-in"}}
 
     <!-- Main -->
     <main class="mx-auto w-full max-w-5xl flex-1 px-4 py-12">
@@ -27,6 +28,8 @@
         </p>
 
         <form
+          id="sign-in-form"
+          action="/feed"
           class="space-y-5 rounded-xl border border-stroke-primary bg-surface-secondary p-6"
         >
           <div>
@@ -40,6 +43,7 @@
             <input
               type="email"
               id="email"
+              required
               placeholder="you@example.com"
               class="w-full rounded-lg border border-stroke-secondary bg-surface-tertiary px-4 py-2.5 text-content-primary placeholder-content-tertiary focus:border-accent focus:ring-2 focus:ring-accent/20 focus:outline-none"
             />
@@ -54,8 +58,9 @@
             </label>
 
             <input
-              type="password"
               id="password"
+              type="password"
+              required
               placeholder="••••••••"
               class="w-full rounded-lg border border-stroke-secondary bg-surface-tertiary px-4 py-2.5 text-content-primary placeholder-content-tertiary focus:border-accent focus:ring-2 focus:ring-accent/20 focus:outline-none"
             />
@@ -91,10 +96,10 @@
             Don't have an account?
 
             <a
-              href="register"
+              href="sign-up"
               class="text-accent-hover hover:text-accent-light"
             >
-              Register
+              Sign up
             </a>
           </p>
         </form>
@@ -102,5 +107,10 @@
     </main>
 
     {{> footer}}
+
+    <script
+      src="/scripts/signIn.js"
+      defer
+    ></script>
   </body>
 </html>
