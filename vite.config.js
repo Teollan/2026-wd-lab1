@@ -25,6 +25,7 @@ export default defineConfig({
         signUp: resolve(__dirname, "src/sign-up.html"),
         profile: resolve(__dirname, "src/profile.html"),
         feed: resolve(__dirname, "src/feed.html"),
+        myPosts: resolve(__dirname, "src/my-posts.html"),
         newPost: resolve(__dirname, "src/new-post.html"),
       },
     },

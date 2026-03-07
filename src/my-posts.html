@@ -6,7 +6,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0"
     />
-    <title>Feed — BlogSpace</title>
+    <title>My Posts — BlogSpace</title>
     <link
       rel="stylesheet"
       href="./styles/global.css"
@@ -19,11 +19,11 @@
     <script type="module" async src="/scripts/auth.js"></script>
   </head>
   <body>
-    {{> header location="feed"}}
+    {{> header location="my-posts"}}
 
     <!-- Main -->
     <main class="mx-auto w-full max-w-5xl flex-1 px-4 py-12">
-      <h1 class="mb-8 text-3xl font-bold text-content-primary">Feed</h1>
+      <h1 class="mb-8 text-3xl font-bold text-content-primary">My Posts</h1>
 
       <!-- Posts -->
       <div class="space-y-8">
@@ -31,17 +31,29 @@
         <article
           class="rounded-xl border border-stroke-primary bg-surface-secondary p-6"
         >
-          <div class="mb-3 flex items-center gap-3">
-            <div
-              class="flex h-9 w-9 items-center justify-center rounded-full bg-accent/20 text-sm font-bold text-accent-hover"
-            >
-              JD
+          <div class="mb-3 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <div
+                class="flex h-9 w-9 items-center justify-center rounded-full bg-accent/20 text-sm font-bold text-accent-hover"
+              >
+                JD
+              </div>
+
+              <div>
+                <p class="text-sm font-medium text-content-primary">John Doe</p>
+
+                <p class="text-xs text-content-tertiary">February 28, 2026</p>
+              </div>
             </div>
 
-            <div>
-              <p class="text-sm font-medium text-content-primary">John Doe</p>
+            <div class="flex items-center gap-2">
+              <button class="text-content-tertiary hover:text-accent-hover">
+                {{> icon-edit}}
+              </button>
 
-              <p class="text-xs text-content-tertiary">February 28, 2026</p>
+              <button class="text-content-tertiary hover:text-destructive">
+                {{> icon-delete}}
+              </button>
             </div>
           </div>
 
@@ -104,7 +116,9 @@
                     Maria S.
                   </span>
 
-                  <span class="text-xs text-content-tertiary">Mar 1, 2026</span>
+                  <span class="text-xs text-content-tertiary">
+                    Mar 1, 2026
+                  </span>
                 </div>
 
                 <p class="text-sm text-content-secondary">
@@ -126,30 +140,42 @@
         <article
           class="rounded-xl border border-stroke-primary bg-surface-secondary p-6"
         >
-          <div class="mb-3 flex items-center gap-3">
-            <div
-              class="flex h-9 w-9 items-center justify-center rounded-full bg-emerald-500/20 text-sm font-bold text-emerald-400"
-            >
-              AK
+          <div class="mb-3 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <div
+                class="flex h-9 w-9 items-center justify-center rounded-full bg-accent/20 text-sm font-bold text-accent-hover"
+              >
+                JD
+              </div>
+
+              <div>
+                <p class="text-sm font-medium text-content-primary">John Doe</p>
+
+                <p class="text-xs text-content-tertiary">February 15, 2026</p>
+              </div>
             </div>
 
-            <div>
-              <p class="text-sm font-medium text-content-primary">Alex K.</p>
+            <div class="flex items-center gap-2">
+              <button class="text-content-tertiary hover:text-accent-hover">
+                {{> icon-edit}}
+              </button>
 
-              <p class="text-xs text-content-tertiary">February 25, 2026</p>
+              <button class="text-content-tertiary hover:text-destructive">
+                {{> icon-delete}}
+              </button>
             </div>
           </div>
 
           <h2 class="mb-2 text-xl font-semibold text-content-primary">
-            Why I Switched to Vite for Everything
+            My Journey into Open Source
           </h2>
 
           <p class="mb-4 text-content-secondary">
-            After years of webpack and various bundlers, Vite has become my
-            go-to for every new project. The instant HMR, native ESM support,
-            and minimal configuration make the developer experience unmatched.
-            Here is why I think Vite is the best choice for modern web
-            development in 2026.
+            Contributing to open source has been one of the most rewarding
+            experiences of my career. From fixing small typos in documentation
+            to submitting feature PRs, every contribution teaches you something
+            new. Here is how I got started and what I have learned along the
+            way.
           </p>
 
           <!-- Comments -->
@@ -177,79 +203,20 @@
               <div class="rounded-lg bg-surface-tertiary p-3">
                 <div class="mb-1 flex items-center gap-2">
                   <span class="text-sm font-medium text-content-primary">
-                    John Doe
+                    Maria S.
                   </span>
 
                   <span class="text-xs text-content-tertiary">
-                    Feb 26, 2026
+                    Feb 16, 2026
                   </span>
                 </div>
 
                 <p class="text-sm text-content-secondary">
-                  Completely agree! I used Vite for my latest lab project and it
-                  just works.
+                  This is so inspiring! I have been wanting to contribute but
+                  never knew where to start. Thanks for sharing your experience.
                 </p>
               </div>
             </div>
-          </div>
-        </article>
-
-        <!-- Post 3 -->
-        <article
-          class="rounded-xl border border-stroke-primary bg-surface-secondary p-6"
-        >
-          <div class="mb-3 flex items-center gap-3">
-            <div
-              class="flex h-9 w-9 items-center justify-center rounded-full bg-purple-500/20 text-sm font-bold text-purple-400"
-            >
-              MS
-            </div>
-
-            <div>
-              <p class="text-sm font-medium text-content-primary">Maria S.</p>
-
-              <p class="text-xs text-content-tertiary">February 20, 2026</p>
-            </div>
-          </div>
-
-          <h2 class="mb-2 text-xl font-semibold text-content-primary">
-            Responsive Design Tips for 2026
-          </h2>
-
-          <p class="mb-4 text-content-secondary">
-            Mobile-first design is no longer optional — it is the standard. In
-            this post I share practical tips for building responsive layouts
-            using modern CSS features like container queries, the
-            <code class="text-accent-hover">:has()</code>
-            selector, and
-            <code class="text-accent-hover">subgrid</code>
-            . These tools make truly adaptive interfaces easier than ever.
-          </p>
-
-          <!-- Comments -->
-          <div class="border-t border-stroke-primary pt-4">
-            <h3 class="mb-3 text-sm font-semibold text-content-secondary">
-              Comments (0)
-            </h3>
-
-            <form class="mb-4 flex gap-3">
-              <textarea
-                rows="1"
-                placeholder="Add a comment..."
-                class="min-h-9 resize-none flex-1 content-end rounded-lg border border-stroke-secondary bg-surface-tertiary px-4 py-1.5 text-sm field-sizing-content text-content-primary placeholder-content-tertiary focus:border-accent focus:ring-2 focus:ring-accent/20 focus:outline-none"
-              ></textarea>
-
-              <button
-                type="submit"
-                class="cursor-pointer self-end rounded-lg bg-accent px-4 py-2 text-sm font-medium text-content-primary hover:bg-accent-hover focus:ring-2 focus:ring-accent/20 focus:outline-none"
-              >
-                Post
-              </button>
-            </form>
-
-            <p class="text-sm text-content-tertiary">
-              No comments yet. Be the first to share your thoughts!
-            </p>
           </div>
         </article>
       </div>

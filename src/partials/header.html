@@ -44,6 +44,15 @@
 
         <li class="hidden auth:list-item">
           <a
+            href="my-posts"
+            class="block px-3 py-2 {{#if (equals location "my-posts")}}text-accent-hover{{else}}text-content-secondary hover:text-content-primary{{/if}}"
+          >
+            My Posts
+          </a>
+        </li>
+
+        <li class="hidden auth:list-item">
+          <a
             href="new-post"
             class="block px-3 py-2 {{#if (equals location "new-post")}}text-accent-hover{{else}}text-content-secondary hover:text-content-primary{{/if}}"
           >
@@ -101,6 +110,15 @@
           class="block px-3 py-2 {{#if (equals location "feed")}}text-accent-hover{{else}}text-content-secondary hover:text-content-primary{{/if}}"
         >
           Feed
+        </a>
+      </li>
+
+      <li class="hidden auth:list-item">
+        <a
+          href="my-posts"
+          class="block px-3 py-2 {{#if (equals location "my-posts")}}text-accent-hover{{else}}text-content-secondary hover:text-content-primary{{/if}}"
+        >
+          My Posts
         </a>
       </li>
 
