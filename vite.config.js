@@ -4,6 +4,7 @@ import tailwindcss from "@tailwindcss/vite";
 import handlebars from "vite-plugin-handlebars";
 
 export default defineConfig({
+  base: "/2026-wd-lab1/",
   plugins: [
     tailwindcss(),
     handlebars({
