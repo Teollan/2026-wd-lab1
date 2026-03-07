@@ -33,7 +33,7 @@
           </a>
         </li>
 
-        <li class="auth-user">
+        <li class="hidden auth:list-item">
           <a
             href="feed"
             class="block px-3 py-2 {{#if (equals location "feed")}}text-accent-hover{{else}}text-content-secondary hover:text-content-primary{{/if}}"
@@ -42,7 +42,7 @@
           </a>
         </li>
 
-        <li class="auth-user">
+        <li class="hidden auth:list-item">
           <a
             href="new-post"
             class="block px-3 py-2 {{#if (equals location "new-post")}}text-accent-hover{{else}}text-content-secondary hover:text-content-primary{{/if}}"
@@ -51,7 +51,7 @@
           </a>
         </li>
 
-        <li class="auth-user">
+        <li class="hidden auth:list-item">
           <a
             href="profile"
             class="block px-3 py-2 {{#if (equals location "profile")}}text-accent-hover{{else}}text-content-secondary hover:text-content-primary{{/if}}"
@@ -60,7 +60,7 @@
           </a>
         </li>
 
-        <li class="auth-guest">
+        <li class="auth:hidden">
           <a
             href="sign-in"
             class="block px-3 py-2 {{#if (equals location "sign-in")}}text-accent-hover{{else}}text-content-secondary hover:text-content-primary{{/if}}"
@@ -69,7 +69,7 @@
           </a>
         </li>
 
-        <li class="auth-guest">
+        <li class="auth:hidden">
           <a
             href="sign-up"
             class="block px-3 py-2 {{#if (equals location "sign-up")}}text-accent-hover{{else}}text-content-secondary hover:text-content-primary{{/if}}"
@@ -95,7 +95,7 @@
         </a>
       </li>
 
-      <li class="auth-user">
+      <li class="hidden auth:list-item">
         <a
           href="feed"
           class="block px-3 py-2 {{#if (equals location "feed")}}text-accent-hover{{else}}text-content-secondary hover:text-content-primary{{/if}}"
@@ -104,7 +104,7 @@
         </a>
       </li>
 
-      <li class="auth-user">
+      <li class="hidden auth:list-item">
         <a
           href="new-post"
           class="block px-3 py-2 {{#if (equals location "new-post")}}text-accent-hover{{else}}text-content-secondary hover:text-content-primary{{/if}}"
@@ -113,7 +113,7 @@
         </a>
       </li>
 
-      <li class="auth-user">
+      <li class="hidden auth:list-item">
         <a
           href="profile"
           class="block px-3 py-2 {{#if (equals location "profile")}}text-accent-hover{{else}}text-content-secondary hover:text-content-primary{{/if}}"
@@ -122,7 +122,7 @@
         </a>
       </li>
 
-      <li class="auth-guest">
+      <li class="auth:hidden">
         <a
           href="sign-in"
           class="block px-3 py-2 {{#if (equals location "sign-in")}}text-accent-hover{{else}}text-content-secondary hover:text-content-primary{{/if}}"
@@ -131,7 +131,7 @@
         </a>
       </li>
 
-      <li class="auth-guest">
+      <li class="auth:hidden">
         <a
           href="sign-up"
           class="block px-3 py-2 {{#if (equals location "sign-up")}}text-accent-hover{{else}}text-content-secondary hover:text-content-primary{{/if}}"

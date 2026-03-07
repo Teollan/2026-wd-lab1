@@ -25,6 +25,8 @@
   --color-stroke-secondary: #374151;
 }
 
+@custom-variant auth (&:where([data-auth="true"] *));
+
 body {
   font-family: sans-serif;
   background-color: var(--color-surface-primary);
@@ -36,18 +38,6 @@ body {
 
 main {
   height: 100%;
-}
-
-[data-auth="true"] .auth-guest {
-  display: none;
-}
-
-.auth-user {
-  display: none;
-}
-
-[data-auth="true"] .auth-user {
-  display: unset;
 }
 
 input[type="date"]::-webkit-calendar-picker-indicator {
