@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Feed — BlogSpace</title>
+    <script src="/scripts/auth.js"></script>
+    <link rel="stylesheet" crossorigin href="/2026-wd-lab1/assets/global-gBjMG5f2.css">
+  </head>
+  <body>
+    <header class="relative border-b border-stroke-primary bg-surface-primary">
+      <div class="mx-auto flex max-w-5xl items-center justify-between px-4 py-4">
+        <a
+          href="/"
+          class="flex items-center gap-2"
+        >
+          <img
+            src="/2026-wd-lab1/images/logo.svg"
+            alt="BlogSpace logo"
+            class="h-8 w-8"
+          />
+          <span class="text-lg font-semibold text-content-primary">BlogSpace</span>
+        </a>
+    
+        <button
+          id="menu-toggle"
+          class="text-content-secondary hover:text-content-primary md:hidden"
+        >
+          <svg
+            class="h-6 w-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        </button>
+    
+        <nav
+          id="nav-menu"
+          class="hidden md:block"
+        >
+          <ul class="flex flex-col gap-1 md:flex-row md:gap-6">
+            <li>
+              <a
+                href="/"
+                class="block px-3 py-2 text-content-secondary hover:text-content-primary"
+              >
+                About
+              </a>
+            </li>
+    
+            <li class="auth-user">
+              <a
+                href="/feed"
+                class="block px-3 py-2 text-accent-hover"
+              >
+                Feed
+              </a>
+            </li>
+    
+            <li class="auth-user">
+              <a
+                href="/new-post"
+                class="block px-3 py-2 text-content-secondary hover:text-content-primary"
+              >
+                New Post
+              </a>
+            </li>
+    
+            <li class="auth-user">
+              <a
+                href="/profile"
+                class="block px-3 py-2 text-content-secondary hover:text-content-primary"
+              >
+                Profile
+              </a>
+            </li>
+    
+            <li class="auth-guest">
+              <a
+                href="/sign-in"
+                class="block px-3 py-2 text-content-secondary hover:text-content-primary"
+              >
+                Sign In
+              </a>
+            </li>
+    
+            <li class="auth-guest">
+              <a
+                href="/sign-up"
+                class="block px-3 py-2 text-content-secondary hover:text-content-primary"
+              >
+                Sign Up
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    
+      <nav
+        id="mobile-menu"
+        class="hidden absolute top-full left-0 w-full border-y border-stroke-primary bg-surface-primary md:hidden"
+      >
+        <ul class="flex flex-col gap-1 px-4 py-3">
+          <li>
+            <a
+              href="/"
+              class="block px-3 py-2 text-content-secondary hover:text-content-primary"
+            >
+              About
+            </a>
+          </li>
+    
+          <li class="auth-user">
+            <a
+              href="/feed"
+              class="block px-3 py-2 text-accent-hover"
+            >
+              Feed
+            </a>
+          </li>
+    
+          <li class="auth-user">
+            <a
+              href="/new-post"
+              class="block px-3 py-2 text-content-secondary hover:text-content-primary"
+            >
+              New Post
+            </a>
+          </li>
+    
+          <li class="auth-user">
+            <a
+              href="/profile"
+              class="block px-3 py-2 text-content-secondary hover:text-content-primary"
+            >
+              Profile
+            </a>
+          </li>
+    
+          <li class="auth-guest">
+            <a
+              href="/sign-in"
+              class="block px-3 py-2 text-content-secondary hover:text-content-primary"
+            >
+              Sign In
+            </a>
+          </li>
+    
+          <li class="auth-guest">
+            <a
+              href="/sign-up"
+              class="block px-3 py-2 text-content-secondary hover:text-content-primary"
+            >
+              Sign Up
+            </a>
+          </li>
+        </ul>
+      </nav>
+    
+      <script
+        src="/scripts/menu.js"
+        defer
+      ></script>
+    </header>
+
+    <!-- Main -->
+    <main class="mx-auto w-full max-w-5xl flex-1 px-4 py-12">
+      <h1 class="mb-8 text-3xl font-bold text-content-primary">Feed</h1>
+
+      <!-- Posts -->
+      <div class="space-y-8">
+        <!-- Post 1 -->
+        <article
+          class="rounded-xl border border-stroke-primary bg-surface-secondary p-6"
+        >
+          <div class="mb-3 flex items-center gap-3">
+            <div
+              class="flex h-9 w-9 items-center justify-center rounded-full bg-accent/20 text-sm font-bold text-accent-hover"
+            >
+              JD
+            </div>
+
+            <div>
+              <p class="text-sm font-medium text-content-primary">John Doe</p>
+
+              <p class="text-xs text-content-tertiary">February 28, 2026</p>
+            </div>
+          </div>
+
+          <h2 class="mb-2 text-xl font-semibold text-content-primary">
+            Getting Started with Tailwind CSS v4
+          </h2>
+
+          <p class="mb-4 text-content-secondary">
+            Tailwind CSS v4 brings a new engine, faster builds, and a refreshed
+            configuration system. In this post I walk through the key changes
+            and how to migrate your existing projects. The new
+            <code class="text-accent-hover">@theme</code>
+            directive replaces the old
+            <code class="text-accent-hover">tailwind.config.js</code>
+            for most use cases, and the Vite plugin makes setup a breeze.
+          </p>
+
+          <!-- Comments -->
+          <div class="border-t border-stroke-primary pt-4">
+            <h3 class="mb-3 text-sm font-semibold text-content-secondary">
+              Comments (2)
+            </h3>
+
+            <div class="space-y-3">
+              <div class="rounded-lg bg-surface-tertiary p-3">
+                <div class="mb-1 flex items-center gap-2">
+                  <span class="text-sm font-medium text-content-primary">
+                    Alex K.
+                  </span>
+
+                  <span class="text-xs text-content-tertiary">
+                    Feb 28, 2026
+                  </span>
+                </div>
+
+                <p class="text-sm text-content-secondary">
+                  Great overview! The new engine is impressively fast. Migrating
+                  was smoother than I expected.
+                </p>
+              </div>
+
+              <div class="rounded-lg bg-surface-tertiary p-3">
+                <div class="mb-1 flex items-center gap-2">
+                  <span class="text-sm font-medium text-content-primary">
+                    Maria S.
+                  </span>
+
+                  <span class="text-xs text-content-tertiary">Mar 1, 2026</span>
+                </div>
+
+                <p class="text-sm text-content-secondary">
+                  Would love a follow-up on the @theme directive. Does it
+                  support custom animations too?
+                </p>
+              </div>
+            </div>
+
+            <!-- Add comment form -->
+            <form class="mt-4 flex gap-3">
+              <textarea
+                rows="1"
+                placeholder="Add a comment..."
+                class="flex-1 content-end rounded-lg border border-stroke-secondary bg-surface-tertiary px-4 py-2 text-sm field-sizing:content text-content-primary placeholder-content-tertiary focus:border-accent focus:ring-2 focus:ring-accent/20 focus:outline-none"
+              ></textarea>
+
+              <button
+                type="submit"
+                class="cursor-pointer self-end rounded-lg bg-accent px-4 py-2 text-sm font-medium text-content-primary hover:bg-accent-hover focus:ring-2 focus:ring-accent/20 focus:outline-none"
+              >
+                Post
+              </button>
+            </form>
+          </div>
+        </article>
+
+        <!-- Post 2 -->
+        <article
+          class="rounded-xl border border-stroke-primary bg-surface-secondary p-6"
+        >
+          <div class="mb-3 flex items-center gap-3">
+            <div
+              class="flex h-9 w-9 items-center justify-center rounded-full bg-emerald-500/20 text-sm font-bold text-emerald-400"
+            >
+              AK
+            </div>
+
+            <div>
+              <p class="text-sm font-medium text-content-primary">Alex K.</p>
+
+              <p class="text-xs text-content-tertiary">February 25, 2026</p>
+            </div>
+          </div>
+
+          <h2 class="mb-2 text-xl font-semibold text-content-primary">
+            Why I Switched to Vite for Everything
+          </h2>
+
+          <p class="mb-4 text-content-secondary">
+            After years of webpack and various bundlers, Vite has become my
+            go-to for every new project. The instant HMR, native ESM support,
+            and minimal configuration make the developer experience unmatched.
+            Here is why I think Vite is the best choice for modern web
+            development in 2026.
+          </p>
+
+          <!-- Comments -->
+          <div class="border-t border-stroke-primary pt-4">
+            <h3 class="mb-3 text-sm font-semibold text-content-secondary">
+              Comments (1)
+            </h3>
+
+            <div class="space-y-3">
+              <div class="rounded-lg bg-surface-tertiary p-3">
+                <div class="mb-1 flex items-center gap-2">
+                  <span class="text-sm font-medium text-content-primary">
+                    John Doe
+                  </span>
+
+                  <span class="text-xs text-content-tertiary">
+                    Feb 26, 2026
+                  </span>
+                </div>
+
+                <p class="text-sm text-content-secondary">
+                  Completely agree! I used Vite for my latest lab project and it
+                  just works.
+                </p>
+              </div>
+            </div>
+
+            <form class="mt-4 flex gap-3">
+              <textarea
+                rows="1"
+                placeholder="Add a comment..."
+                class="flex-1 content-end rounded-lg border border-stroke-secondary bg-surface-tertiary px-4 py-2 text-sm field-sizing:content text-content-primary placeholder-content-tertiary focus:border-accent focus:ring-2 focus:ring-accent/20 focus:outline-none"
+              ></textarea>
+
+              <button
+                type="submit"
+                class="cursor-pointer self-end rounded-lg bg-accent px-4 py-2 text-sm font-medium text-content-primary hover:bg-accent-hover focus:ring-2 focus:ring-accent/20 focus:outline-none"
+              >
+                Post
+              </button>
+            </form>
+          </div>
+        </article>
+
+        <!-- Post 3 -->
+        <article
+          class="rounded-xl border border-stroke-primary bg-surface-secondary p-6"
+        >
+          <div class="mb-3 flex items-center gap-3">
+            <div
+              class="flex h-9 w-9 items-center justify-center rounded-full bg-purple-500/20 text-sm font-bold text-purple-400"
+            >
+              MS
+            </div>
+
+            <div>
+              <p class="text-sm font-medium text-content-primary">Maria S.</p>
+
+              <p class="text-xs text-content-tertiary">February 20, 2026</p>
+            </div>
+          </div>
+
+          <h2 class="mb-2 text-xl font-semibold text-content-primary">
+            Responsive Design Tips for 2026
+          </h2>
+
+          <p class="mb-4 text-content-secondary">
+            Mobile-first design is no longer optional — it is the standard. In
+            this post I share practical tips for building responsive layouts
+            using modern CSS features like container queries, the
+            <code class="text-accent-hover">:has()</code>
+            selector, and
+            <code class="text-accent-hover">subgrid</code>
+            . These tools make truly adaptive interfaces easier than ever.
+          </p>
+
+          <!-- Comments -->
+          <div class="border-t border-stroke-primary pt-4">
+            <h3 class="mb-3 text-sm font-semibold text-content-secondary">
+              Comments (0)
+            </h3>
+
+            <p class="mb-3 text-sm text-content-tertiary">
+              No comments yet. Be the first to share your thoughts!
+            </p>
+
+            <form class="flex gap-3">
+              <textarea
+                rows="1"
+                placeholder="Add a comment..."
+                class="flex-1 content-end rounded-lg border border-stroke-secondary bg-surface-tertiary px-4 py-2 text-sm field-sizing:content text-content-primary placeholder-content-tertiary focus:border-accent focus:ring-2 focus:ring-accent/20 focus:outline-none"
+              ></textarea>
+
+              <button
+                type="submit"
+                class="cursor-pointer self-end rounded-lg bg-accent px-4 py-2 text-sm font-medium text-content-primary hover:bg-accent-hover focus:ring-2 focus:ring-accent/20 focus:outline-none"
+              >
+                Post
+              </button>
+            </form>
+          </div>
+        </article>
+      </div>
+    </main>
+
+    <footer class="border-t border-stroke-primary bg-surface-secondary">
+      <div
+        class="mx-auto max-w-5xl px-4 py-6 text-center text-sm text-content-tertiary"
+      >
+        &copy; 2026 BlogSpace. All rights reserved.
+      </div>
+    </footer>
+  </body>
+</html>
