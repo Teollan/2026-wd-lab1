@@ -1,0 +1,46 @@
+digraph BlogSpace {
+  layout=circo
+  node [shape=box, style="rounded,filled", fillcolor="#ffffff", fontcolor="#111827", color="#374151", fontname="sans-serif"]
+  edge [fontname="sans-serif", fontsize=10]
+
+  // Pages
+  about   [label="About"]
+  signin  [label="Sign In"]
+  signup  [label="Sign Up"]
+  feed    [label="Feed"]
+  myposts [label="My Posts"]
+  newpost [label="New Post"]
+  profile [label="Profile"]
+
+  // Guest transitions
+  edge [color="#d1d5db", style=dashed, dir=both, fontcolor="#9ca3af"]
+
+  about -> signin
+  about -> signup
+  signin -> signup
+
+  // Auth transitions
+  edge [color="#d1d5db", style=solid, dir=both, fontcolor="#9ca3af"]
+
+  about -> feed
+  about -> myposts
+  about -> newpost
+  about -> profile
+
+  feed -> myposts
+  feed -> newpost
+  feed -> profile
+
+  myposts -> newpost
+  myposts -> profile
+
+  newpost -> profile
+
+
+  // Privilege transitions
+  edge [color="#0ea5e9", style=solid, dir=forward, fontcolor="#0ea5e9"]
+
+  signin -> feed
+  signup -> feed
+  profile -> about [color="#ef4444", fontcolor="#ef4444"]
+}
