@@ -17,4 +17,4 @@
 ## Посилання
 
 - **GitHub Pages:** https://teollan.github.io/2026-wd-lab1/
-- **Звіт (Google Docs):** https://docs.google.com/document/d/1hfIgLPrz-9VxoYM6JpKE_dV6kmR2wYmkwwWoG3uTQNs/edit?usp=sharing
+- **Звіт:** https://docs.google.com/document/d/1hfIgLPrz-9VxoYM6JpKE_dV6kmR2wYmkwwWoG3uTQNs/edit?usp=sharing
