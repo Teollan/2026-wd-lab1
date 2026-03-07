@@ -11,7 +11,7 @@
       rel="stylesheet"
       href="./styles/global.css"
     />
-    <script src="/scripts/auth.js"></script>
+    <script type="module" async src="/scripts/auth.js"></script>
   </head>
   <body>
     {{> header location="sign-up"}}
@@ -29,7 +29,7 @@
 
         <form
           id="sign-up-form"
-          action="/feed"
+          action="feed"
           class="space-y-5 rounded-xl border border-stroke-primary bg-surface-secondary p-6"
         >
           <div>
@@ -161,7 +161,7 @@
             Already have an account?
 
             <a
-              href="/sign-in"
+              href="sign-in"
               class="text-accent-hover hover:text-accent-light"
             >
               Sign in
@@ -174,8 +174,9 @@
     {{> footer}}
 
     <script
+      type="module"
+      async
       src="/scripts/signUp.js"
-      defer
     ></script>
   </body>
 </html>

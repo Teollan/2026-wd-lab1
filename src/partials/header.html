@@ -1,7 +1,7 @@
 <header class="relative border-b border-stroke-primary bg-surface-primary">
   <div class="mx-auto flex max-w-5xl items-center justify-between px-4 py-4">
     <a
-      href="/"
+      href="./"
       class="flex items-center gap-2"
     >
       <img
@@ -26,7 +26,7 @@
       <ul class="flex flex-col gap-1 md:flex-row md:gap-6">
         <li>
           <a
-            href="/"
+            href="./"
             class="block px-3 py-2 {{#if (equals location "about")}}text-accent-hover{{else}}text-content-secondary hover:text-content-primary{{/if}}"
           >
             About
@@ -35,7 +35,7 @@
 
         <li class="auth-user">
           <a
-            href="/feed"
+            href="feed"
             class="block px-3 py-2 {{#if (equals location "feed")}}text-accent-hover{{else}}text-content-secondary hover:text-content-primary{{/if}}"
           >
             Feed
@@ -44,7 +44,7 @@
 
         <li class="auth-user">
           <a
-            href="/new-post"
+            href="new-post"
             class="block px-3 py-2 {{#if (equals location "new-post")}}text-accent-hover{{else}}text-content-secondary hover:text-content-primary{{/if}}"
           >
             New Post
@@ -53,7 +53,7 @@
 
         <li class="auth-user">
           <a
-            href="/profile"
+            href="profile"
             class="block px-3 py-2 {{#if (equals location "profile")}}text-accent-hover{{else}}text-content-secondary hover:text-content-primary{{/if}}"
           >
             Profile
@@ -62,7 +62,7 @@
 
         <li class="auth-guest">
           <a
-            href="/sign-in"
+            href="sign-in"
             class="block px-3 py-2 {{#if (equals location "sign-in")}}text-accent-hover{{else}}text-content-secondary hover:text-content-primary{{/if}}"
           >
             Sign In
@@ -71,7 +71,7 @@
 
         <li class="auth-guest">
           <a
-            href="/sign-up"
+            href="sign-up"
             class="block px-3 py-2 {{#if (equals location "sign-up")}}text-accent-hover{{else}}text-content-secondary hover:text-content-primary{{/if}}"
           >
             Sign Up
@@ -88,7 +88,7 @@
     <ul class="flex flex-col gap-1 px-4 py-3">
       <li>
         <a
-          href="/"
+          href="./"
           class="block px-3 py-2 {{#if (equals location "about")}}text-accent-hover{{else}}text-content-secondary hover:text-content-primary{{/if}}"
         >
           About
@@ -97,7 +97,7 @@
 
       <li class="auth-user">
         <a
-          href="/feed"
+          href="feed"
           class="block px-3 py-2 {{#if (equals location "feed")}}text-accent-hover{{else}}text-content-secondary hover:text-content-primary{{/if}}"
         >
           Feed
@@ -106,7 +106,7 @@
 
       <li class="auth-user">
         <a
-          href="/new-post"
+          href="new-post"
           class="block px-3 py-2 {{#if (equals location "new-post")}}text-accent-hover{{else}}text-content-secondary hover:text-content-primary{{/if}}"
         >
           New Post
@@ -115,7 +115,7 @@
 
       <li class="auth-user">
         <a
-          href="/profile"
+          href="profile"
           class="block px-3 py-2 {{#if (equals location "profile")}}text-accent-hover{{else}}text-content-secondary hover:text-content-primary{{/if}}"
         >
           Profile
@@ -124,7 +124,7 @@
 
       <li class="auth-guest">
         <a
-          href="/sign-in"
+          href="sign-in"
           class="block px-3 py-2 {{#if (equals location "sign-in")}}text-accent-hover{{else}}text-content-secondary hover:text-content-primary{{/if}}"
         >
           Sign In
@@ -133,7 +133,7 @@
 
       <li class="auth-guest">
         <a
-          href="/sign-up"
+          href="sign-up"
           class="block px-3 py-2 {{#if (equals location "sign-up")}}text-accent-hover{{else}}text-content-secondary hover:text-content-primary{{/if}}"
         >
           Sign Up
@@ -143,7 +143,8 @@
   </nav>
 
   <script
+    type="module"
+    async
     src="/scripts/menu.js"
-    defer
   ></script>
 </header>

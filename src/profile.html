@@ -11,7 +11,7 @@
       rel="stylesheet"
       href="./styles/global.css"
     />
-    <script src="/scripts/auth.js"></script>
+    <script type="module" async src="/scripts/auth.js"></script>
   </head>
   <body>
     {{> header location="profile"}}
@@ -113,14 +113,14 @@
 
           <div class="mt-6 flex gap-3">
             <a
-              href="/feed"
+              href="feed"
               class="rounded-lg bg-accent px-5 py-2.5 text-sm font-medium text-content-primary hover:bg-accent-hover"
             >
               View my posts
             </a>
 
             <a
-              href="/"
+              href="./"
               id="log-out-button"
               class="rounded-lg bg-destructive/20 px-5 py-2.5 text-sm font-medium text-destructive hover:bg-destructive/30"
             >
@@ -134,8 +134,9 @@
     {{> footer}}
 
     <script
+      type="module"
+      async
       src="/scripts/logOut.js"
-      defer
     ></script>
   </body>
 </html>

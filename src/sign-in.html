@@ -11,7 +11,7 @@
       rel="stylesheet"
       href="./styles/global.css"
     />
-    <script src="/scripts/auth.js"></script>
+    <script type="module" async src="/scripts/auth.js"></script>
   </head>
   <body>
     {{> header location="sign-in"}}
@@ -29,7 +29,7 @@
 
         <form
           id="sign-in-form"
-          action="/feed"
+          action="feed"
           class="space-y-5 rounded-xl border border-stroke-primary bg-surface-secondary p-6"
         >
           <div>
@@ -109,8 +109,9 @@
     {{> footer}}
 
     <script
+      type="module"
+      async
       src="/scripts/signIn.js"
-      defer
     ></script>
   </body>
 </html>
