@@ -5,6 +5,11 @@ import handlebars from "vite-plugin-handlebars";
 
 export default defineConfig({
   base: "/2026-wd-lab1/",
+  resolve: {
+    alias: {
+      "@": resolve(__dirname, "src"),
+    },
+  },
   plugins: [
     tailwindcss(),
     handlebars({

@@ -19,211 +19,26 @@
     <script
       type="module"
       async
-      src="/scripts/auth.js"
+      src="/scripts/auth.ts"
     ></script>
   </head>
   <body>
     {{> header location="my-posts"}}
 
-    <!-- Main -->
-    <main class="mx-auto w-full max-w-5xl flex-1 px-4 py-12">
-      <h1 class="mb-8 text-3xl font-bold text-content-primary">My Posts</h1>
-
-      <!-- Posts -->
-      <div class="space-y-8">
-        <!-- Post 1 -->
-        <article
-          class="rounded-xl border border-stroke-primary bg-surface-secondary p-6"
-        >
-          <div class="mb-3 flex items-center justify-between">
-            <div class="flex items-center gap-3">
-              <div
-                class="flex h-9 w-9 items-center justify-center rounded-full bg-accent/20 text-sm font-bold text-accent-hover"
-              >
-                JD
-              </div>
-
-              <div>
-                <p class="text-sm font-medium text-content-primary">John Doe</p>
-
-                <p class="text-xs text-content-tertiary">February 28, 2026</p>
-              </div>
-            </div>
-
-            <div class="flex items-center gap-2">
-              <button class="text-content-tertiary hover:text-accent-hover">
-                {{> icon-edit}}
-              </button>
-
-              <button class="text-content-tertiary hover:text-destructive">
-                {{> icon-delete}}
-              </button>
-            </div>
-          </div>
-
-          <h2 class="mb-2 text-xl font-semibold text-content-primary">
-            Getting Started with Tailwind CSS v4
-          </h2>
-
-          <p class="mb-4 text-content-secondary">
-            Tailwind CSS v4 brings a new engine, faster builds, and a refreshed
-            configuration system. In this post I walk through the key changes
-            and how to migrate your existing projects. The new
-            <code class="text-accent-hover">@theme</code>
-            directive replaces the old
-            <code class="text-accent-hover">tailwind.config.js</code>
-            for most use cases, and the Vite plugin makes setup a breeze.
-          </p>
-
-          <!-- Comments -->
-          <div class="border-t border-stroke-primary pt-4">
-            <h3 class="mb-3 text-sm font-semibold text-content-secondary">
-              Comments (15)
-            </h3>
-
-            <form class="mb-4 flex gap-3">
-              <textarea
-                rows="1"
-                placeholder="Add a comment..."
-                class="min-h-9 resize-none flex-1 content-end rounded-lg border border-stroke-secondary bg-surface-tertiary px-4 py-1.5 text-sm field-sizing-content text-content-primary placeholder-content-tertiary focus:border-accent focus:ring-2 focus:ring-accent/20 focus:outline-none"
-              ></textarea>
-
-              <button
-                type="submit"
-                class="cursor-pointer self-end rounded-lg bg-accent px-4 py-2 text-sm font-medium text-content-primary hover:bg-accent-hover focus:ring-2 focus:ring-accent/20 focus:outline-none"
-              >
-                Post
-              </button>
-            </form>
-
-            <div class="space-y-3">
-              <div class="rounded-lg bg-surface-tertiary p-3">
-                <div class="mb-1 flex items-center gap-2">
-                  <span class="text-sm font-medium text-content-primary">
-                    Alex K.
-                  </span>
-
-                  <span class="text-xs text-content-tertiary">
-                    Feb 28, 2026
-                  </span>
-                </div>
-
-                <p class="text-sm text-content-secondary">
-                  Great overview! The new engine is impressively fast. Migrating
-                  was smoother than I expected.
-                </p>
-              </div>
-
-              <div class="rounded-lg bg-surface-tertiary p-3">
-                <div class="mb-1 flex items-center gap-2">
-                  <span class="text-sm font-medium text-content-primary">
-                    Maria S.
-                  </span>
-
-                  <span class="text-xs text-content-tertiary">Mar 1, 2026</span>
-                </div>
-
-                <p class="text-sm text-content-secondary">
-                  Would love a follow-up on the @theme directive. Does it
-                  support custom animations too?
-                </p>
-              </div>
-            </div>
-
-            <button
-              class="mt-3 text-sm font-medium text-content-tertiary hover:text-content-secondary"
-            >
-              View more comments
-            </button>
-          </div>
-        </article>
-
-        <!-- Post 2 -->
-        <article
-          class="rounded-xl border border-stroke-primary bg-surface-secondary p-6"
-        >
-          <div class="mb-3 flex items-center justify-between">
-            <div class="flex items-center gap-3">
-              <div
-                class="flex h-9 w-9 items-center justify-center rounded-full bg-accent/20 text-sm font-bold text-accent-hover"
-              >
-                JD
-              </div>
-
-              <div>
-                <p class="text-sm font-medium text-content-primary">John Doe</p>
-
-                <p class="text-xs text-content-tertiary">February 15, 2026</p>
-              </div>
-            </div>
-
-            <div class="flex items-center gap-2">
-              <button class="text-content-tertiary hover:text-accent-hover">
-                {{> icon-edit}}
-              </button>
-
-              <button class="text-content-tertiary hover:text-destructive">
-                {{> icon-delete}}
-              </button>
-            </div>
-          </div>
-
-          <h2 class="mb-2 text-xl font-semibold text-content-primary">
-            My Journey into Open Source
-          </h2>
-
-          <p class="mb-4 text-content-secondary">
-            Contributing to open source has been one of the most rewarding
-            experiences of my career. From fixing small typos in documentation
-            to submitting feature PRs, every contribution teaches you something
-            new. Here is how I got started and what I have learned along the
-            way.
-          </p>
-
-          <!-- Comments -->
-          <div class="border-t border-stroke-primary pt-4">
-            <h3 class="mb-3 text-sm font-semibold text-content-secondary">
-              Comments (1)
-            </h3>
-
-            <form class="mb-4 flex gap-3">
-              <textarea
-                rows="1"
-                placeholder="Add a comment..."
-                class="min-h-9 resize-none flex-1 content-end rounded-lg border border-stroke-secondary bg-surface-tertiary px-4 py-1.5 text-sm field-sizing-content text-content-primary placeholder-content-tertiary focus:border-accent focus:ring-2 focus:ring-accent/20 focus:outline-none"
-              ></textarea>
-
-              <button
-                type="submit"
-                class="cursor-pointer self-end rounded-lg bg-accent px-4 py-2 text-sm font-medium text-content-primary hover:bg-accent-hover focus:ring-2 focus:ring-accent/20 focus:outline-none"
-              >
-                Post
-              </button>
-            </form>
-
-            <div class="space-y-3">
-              <div class="rounded-lg bg-surface-tertiary p-3">
-                <div class="mb-1 flex items-center gap-2">
-                  <span class="text-sm font-medium text-content-primary">
-                    Maria S.
-                  </span>
-
-                  <span class="text-xs text-content-tertiary">
-                    Feb 16, 2026
-                  </span>
-                </div>
-
-                <p class="text-sm text-content-secondary">
-                  This is so inspiring! I have been wanting to contribute but
-                  never knew where to start. Thanks for sharing your experience.
-                </p>
-              </div>
-            </div>
-          </div>
-        </article>
-      </div>
-    </main>
+    <div id="post-list-root" class="w-full flex-1"></div>
 
     {{> footer}}
+
+    <script type="module">
+      import { PostsRepository } from "@/modules/posts/data/posts.repository"
+      import { PostList } from "@/modules/posts/view/PostList";
+
+      const posts = PostsRepository.getMyPosts();
+      new PostList(document.getElementById("post-list-root"), {
+        title: "My Posts",
+        posts,
+        showActions: true
+      });
+    </script>
   </body>
 </html>
