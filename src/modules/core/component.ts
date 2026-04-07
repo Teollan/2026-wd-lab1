@@ -1,8 +1,6 @@
-import { createState } from "@/modules/core/store";
-
 export type PureComponent<T = void> = (props: T) => string; 
 
-export abstract class ReactiveComponent<T = never> {
+export abstract class ReactiveComponent<T = void> {
     protected parent: HTMLElement;
 
     constructor(parent: HTMLElement, props: T) {

@@ -17,18 +17,7 @@
       href="/images/logo.svg"
     />
   </head>
-  <body>
-    <script type="module">
-      import { PostsRepository } from "@/modules/posts/data/posts.repository"
-      import { PostList } from "@/modules/posts/view/PostList";
-
-      const posts = PostsRepository.getMyPosts();
-      new PostList(document.body, {
-        location: "my-posts",
-        title: "My Posts",
-        posts,
-        showActions: true
-      });
-    </script>
+  <body id="root">
+    <script type="module" src="./modules/posts/view/screens/MyPostsScreen.ts"></script>
   </body>
 </html>

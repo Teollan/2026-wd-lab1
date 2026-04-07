@@ -94,3 +94,4 @@ export class Profile extends ReactiveComponent<{}> {
     `;
   }
 }
+new Profile(document.getElementById("root")!);

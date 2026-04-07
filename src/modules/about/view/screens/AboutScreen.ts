@@ -4,7 +4,7 @@ import { AboutHero } from "@/modules/about/view/components/AboutHero";
 import { Header } from "@/modules/UI/Header";
 import { Footer } from "@/modules/UI/Footer";
 
-export class About extends ReactiveComponent {
+export class AboutScreen extends ReactiveComponent {
   protected getHtml(): string {
     return /*html*/`
       ${Header({ location: "about", isAuthenticated: false })}
@@ -19,3 +19,5 @@ export class About extends ReactiveComponent {
     `;
   }
 }
+
+new AboutScreen(document.getElementById("root")!);

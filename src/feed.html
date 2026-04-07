@@ -17,13 +17,7 @@
       href="/images/logo.svg"
     />
   </head>
-  <body>
-    <script type="module">
-      import { PostsRepository } from "@/modules/posts/data/posts.repository"
-      import { PostList } from "@/modules/posts/view/PostList";
-
-      const posts = PostsRepository.getFeed();
-      new PostList(document.body, { location: "feed", title: "Feed", posts });
-    </script>
+  <body id="root">
+    <script type="module" src="./modules/posts/view/screens/FeedScreen.ts"></script>
   </body>
 </html>

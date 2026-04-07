@@ -1,14 +1,6 @@
 import { PureComponent } from "@/modules/core/component";
 import { Comment } from "@/modules/posts/model/Comment";
 
-function formatDate(date: Date): string {
-  return date.toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
-}
-
 interface Props {
   comment: Comment;
 }
@@ -31,4 +23,12 @@ export const CommentCard: PureComponent<Props> = ({ comment }) => {
       </p>
     </div>
   `;
+}
+
+function formatDate(date: Date): string {
+  return date.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
 }
