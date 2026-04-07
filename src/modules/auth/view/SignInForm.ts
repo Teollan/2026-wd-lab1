@@ -1,8 +1,12 @@
-import { Component } from "@/modules/core/component";
+import { ReactiveComponent } from "@/modules/core/component";
+import { Header } from "@/modules/UI/Header";
+import { Footer } from "@/modules/UI/Footer";
 
-export class SignInForm extends Component {
+export class SignInForm extends ReactiveComponent {
   protected getHtml(): string {
     return /*html*/`
+      ${Header({ location: "sign-in", isAuthenticated: false })}
+
       <main class="mx-auto w-full max-w-5xl flex-1 px-4 py-12">
         <div class="mx-auto max-w-md">
           <h1 class="mb-2 text-center text-3xl font-bold text-content-primary">
@@ -91,6 +95,8 @@ export class SignInForm extends Component {
           </form>
         </div>
       </main>
+
+      ${Footer()}
     `;
   }
 }

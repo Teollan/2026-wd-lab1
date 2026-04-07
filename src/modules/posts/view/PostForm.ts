@@ -1,8 +1,12 @@
-import { Component } from "@/modules/core/component";
+import { ReactiveComponent } from "@/modules/core/component";
+import { Header } from "@/modules/UI/Header";
+import { Footer } from "@/modules/UI/Footer";
 
-export class PostForm extends Component {
+export class PostForm extends ReactiveComponent {
   protected getHtml(): string {
     return /*html*/`
+      ${Header({ location: "new-post", isAuthenticated: false })}
+
       <main class="mx-auto w-full max-w-5xl flex-1 px-4 py-12">
         <div class="mx-auto max-w-2xl">
           <h1 class="mb-8 text-3xl font-bold text-content-primary">New Post</h1>
@@ -57,6 +61,8 @@ export class PostForm extends Component {
           </section>
         </div>
       </main>
+
+      ${Footer()}
     `;
   }
 }

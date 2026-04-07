@@ -16,26 +16,11 @@
       type="image/svg+xml"
       href="/images/logo.svg"
     />
-    <script
-      type="module"
-      async
-      src="/scripts/auth.ts"
-    ></script>
   </head>
   <body>
-    {{> header location="sign-in"}}
-
-    <div id="sign-in-form-root" class="w-full flex-1"></div>
-
-    {{> footer}}
-
     <script type="module">
       import { SignInForm } from "@/modules/auth/view/SignInForm";
-      new SignInForm(document.getElementById("sign-in-form-root"));
-
-      document.getElementById("sign-in-form").addEventListener("submit", () => {
-        localStorage.setItem("auth", "true");
-      });
+      new SignInForm(document.body);
     </script>
   </body>
 </html>

@@ -1,4 +1,8 @@
-export abstract class Component<T = never> {
+import { createState } from "@/modules/core/store";
+
+export type PureComponent<T = void> = (props: T) => string; 
+
+export abstract class ReactiveComponent<T = never> {
     protected parent: HTMLElement;
 
     constructor(parent: HTMLElement, props: T) {

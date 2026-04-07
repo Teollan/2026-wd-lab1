@@ -16,29 +16,11 @@
       type="image/svg+xml"
       href="/images/logo.svg"
     />
-    <script
-      type="module"
-      async
-      src="/scripts/auth.ts"
-    ></script>
   </head>
   <body>
-    {{> header location="profile"}}
-
-    <!-- Main -->
-    <div id="profile-root" class="w-full flex-1"></div>
-
-    {{> footer}}
-
     <script type="module">
       import { Profile } from '@/modules/user/view/Profile';
-
-      new Profile(document.getElementById("profile-root"));
-
-      document.getElementById("log-out-button").addEventListener("click", () => {
-        localStorage.removeItem("auth");
-        document.documentElement.removeAttribute("data-auth");
-      });
+      new Profile(document.body);
     </script>
   </body>
 </html>

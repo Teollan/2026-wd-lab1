@@ -16,25 +16,14 @@
       type="image/svg+xml"
       href="/images/logo.svg"
     />
-    <script
-      type="module"
-      async
-      src="/scripts/auth.ts"
-    ></script>
   </head>
   <body>
-    {{> header location="feed"}}
-
-    <div id="post-list-root" class="w-full flex-1"></div>
-
-    {{> footer}}
-
     <script type="module">
       import { PostsRepository } from "@/modules/posts/data/posts.repository"
       import { PostList } from "@/modules/posts/view/PostList";
 
       const posts = PostsRepository.getFeed();
-      new PostList(document.getElementById("post-list-root"), { title: "Feed", posts });
+      new PostList(document.body, { location: "feed", title: "Feed", posts });
     </script>
   </body>
 </html>

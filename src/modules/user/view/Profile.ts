@@ -1,9 +1,14 @@
 import { authStore } from "@/modules/auth/data/auth.store";
-import { Component } from "@/modules/core/component";
+import { ReactiveComponent } from "@/modules/core/component";
+import { Avatar } from "@/modules/UI/Avatar";
+import { Header } from "@/modules/UI/Header";
+import { Footer } from "@/modules/UI/Footer";
 
-export class Profile extends Component<{}> {
+export class Profile extends ReactiveComponent<{}> {
   protected getHtml() {
     return /*html*/`
+      ${Header({ location: "profile", isAuthenticated: false })}
+
       <main class="mx-auto max-w-5xl px-4 py-12">
         <div class="mx-auto max-w-2xl">
           <h1 class="mb-8 text-3xl font-bold text-content-primary">Profile</h1>
@@ -17,15 +22,15 @@ export class Profile extends Component<{}> {
           </div>
         </div>
       </main>
+
+      ${Footer()}
     `
   };
 
   private getAvatarHtml() {
     return /*html*/`
       <div class="mb-6 flex items-center gap-4">
-        <div class="flex h-16 w-16 items-center justify-center rounded-full bg-accent/20 text-2xl font-bold text-accent-hover">
-          JD
-        </div>
+        ${Avatar({ initials: "JD", size: "lg" })}
 
         <div>
           <h2 class="text-xl font-semibold text-content-primary">

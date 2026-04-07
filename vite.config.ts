@@ -1,7 +1,6 @@
 import { defineConfig } from "vite";
 import { resolve } from "path";
 import tailwindcss from "@tailwindcss/vite";
-import handlebars from "vite-plugin-handlebars";
 
 export default defineConfig({
   base: "/2026-wd-lab1/",
@@ -12,12 +11,6 @@ export default defineConfig({
   },
   plugins: [
     tailwindcss(),
-    handlebars({
-      partialDirectory: resolve(__dirname, "src/partials"),
-      helpers: {
-        equals: (a, b) => a === b,
-      },
-    }),
   ],
   root: "src",
   build: {
