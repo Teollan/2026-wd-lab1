@@ -9,11 +9,7 @@ import { authStore } from "@/modules/auth/data/auth.store";
 
 export class MyPostsScreen extends ReactiveComponent {
   protected onComponentDidMount(): void {
-    myPostsStore.subscribe(() => {
-      console.log("MyPostsScreen rendered")
-
-      this.render()
-    });
+    myPostsStore.subscribe(() => this.render());
     authStore.subscribe(() => this.render());
   }
 

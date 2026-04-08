@@ -14,8 +14,6 @@ export const myPostsStore = new Store<MyPostsState>({
 myPostsStore.addAction(
   COMMENTS_ACTION.CREATE,
   (_, set) => {
-    console.log("refetching my posts")
-
     set({ posts: PostsRepository.getMyPosts() });
   },
 );

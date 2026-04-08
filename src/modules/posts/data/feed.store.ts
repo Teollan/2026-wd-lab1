@@ -14,8 +14,6 @@ export const feedStore = new Store<FeedState>({
 feedStore.addAction(
   COMMENTS_ACTION.CREATE,
   (_, set) => {
-    console.log("refetching feed")
-
     set({ posts: PostsRepository.getFeed() });
   },
 );

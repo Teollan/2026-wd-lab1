@@ -10,8 +10,6 @@ export const commentsStore = new Store({});
 commentsStore.addAction(
   COMMENTS_ACTION.CREATE,
   (payload) => {
-    console.log("creating a comment")
-
     CommentsRepository.create({
       postId: payload.postId,
       content: payload.content,
