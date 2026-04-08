@@ -1,28 +1,21 @@
 import { Store } from "@/modules/core/store";
 import { PostsRepository } from "@/modules/posts/data/posts.repository";
-import { Post } from "@/modules/posts/model/Post";
+import { PostWithAuthorAndComments } from "@/modules/posts/model/Post";
+import { COMMENTS_ACTION } from "@/modules/comments/data/comments.store";
 
 interface FeedState {
-  posts: Post[];
+  posts: PostWithAuthorAndComments[];
 }
-
-// const FEED_ACTIONS = {
-//   LOAD_MORE_POSTS: "feed::load_more_posts",
-// }
 
 export const feedStore = new Store<FeedState>({
   posts: PostsRepository.getFeed(),
 });
 
-// feedStore.addAction(
-//   FEED_ACTIONS.LOAD_MORE_POSTS,
-//   ({ posts }, set, get) => {
-//     const state = get();
+feedStore.addAction(
+  COMMENTS_ACTION.CREATE,
+  (_, set) => {
+    console.log("refetching feed")
 
-//     set({
-//       posts: [...state.posts, ...posts]
-//     });
-//   },
-// );
-
-
+    set({ posts: PostsRepository.getFeed() });
+  },
+);

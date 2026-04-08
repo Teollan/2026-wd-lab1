@@ -1,4 +1,5 @@
 import { PureComponent } from "@/modules/core/component";
+import { POSTS_ACTION } from "@/modules/posts/data/posts.store";
 
 export const PostForm: PureComponent = () => {
   return /*html*/`
@@ -14,7 +15,10 @@ export const PostForm: PureComponent = () => {
           Create a new post
         </h2>
 
-        <form class="space-y-4">
+        <form
+          data-submit-action="${POSTS_ACTION.CREATE}"
+          class="space-y-4"
+        >
           <div>
             <label
               for="post-title"
@@ -24,8 +28,10 @@ export const PostForm: PureComponent = () => {
             </label>
 
             <input
+              name="title"
               type="text"
               id="post-title"
+              required
               placeholder="Your post title"
               class="w-full rounded-lg border border-stroke-secondary bg-surface-tertiary px-4 py-2.5 text-content-primary placeholder-content-tertiary focus:border-accent focus:ring-2 focus:ring-accent/20 focus:outline-none"
             />
@@ -40,8 +46,10 @@ export const PostForm: PureComponent = () => {
             </label>
 
             <textarea
+              name="content"
               id="post-body"
               rows="4"
+              required
               placeholder="Write your thoughts..."
               class="min-h-50 resize-none w-full rounded-lg border border-stroke-secondary bg-surface-tertiary px-4 py-2.5 text-content-primary placeholder-content-tertiary focus:border-accent focus:ring-2 focus:ring-accent/20 focus:outline-none"
             ></textarea>

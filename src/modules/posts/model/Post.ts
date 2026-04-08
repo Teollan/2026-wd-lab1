@@ -1,11 +1,28 @@
 import { User } from "@/modules/user/model/User";
-import { Comment } from "@/modules/posts/model/Comment";
+import { CommentWithAuthor } from "@/modules/comments/model/Comment";
 
 export interface Post {
   id: number;
-  author: User;
+  authorId: number;
   title: string;
   content: string;
   createdAt: Date;
-  comments: Comment[];
 }
+
+export interface PostDto {
+  id: number;
+  authorId: number;
+  title: string;
+  content: string;
+  createdAt: string;
+}
+
+export interface PostWithAuthorAndComments extends Post {
+  author: User;
+  comments: CommentWithAuthor[];
+}
+
+export const mapPostDtoToPost = (dto: PostDto): Post => ({
+  ...dto,
+  createdAt: new Date(dto.createdAt),
+});

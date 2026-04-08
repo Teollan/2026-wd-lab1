@@ -6,6 +6,7 @@ import { Footer } from "@/modules/UI/Footer";
 import { ProfileAvatar } from "@/modules/user/view/components/ProfileAvatar";
 import { ProfileInfoTable } from "@/modules/user/view/components/ProfileInfoTable";
 import { ProfileActions } from "@/modules/user/view/components/ProfileActions";
+import { ROUTES } from "@/utility/routes";
 
 export class ProfileScreen extends ReactiveComponent {
   protected onComponentDidMount(): void {
@@ -13,7 +14,14 @@ export class ProfileScreen extends ReactiveComponent {
   }
 
   protected getHtml() {
-    const isAuthenticated = Boolean(authStore.getState().user);
+    const { user } = authStore.getState();
+    const isAuthenticated = Boolean(user);
+
+    if (!user) {
+      window.location.href = ROUTES.SIGN_IN;
+
+      return "";
+    }
 
     return /*html*/`
       ${Header({ location: "profile", isAuthenticated })}
@@ -25,13 +33,16 @@ export class ProfileScreen extends ReactiveComponent {
           </h1>
 
           <div class="rounded-xl border border-stroke-primary bg-surface-secondary p-6">
-            ${ProfileAvatar({ initials: "JD", username: "John Doe", memberSince: "Member since January 2026" })}
+            ${ProfileAvatar({
+              username: user.username,
+              createdAt: user.createdAt,
+            })}
 
             ${ProfileInfoTable({ entries: [
-              { label: "Username", value: "John Doe" },
-              { label: "Email", value: "john.doe@example.com" },
-              { label: "Gender", value: "Male" },
-              { label: "Date of birth", value: "March 15, 1998" },
+              { label: "Username", value: user.username },
+              { label: "Email", value: user.email },
+              { label: "Gender", value: formatGender(user.gender) },
+              { label: "Date of birth", value: formatDate(user.dateOfBirth) },
               { label: "Bio", value: "Full-stack developer and tech blogger. Passionate about web standards and open source." },
               { label: "Posts", value: "12" },
               { label: "Comments", value: "47" },
@@ -45,6 +56,27 @@ export class ProfileScreen extends ReactiveComponent {
       ${Footer()}
     `
   };
+}
+
+const formatGender = (gender: string) => {
+  switch (gender) {
+    case "male":
+      return "Male";
+
+    case "female":
+      return "Female";
+
+    default:
+      return "Other";
+  }
+}
+
+function formatDate(date: Date): string {
+  return date.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
 }
 
 createScreen("root", ProfileScreen);

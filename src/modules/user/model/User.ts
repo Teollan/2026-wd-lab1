@@ -5,4 +5,21 @@ export interface User {
     username: string;
     dateOfBirth: Date;
     gender: string;
+    createdAt: Date;
 }
+
+export interface UserDto {
+    id: number;
+    email: string;
+    password: string;
+    username: string;
+    dateOfBirth: string;
+    gender: string;
+    createdAt: string;
+}
+
+export const mapUserDtoToUser = (dto: UserDto): User => ({
+    ...dto,
+    createdAt: new Date(dto.createdAt),
+    dateOfBirth: new Date(dto.dateOfBirth),
+})

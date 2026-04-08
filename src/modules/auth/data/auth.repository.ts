@@ -1,4 +1,4 @@
-import { User } from "@/modules/user/model/User";
+import { User, UserDto, mapUserDtoToUser } from "@/modules/user/model/User";
 import { Storage } from "@/utility/Storage"
 
 interface SignInInput {
@@ -16,28 +16,29 @@ interface SignUpInput {
 
 export abstract class AuthRepository {
   static signIn(input: SignInInput): User {
-    const users = Storage.getObject<User[]>(Storage.keys.USERS);
+    const users = Storage.getObject<UserDto[]>(Storage.keys.USERS);
 
-    const authUser = users?.find((user) => (
+    const authUserDto = users?.find((user) => (
       user.email === input.email && user.password === input.password
     ));
 
-    if (!authUser) {
+    if (!authUserDto) {
       throw new Error('Incorrect email or password');
     }
 
-    Storage.setItem(Storage.keys.AUTH_USER_ID, authUser.id.toString());
+    Storage.setItem(Storage.keys.AUTH_USER_ID, authUserDto.id.toString());
 
-    return authUser;
+    return mapUserDtoToUser(authUserDto);
   }
 
   static signUp(input: SignUpInput): User {
     const newUser: User = {
       id: Date.now(),
       ...input,
+      createdAt: new Date(),
     }
 
-    const users = Storage.getObject<User[]>(Storage.keys.USERS) ?? [];
+    const users = Storage.getObject<UserDto[]>(Storage.keys.USERS) ?? [];
 
     const existingUser = users?.find((user) => user.email === input.email) ?? null;
 
@@ -62,14 +63,14 @@ export abstract class AuthRepository {
       return null;
     }
 
-    const users = Storage.getObject<User[]>(Storage.keys.USERS);
+    const users = Storage.getObject<UserDto[]>(Storage.keys.USERS);
 
-    const authUser = users?.find((user) => (user.id === authUserId));
+    const authUserDto = users?.find((user) => (user.id === authUserId));
 
-    if (!authUser) {
+    if (!authUserDto) {
       throw new Error('User does not exist');
     }
 
-    return authUser;
+    return mapUserDtoToUser(authUserDto);
   }
 }

@@ -6,6 +6,7 @@ export abstract class ReactiveComponent<T = void> {
   constructor(parent: HTMLElement, props: T) {
     this.parent = parent;
 
+    this.onComponentDidMount();
     this.render(props);
   }
 

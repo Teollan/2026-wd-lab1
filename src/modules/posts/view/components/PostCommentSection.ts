@@ -1,20 +1,27 @@
 import { PureComponent } from "@/modules/core/component";
-import { Comment } from "@/modules/posts/model/Comment";
-import { CommentCard } from "@/modules/posts/view/components/CommentCard";
+import { CommentWithAuthor } from "@/modules/comments/model/Comment";
+import { COMMENTS_ACTION } from "@/modules/comments/data/comments.store";
+import { CommentCard } from "@/modules/comments/view/components/CommentCard";
 
 interface Props {
-  comments: Comment[];
+  postId: number;
+  comments: CommentWithAuthor[];
 }
 
-export const PostCommentSection: PureComponent<Props> = ({ comments }) => {
+export const PostCommentSection: PureComponent<Props> = ({ postId, comments }) => {
   return /*html*/`
     <div class="border-t border-stroke-primary pt-4">
       <h3 class="mb-3 text-sm font-semibold text-content-secondary">
         Comments (${comments.length})
       </h3>
 
-      <form class="mb-4 flex gap-3">
+      <form
+        data-submit-action="${COMMENTS_ACTION.CREATE}"
+        data-payload='${JSON.stringify({ postId })}'
+        class="mb-4 flex gap-3"
+      >
         <textarea
+          name="content"
           rows="1"
           placeholder="Add a comment..."
           class="min-h-9 resize-none flex-1 content-end rounded-lg border border-stroke-secondary bg-surface-tertiary px-4 py-1.5 text-sm field-sizing-content text-content-primary placeholder-content-tertiary focus:border-accent focus:ring-2 focus:ring-accent/20 focus:outline-none"

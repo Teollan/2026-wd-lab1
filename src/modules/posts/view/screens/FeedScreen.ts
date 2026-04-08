@@ -3,6 +3,7 @@ import { createScreen } from "@/modules/core/screen";
 import { Header } from "@/modules/UI/Header";
 import { Footer } from "@/modules/UI/Footer";
 import { PostList } from "@/modules/posts/view/components/PostList";
+import "@/modules/comments/data/comments.store";
 import { feedStore } from "@/modules/posts/data/feed.store";
 import { authStore } from "@/modules/auth/data/auth.store";
 

@@ -3,12 +3,17 @@ import { createScreen } from "@/modules/core/screen";
 import { Header } from "@/modules/UI/Header";
 import { Footer } from "@/modules/UI/Footer";
 import { PostList } from "@/modules/posts/view/components/PostList";
+import "@/modules/comments/data/comments.store";
 import { myPostsStore } from "@/modules/posts/data/myPosts.store";
 import { authStore } from "@/modules/auth/data/auth.store";
 
 export class MyPostsScreen extends ReactiveComponent {
   protected onComponentDidMount(): void {
-    myPostsStore.subscribe(() => this.render());
+    myPostsStore.subscribe(() => {
+      console.log("MyPostsScreen rendered")
+
+      this.render()
+    });
     authStore.subscribe(() => this.render());
   }
 

@@ -1,10 +1,10 @@
 import { PureComponent } from "@/modules/core/component";
-import { Post } from "@/modules/posts/model/Post";
+import { PostWithAuthorAndComments } from "@/modules/posts/model/Post";
 import { PostCard } from "@/modules/posts/view/components/PostCard";
 
 interface Props {
   title: string;
-  posts: Post[];
+  posts: PostWithAuthorAndComments[];
   withActions?: boolean;
 }
 

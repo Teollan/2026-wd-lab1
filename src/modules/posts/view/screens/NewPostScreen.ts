@@ -4,6 +4,7 @@ import { PostForm } from "@/modules/posts/view/components/PostForm";
 import { Header } from "@/modules/UI/Header";
 import { Footer } from "@/modules/UI/Footer";
 import { authStore } from "@/modules/auth/data/auth.store";
+import "@/modules/posts/data/posts.store";
 
 export class NewPostScreen extends ReactiveComponent {
   protected onComponentDidMount(): void {

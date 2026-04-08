@@ -1,8 +1,8 @@
 import { PureComponent } from "@/modules/core/component";
-import { Comment } from "@/modules/posts/model/Comment";
+import { CommentWithAuthor } from "@/modules/comments/model/Comment";
 
 interface Props {
-  comment: Comment;
+  comment: CommentWithAuthor;
 }
 
 export const CommentCard: PureComponent<Props> = ({ comment }) => {
