@@ -1,7 +1,5 @@
-import { ReactiveComponent } from "@/modules/core/component"
+import { ReactiveComponentConstructor } from "@/modules/core/component"
 import { dispatcher } from "@/modules/core/dispatcher";
-
-type ReactiveComponentConstructor = new (parent: HTMLElement, props: any) => ReactiveComponent;
 
 export const createScreen = (
   rootNodeId: string,
@@ -15,7 +13,7 @@ export const createScreen = (
     return;
   }
 
-  new Screen(root, {});
+  new Screen(root);
 
   root.addEventListener("click", (event) => {
     if (!(event.target instanceof Element)) {

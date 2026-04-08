@@ -4,11 +4,12 @@ import { PostForm } from "@/modules/posts/view/components/PostForm";
 import { Header } from "@/modules/UI/Header";
 import { Footer } from "@/modules/UI/Footer";
 import { authStore } from "@/modules/auth/data/auth.store";
-import "@/modules/posts/data/posts.store";
+import { newPostStore } from "@/modules/posts/data/newPost.store";
 
 export class NewPostScreen extends ReactiveComponent {
   protected onComponentDidMount(): void {
-    authStore.subscribe(() => this.render());
+    this.useStore(newPostStore);
+    this.useStore(authStore);
   }
 
   protected getHtml(): string {

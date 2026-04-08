@@ -1,5 +1,5 @@
 import { PureComponent } from "@/modules/core/component";
-import { POSTS_ACTION } from "@/modules/posts/data/posts.store";
+import { NEW_POST_ACTION } from "@/modules/posts/data/newPost.store";
 
 interface Props {
   action?: string;
@@ -9,7 +9,7 @@ interface Props {
 }
 
 export const PostForm: PureComponent<Props> = ({
-  action = POSTS_ACTION.CREATE,
+  action = NEW_POST_ACTION.CREATE,
   title = "",
   content = "",
   postId,

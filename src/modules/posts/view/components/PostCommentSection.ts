@@ -1,14 +1,14 @@
 import { PureComponent } from "@/modules/core/component";
 import { CommentWithAuthor } from "@/modules/comments/model/Comment";
-import { COMMENTS_ACTION } from "@/modules/comments/data/comments.store";
 import { CommentCard } from "@/modules/comments/view/components/CommentCard";
 
 interface Props {
   postId: number;
   comments: CommentWithAuthor[];
+  createCommentAction: string;
 }
 
-export const PostCommentSection: PureComponent<Props> = ({ postId, comments }) => {
+export const PostCommentSection: PureComponent<Props> = ({ postId, comments, createCommentAction }) => {
   return /*html*/`
     <div class="border-t border-stroke-primary pt-4">
       <h3 class="mb-3 text-sm font-semibold text-content-secondary">
@@ -16,7 +16,7 @@ export const PostCommentSection: PureComponent<Props> = ({ postId, comments }) =
       </h3>
 
       <form
-        data-submit-action="${COMMENTS_ACTION.CREATE}"
+        data-submit-action="${createCommentAction}"
         data-payload='${JSON.stringify({ postId })}'
         class="mb-4 flex gap-3"
       >

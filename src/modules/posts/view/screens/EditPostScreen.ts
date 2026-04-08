@@ -2,7 +2,7 @@ import { ReactiveComponent } from "@/modules/core/component";
 import { createScreen } from "@/modules/core/screen";
 import { PostForm } from "@/modules/posts/view/components/PostForm";
 import { PostsRepository } from "@/modules/posts/data/posts.repository";
-import { POSTS_ACTION } from "@/modules/posts/data/posts.store";
+import { editPostStore, EDIT_POST_ACTION } from "@/modules/posts/data/editPost.store";
 import { Header } from "@/modules/UI/Header";
 import { Footer } from "@/modules/UI/Footer";
 import { authStore } from "@/modules/auth/data/auth.store";
@@ -10,7 +10,8 @@ import { ROUTES } from "@/utility/routes";
 
 export class EditPostScreen extends ReactiveComponent {
   protected onComponentDidMount(): void {
-    authStore.subscribe(() => this.render());
+    this.useStore(editPostStore);
+    this.useStore(authStore);
   }
 
   protected getHtml(): string {
@@ -28,7 +29,7 @@ export class EditPostScreen extends ReactiveComponent {
 
       <main class="mx-auto w-full max-w-5xl flex-1 px-4 py-12">
         ${PostForm({
-          action: POSTS_ACTION.UPDATE,
+          action: EDIT_POST_ACTION.UPDATE,
           title: post.title,
           content: post.content,
           postId: post.id,

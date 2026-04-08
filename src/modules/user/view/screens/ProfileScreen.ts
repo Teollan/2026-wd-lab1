@@ -12,7 +12,7 @@ import { ROUTES } from "@/utility/routes";
 
 export class ProfileScreen extends ReactiveComponent {
   protected onComponentDidMount(): void {
-    authStore.subscribe(() => this.render());
+    this.useStore(authStore);
   }
 
   protected getHtml() {

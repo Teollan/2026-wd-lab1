@@ -7,7 +7,7 @@ import { authStore } from "@/modules/auth/data/auth.store";
 
 export class SignInScreen extends ReactiveComponent {
   protected onComponentDidMount(): void {
-    authStore.subscribe(() => this.render());
+    this.useStore(authStore);
   }
 
   protected getHtml(): string {

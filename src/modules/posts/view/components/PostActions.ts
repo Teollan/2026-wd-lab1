@@ -1,17 +1,18 @@
 import { PureComponent } from "@/modules/core/component";
-import { POSTS_ACTION } from "@/modules/posts/data/posts.store";
 import { IconEdit } from "@/modules/UI/icons/IconEdit";
 import { IconDelete } from "@/modules/UI/icons/IconDelete";
 
 interface Props {
   postId: number;
+  editAction: string;
+  deleteAction: string;
 }
 
-export const PostActions: PureComponent<Props> = ({ postId }) => {
+export const PostActions: PureComponent<Props> = ({ postId, editAction, deleteAction }) => {
   return /*html*/`
     <div class="flex items-center gap-2">
       <button
-        data-action="${POSTS_ACTION.EDIT}"
+        data-action="${editAction}"
         data-payload='${JSON.stringify({ postId })}'
         class="text-content-tertiary hover:text-accent-hover"
       >
@@ -19,7 +20,7 @@ export const PostActions: PureComponent<Props> = ({ postId }) => {
       </button>
 
       <button
-        data-action="${POSTS_ACTION.DELETE}"
+        data-action="${deleteAction}"
         data-payload='${JSON.stringify({ postId })}'
         class="text-content-tertiary hover:text-destructive"
       >

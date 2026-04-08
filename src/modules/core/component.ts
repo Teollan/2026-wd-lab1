@@ -1,20 +1,28 @@
-export type PureComponent<T = void> = (props: T) => string; 
+import { Store } from "@/modules/core/store";
 
-export abstract class ReactiveComponent<T = void> {
+export type PureComponent<T = void> = (props: T) => string;
+
+export abstract class ReactiveComponent {
   protected parent: HTMLElement;
 
-  constructor(parent: HTMLElement, props: T) {
+  constructor(parent: HTMLElement) {
     this.parent = parent;
 
     this.onComponentDidMount();
-    this.render(props);
+    this.render();
   }
 
   protected onComponentDidMount() {}
 
-  protected render(props: T) {
-    this.parent.innerHTML = this.getHtml(props)
+  protected useStore(store: Store<any>) {
+    store.subscribe(() => this.render());
   }
 
-  protected abstract getHtml(props: T): string;
+  protected render() {
+    this.parent.innerHTML = this.getHtml();
+  }
+
+  protected abstract getHtml(): string;
 }
+
+export type ReactiveComponentConstructor = new (parent: HTMLElement) => ReactiveComponent;

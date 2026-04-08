@@ -4,15 +4,23 @@ import { Avatar } from "@/modules/UI/Avatar";
 import { PostActions } from "@/modules/posts/view/components/PostActions";
 import { PostCommentSection } from "@/modules/posts/view/components/PostCommentSection";
 
-interface Props {
-  post: PostWithAuthorAndComments;
-  withActions: boolean;
+interface Actions {
+  createComment: string;
+  editPost?: string;
+  deletePost?: string;
 }
 
-export const PostCard: PureComponent<Props> = ({ post, withActions }) => {
+interface Props {
+  post: PostWithAuthorAndComments;
+  actions: Actions;
+}
+
+export const PostCard: PureComponent<Props> = ({ post, actions }) => {
+  const showActions = Boolean(actions.editPost && actions.deletePost);
+
   return /*html*/`
     <article class="rounded-xl border border-stroke-primary bg-surface-secondary p-6">
-      <div class="mb-3 flex items-center ${withActions
+      <div class="mb-3 flex items-center ${showActions
         ? "justify-between"
         : "gap-3"}">
         <div class="flex items-center gap-3">
@@ -25,12 +33,16 @@ export const PostCard: PureComponent<Props> = ({ post, withActions }) => {
 
             <p class="text-xs text-content-tertiary">
               ${formatDate(post.createdAt)}
-              </p>
+            </p>
           </div>
         </div>
 
-        ${withActions
-          ? PostActions({ postId: post.id })
+        ${showActions
+          ? PostActions({
+              postId: post.id,
+              editAction: actions.editPost!,
+              deleteAction: actions.deletePost!,
+            })
           : ""}
       </div>
 
@@ -42,7 +54,11 @@ export const PostCard: PureComponent<Props> = ({ post, withActions }) => {
         ${post.content}
       </p>
 
-      ${PostCommentSection({ postId: post.id, comments: post.comments })}
+      ${PostCommentSection({
+        postId: post.id,
+        comments: post.comments,
+        createCommentAction: actions.createComment,
+      })}
     </article>
   `;
 }
