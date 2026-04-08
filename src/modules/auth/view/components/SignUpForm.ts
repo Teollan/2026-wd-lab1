@@ -1,8 +1,8 @@
-import { AUTH_ACTION } from "@/modules/auth/data/auth.store";
-import { PureComponent } from "@/modules/core/component";
+import { signUpStore, SIGN_UP_ACTION } from "@/modules/auth/data/signUp.store";
 import { ROUTES } from "@/utility/routes";
 
-export const SignUpForm: PureComponent = () => {
+export const SignUpForm = () => {
+  const { error } = signUpStore.getState();
   return /*html*/`
     <div class="mx-auto max-w-md">
       <h1 class="mb-2 text-center text-3xl font-bold text-content-primary">
@@ -15,7 +15,7 @@ export const SignUpForm: PureComponent = () => {
 
       <form
         id="sign-up-form"
-        data-submit-action="${AUTH_ACTION.SIGN_UP}"
+        data-submit-action="${SIGN_UP_ACTION.SUBMIT}"
         class="space-y-5 rounded-xl border border-stroke-primary bg-surface-secondary p-6"
       >
         <div>
@@ -157,6 +157,15 @@ export const SignUpForm: PureComponent = () => {
             class="w-full resize-none rounded-lg border border-stroke-secondary bg-surface-tertiary px-4 py-2.5 text-content-primary placeholder-content-tertiary focus:border-accent focus:ring-2 focus:ring-accent/20 focus:outline-none"
           ></textarea>
         </div>
+
+        ${error
+          ? /*html*/`
+            <p class="rounded-lg bg-destructive/10 px-4 py-2.5 text-sm text-destructive">
+              ${error}
+            </p>
+          `
+          : ""
+        }
 
         <button
           type="submit"

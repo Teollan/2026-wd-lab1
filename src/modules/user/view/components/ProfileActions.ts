@@ -1,4 +1,4 @@
-import { AUTH_ACTION } from "@/modules/auth/data/auth.store";
+import { PROFILE_ACTION } from "@/modules/user/data/profile.store";
 import { PureComponent } from "@/modules/core/component";
 import { ROUTES } from "@/utility/routes";
 
@@ -13,7 +13,7 @@ export const ProfileActions: PureComponent = () => {
       </a>
 
       <button
-        data-action="${AUTH_ACTION.LOG_OUT}"
+        data-action="${PROFILE_ACTION.LOG_OUT}"
         class="rounded-lg bg-destructive/20 px-5 py-2.5 text-sm font-medium text-destructive hover:bg-destructive/30"
       >
         Log Out

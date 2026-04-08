@@ -1,8 +1,8 @@
-import { AUTH_ACTION } from "@/modules/auth/data/auth.store";
-import { PureComponent } from "@/modules/core/component";
+import { signInStore, SIGN_IN_ACTION } from "@/modules/auth/data/signIn.store";
 import { ROUTES } from "@/utility/routes";
 
-export const SignInForm: PureComponent = () => {
+export const SignInForm = () => {
+  const { error } = signInStore.getState();
   return /*html*/`
     <div class="mx-auto max-w-md">
       <h1 class="mb-2 text-center text-3xl font-bold text-content-primary">
@@ -15,7 +15,7 @@ export const SignInForm: PureComponent = () => {
 
       <form
         id="sign-in-form"
-        data-submit-action="${AUTH_ACTION.SIGN_IN}"
+        data-submit-action="${SIGN_IN_ACTION.SUBMIT}"
         class="space-y-5 rounded-xl border border-stroke-primary bg-surface-secondary p-6"
       >
         <div>
@@ -72,6 +72,15 @@ export const SignInForm: PureComponent = () => {
             Forgot password?
           </a>
         </div>
+
+        ${error
+          ? /*html*/`
+            <p class="rounded-lg bg-destructive/10 px-4 py-2.5 text-sm text-destructive">
+              ${error}
+            </p>
+          `
+          : ""
+        }
 
         <button
           type="submit"

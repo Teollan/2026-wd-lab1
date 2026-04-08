@@ -4,16 +4,17 @@ import { SignUpForm } from "@/modules/auth/view/components/SignUpForm";
 import { Header } from "@/modules/UI/Header";
 import { Footer } from "@/modules/UI/Footer";
 import { authStore } from "@/modules/auth/data/auth.store";
+import { signUpStore } from "@/modules/auth/data/signUp.store";
 import { mobileNavMenuStore } from "@/modules/UI/mobileNavMenu.store";
 
 export class SignUpScreen extends ReactiveComponent {
   protected onComponentDidMount(): void {
+    this.useStore(signUpStore);
     this.useStore(authStore);
     this.useStore(mobileNavMenuStore);
   }
 
   protected getHtml(): string {
-
     return /*html*/`
       ${Header()}
 

@@ -1,4 +1,5 @@
 import { authStore } from "@/modules/auth/data/auth.store";
+import { profileStore } from "@/modules/user/data/profile.store";
 import { mobileNavMenuStore } from "@/modules/UI/mobileNavMenu.store";
 import { ReactiveComponent } from "@/modules/core/component";
 import { createScreen } from "@/modules/core/screen";
@@ -13,6 +14,7 @@ import { ROUTES } from "@/utility/routes";
 
 export class ProfileScreen extends ReactiveComponent {
   protected onComponentDidMount(): void {
+    this.useStore(profileStore);
     this.useStore(authStore);
     this.useStore(mobileNavMenuStore);
   }
