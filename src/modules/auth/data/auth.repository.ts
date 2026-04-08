@@ -46,7 +46,30 @@ export abstract class AuthRepository {
     }
 
     Storage.setItem(Storage.keys.USERS, JSON.stringify([...users, newUser]));
+    Storage.setItem(Storage.keys.AUTH_USER_ID, newUser.id.toString());
 
     return newUser;
+  }
+
+  static logOut(): void {
+    Storage.removeItem(Storage.keys.AUTH_USER_ID);
+  }
+
+  static getAuthUser(): User | null {
+    const authUserId = parseInt(Storage.getItem(Storage.keys.AUTH_USER_ID) ?? '0');
+
+    if (!authUserId) {
+      return null;
+    }
+
+    const users = Storage.getObject<User[]>(Storage.keys.USERS);
+
+    const authUser = users?.find((user) => (user.id === authUserId));
+
+    if (!authUser) {
+      throw new Error('User does not exist');
+    }
+
+    return authUser;
   }
 }

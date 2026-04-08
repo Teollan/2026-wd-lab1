@@ -1,39 +1,53 @@
+import { Action } from "@/modules/core/action";
+import { dispatcher } from "@/modules/core/dispatcher";
 import { Publisher, Subscriber } from "@/modules/core/pubsub";
 
 export type SetFn<T> = (state: Partial<T>) => void;
 export type GetFn<T> = () => T;
 export type StateFactoryFn<T> = (set: SetFn<T>, get: GetFn<T>) => T;
-export type Store<T> = { getState: GetFn<T>, subscribe: (callback: Subscriber<T>) => void };
+export type OldStore<T> = { getState: GetFn<T>, subscribe: (callback: Subscriber<T>) => void };
 export type State<T> = { value: T, setValue: SetFn<T> }
+export type ActionHandler<T> = (payload: any, set: SetFn<T>, get: GetFn<T>) => void;
 
-export function createStore<T>(initialStateFactoryFn: StateFactoryFn<T>): Store<T> {
-    let state: T;
+export class Store<T> extends Publisher<T> {
+  private state: T;
+  private actionHandlers = new Map<string, ActionHandler<T>>();
 
-    const pubsub = new Publisher<T>();
+  constructor(initialState: T) {
+    super();
 
-    const setState: SetFn<T> = (newState) => {
-        state = { ...state, ...newState };
-        pubsub.notify(state);
+    this.state = initialState;
+
+    dispatcher.subscribe(
+      (action) => this.handleAction(action)
+    );
+  }
+
+  public getState() {
+    return this.state;
+  }
+
+  public addAction(type: string, handler: ActionHandler<T>) {
+    this.actionHandlers.set(type, handler);
+  }
+
+  private handleAction({ type, payload }: Action) {
+    const handlerFn = this.actionHandlers.get(type);
+
+    if (!handlerFn) {
+      return;
     }
 
-    const getState: GetFn<T> = () => state;
+    handlerFn(
+      payload,
+      (state) => this.setState(state),
+      () => this.getState(),
+    );
+  }
 
-    state = initialStateFactoryFn(setState, getState);
+  private setState(newState: Partial<T>) {
+      this.state = { ...this.state, ...newState };
 
-    const subscribe = (callback: Subscriber<T>) => {
-        pubsub.subscribe(callback);
-        callback(state);
-    }
-
-    return {
-        getState,
-        subscribe,
-    };
-};
-
-export function createState<T>(initialValue: T) {
-    return createStore<State<T>>((set) => ({
-        value: initialValue,
-        setValue: set,
-    }));
+      this.notify(this.state);
+  }
 }

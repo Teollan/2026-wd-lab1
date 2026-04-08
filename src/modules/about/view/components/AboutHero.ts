@@ -24,21 +24,23 @@ export const AboutHero: PureComponent<Props> = ({ isAuthenticated }) => {
       </p>
 
       <div class="mt-8 flex justify-center gap-4">
-        ${isAuthenticated ? /*html*/`
-          <a
-            href="feed"
-            class="rounded-lg bg-accent px-6 py-2.5 font-medium text-content-primary hover:bg-accent-hover"
-          >
-            Browse the feed
-          </a>
-        ` : /*html*/`
-          <a
-            href="sign-up"
-            class="rounded-lg bg-accent px-6 py-2.5 font-medium text-content-primary hover:bg-accent-hover"
-          >
-            Get started
-          </a>
-        `}
+        ${isAuthenticated
+          ? (/*html*/`
+            <a
+              href="feed"
+              class="rounded-lg bg-accent px-6 py-2.5 font-medium text-content-primary hover:bg-accent-hover"
+            >
+              Browse the feed
+            </a>
+          `)
+          : (/*html*/`
+            <a
+              href="sign-up"
+              class="rounded-lg bg-accent px-6 py-2.5 font-medium text-content-primary hover:bg-accent-hover"
+            >
+              Get started
+            </a>
+          `)}
       </div>
     </section>
   `;

@@ -1,3 +1,4 @@
+import { AUTH_ACTION } from "@/modules/auth/data/auth.store";
 import { PureComponent } from "@/modules/core/component";
 
 export const SignInForm: PureComponent = () => {
@@ -13,7 +14,7 @@ export const SignInForm: PureComponent = () => {
 
       <form
         id="sign-in-form"
-        action="feed"
+        data-submit-action="${AUTH_ACTION.SIGN_IN}"
         class="space-y-5 rounded-xl border border-stroke-primary bg-surface-secondary p-6"
       >
         <div>
@@ -25,6 +26,7 @@ export const SignInForm: PureComponent = () => {
           </label>
 
           <input
+            name="email"
             type="email"
             id="email"
             required
@@ -42,6 +44,7 @@ export const SignInForm: PureComponent = () => {
           </label>
 
           <input
+            name="password"
             id="password"
             type="password"
             required

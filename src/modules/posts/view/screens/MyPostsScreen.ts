@@ -1,18 +1,35 @@
 import { ReactiveComponent } from "@/modules/core/component";
-import { PostsRepository } from "@/modules/posts/data/posts.repository";
+import { createScreen } from "@/modules/core/screen";
 import { Header } from "@/modules/UI/Header";
 import { Footer } from "@/modules/UI/Footer";
 import { PostList } from "@/modules/posts/view/components/PostList";
+import { myPostsStore } from "@/modules/posts/data/myPosts.store";
+import { authStore } from "@/modules/auth/data/auth.store";
 
 export class MyPostsScreen extends ReactiveComponent {
+  protected onComponentDidMount(): void {
+    myPostsStore.subscribe(() => this.render());
+    authStore.subscribe(() => this.render());
+  }
+
   protected getHtml(): string {
-    const posts = PostsRepository.getMyPosts();
+    const { posts } = myPostsStore.getState();
+
+    const { user } = authStore.getState();
+    const isAuthenticated = Boolean(user);
 
     return /*html*/`
-      ${Header({ location: "my-posts", isAuthenticated: false })}
+      ${Header({
+        location: "my-posts",
+        isAuthenticated,
+      })}
 
       <main class="mx-auto w-full max-w-5xl flex-1 px-4 py-12">
-        ${PostList({ title: "My Posts", posts, withActions: true })}
+        ${PostList({
+          withActions: true,
+          title: "My Posts",
+          posts,
+        })}
       </main>
 
       ${Footer()}
@@ -20,4 +37,4 @@ export class MyPostsScreen extends ReactiveComponent {
   }
 }
 
-new MyPostsScreen(document.getElementById("root")!);
+createScreen("root", MyPostsScreen);

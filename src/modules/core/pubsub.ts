@@ -11,7 +11,7 @@ export class Publisher<T> {
         this.subscribers.push(callback);
     }
 
-    notify(payload: T) {
+    protected notify(payload: T) {
         this.subscribers.forEach((callback) => callback(payload));
     }
 }

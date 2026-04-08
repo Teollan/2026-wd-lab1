@@ -1,3 +1,4 @@
+import { AUTH_ACTION } from "@/modules/auth/data/auth.store";
 import { PureComponent } from "@/modules/core/component";
 
 export const SignUpForm: PureComponent = () => {
@@ -13,7 +14,7 @@ export const SignUpForm: PureComponent = () => {
 
       <form
         id="sign-up-form"
-        action="feed"
+        data-submit-action="${AUTH_ACTION.SIGN_UP}"
         class="space-y-5 rounded-xl border border-stroke-primary bg-surface-secondary p-6"
       >
         <div>
@@ -25,6 +26,7 @@ export const SignUpForm: PureComponent = () => {
           </label>
 
           <input
+            name="username"
             id="name"
             type="text"
             required
@@ -42,6 +44,7 @@ export const SignUpForm: PureComponent = () => {
           </label>
 
           <input
+            name="email"
             id="email"
             type="email"
             required
@@ -59,6 +62,7 @@ export const SignUpForm: PureComponent = () => {
           </label>
 
           <input
+            name="password"
             id="password"
             type="password"
             required
@@ -126,6 +130,7 @@ export const SignUpForm: PureComponent = () => {
           </label>
 
           <input
+            name="dateOfBirth"
             id="date-of-birth"
             type="date"
             placeholder="You date of birth"

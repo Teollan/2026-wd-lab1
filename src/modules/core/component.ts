@@ -1,17 +1,19 @@
 export type PureComponent<T = void> = (props: T) => string; 
 
 export abstract class ReactiveComponent<T = void> {
-    protected parent: HTMLElement;
+  protected parent: HTMLElement;
 
-    constructor(parent: HTMLElement, props: T) {
-        this.parent = parent;
+  constructor(parent: HTMLElement, props: T) {
+    this.parent = parent;
 
-        this.render(props);
-    }
+    this.render(props);
+  }
 
-    protected render(props: T) {
-        this.parent.innerHTML = this.getHtml(props)
-    }
+  protected onComponentDidMount() {}
 
-    protected abstract getHtml(props: T): string;
+  protected render(props: T) {
+    this.parent.innerHTML = this.getHtml(props)
+  }
+
+  protected abstract getHtml(props: T): string;
 }

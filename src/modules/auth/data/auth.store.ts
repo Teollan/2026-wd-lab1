@@ -1,18 +1,51 @@
 import { User } from "@/modules/user/model/User";
-import { createStore } from "@/modules/core/store";
+import { Store } from "@/modules/core/store";
+import { AuthRepository } from "@/modules/auth/data/auth.repository";
+import { BASE, ROUTES } from "@/utility/routes";
 
-interface State {
-    user: User | null; 
+interface AuthState {
+  user: User | null;
 }
 
-interface Actions {
-    setUser: (user: User | null) => void;
+export const AUTH_ACTION = {
+  SIGN_IN: 'auth::sign_in',
+  SIGN_UP: 'auth::sign_up',
+  LOG_OUT: 'auth::log_out', 
 }
 
-export const authStore = createStore<State & Actions>((set) => ({
-    user: null,
+export const authStore = new Store<AuthState>({ 
+  user: AuthRepository.getAuthUser(),
+})
 
-    setUser: (user) => set({
-        user
-    })
-}));
+authStore.addAction(
+  AUTH_ACTION.SIGN_IN,
+  (payload) => {
+    try {
+      AuthRepository.signIn(payload);
+
+      window.location.href = BASE + ROUTES.FEED
+    } catch {}
+  },
+);
+
+authStore.addAction(
+  AUTH_ACTION.SIGN_UP,
+  (payload) => {
+    try {
+      AuthRepository.signUp(payload);
+
+      window.location.href = BASE + ROUTES.FEED
+    } catch {}
+  },
+);
+
+authStore.addAction(
+  AUTH_ACTION.LOG_OUT,
+  (_, set) => {
+    set({ user: null });
+
+    AuthRepository.logOut();
+
+    window.location.href = BASE + ROUTES.HOME
+  }
+);
