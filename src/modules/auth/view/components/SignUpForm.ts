@@ -140,6 +140,24 @@ export const SignUpForm: PureComponent = () => {
           />
         </div>
 
+        <div>
+          <label
+            for="bio"
+            class="mb-1 block text-sm font-medium text-content-secondary"
+          >
+            Bio
+          </label>
+
+          <textarea
+            name="bio"
+            id="bio"
+            rows="3"
+            required
+            placeholder="Tell us about yourself..."
+            class="w-full resize-none rounded-lg border border-stroke-secondary bg-surface-tertiary px-4 py-2.5 text-content-primary placeholder-content-tertiary focus:border-accent focus:ring-2 focus:ring-accent/20 focus:outline-none"
+          ></textarea>
+        </div>
+
         <button
           type="submit"
           class="w-full cursor-pointer rounded-lg bg-accent px-4 py-2.5 font-medium text-content-primary hover:bg-accent-hover focus:ring-2 focus:ring-accent/20 focus:outline-none"

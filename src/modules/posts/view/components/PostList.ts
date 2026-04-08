@@ -12,13 +12,26 @@ interface Props {
   title: string;
   posts: PostWithAuthorAndComments[];
   actions: Actions;
+  EmptyState: PureComponent;
 }
 
 export const PostList: PureComponent<Props> = ({
   title,
   posts,
   actions,
+  EmptyState,
 }) => {
+
+  if (!posts.length) {
+    return /*html*/`
+      <h1 class="mb-8 text-3xl font-bold text-content-primary">
+        ${title}
+      </h1>
+
+      ${EmptyState()}
+    `;
+  }
+
   return /*html*/`
     <h1 class="mb-8 text-3xl font-bold text-content-primary">
       ${title}

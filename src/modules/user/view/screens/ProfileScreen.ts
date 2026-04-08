@@ -32,7 +32,7 @@ export class ProfileScreen extends ReactiveComponent {
     return /*html*/`
       ${Header()}
 
-      <main class="mx-auto max-w-5xl flex-1 px-4 py-12">
+      <main class="mx-auto w-full max-w-5xl flex-1 px-4 py-12">
         <div class="mx-auto max-w-2xl">
           <h1 class="mb-8 text-3xl font-bold text-content-primary">
             Profile
@@ -46,7 +46,7 @@ export class ProfileScreen extends ReactiveComponent {
               { label: "Email", value: user.email },
               { label: "Gender", value: formatGender(user.gender) },
               { label: "Date of birth", value: formatDate(user.dateOfBirth) },
-              { label: "Bio", value: "Full-stack developer and tech blogger. Passionate about web standards and open source." },
+              { label: "Bio", value: user.bio },
               { label: "Posts", value: postsCount.toString() },
               { label: "Comments", value: commentsCount.toString() },
             ]})}

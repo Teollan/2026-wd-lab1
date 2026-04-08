@@ -16,7 +16,9 @@ const InfoTableEntry: PureComponent<InfoEntry> = ({ label, value }) => {
         ${label}
       </td>
 
-      <td class="py-3">${value}</td>
+      <td class="w-full py-3">
+        ${value}
+      </td>
     </tr>
   `;
 }

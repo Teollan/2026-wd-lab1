@@ -5,6 +5,7 @@ export interface User {
     username: string;
     dateOfBirth: Date;
     gender: string;
+    bio: string;
     createdAt: Date;
 }
 
@@ -15,6 +16,7 @@ export interface UserDto {
     username: string;
     dateOfBirth: string;
     gender: string;
+    bio: string;
     createdAt: string;
 }
 

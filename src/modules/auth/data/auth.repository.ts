@@ -12,6 +12,7 @@ interface SignUpInput {
   password: string;
   dateOfBirth: Date;
   gender: string;
+  bio: string;
 }
 
 export abstract class AuthRepository {
