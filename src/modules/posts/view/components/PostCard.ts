@@ -30,7 +30,7 @@ export const PostCard: PureComponent<Props> = ({ post, withActions }) => {
           </div>
         </div>
 
-        ${withActions ? PostActions() : ""}
+        ${withActions ? PostActions({ postId: post.id }) : ""}
       </div>
 
       <h2 class="mb-2 text-xl font-semibold text-content-primary">

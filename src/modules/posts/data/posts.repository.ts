@@ -15,7 +15,7 @@ export abstract class PostsRepository {
     const users = Storage.getObject<UserDto[]>(Storage.keys.USERS) ?? [];
 
     return posts.map((dto) => {
-      const author = users.find((u) => u.id === dto.authorId);
+      const author = users.find((user) => user.id === dto.authorId);
 
       return {
         ...mapPostDtoToPost(dto),
@@ -55,5 +55,10 @@ export abstract class PostsRepository {
     Storage.setObject(Storage.keys.POSTS, [...posts, post]);
 
     return post;
+  }
+
+  static delete(postId: number): void {
+    const posts = Storage.getObject<PostDto[]>(Storage.keys.POSTS) ?? [];
+    Storage.setObject(Storage.keys.POSTS, posts.filter((post) => post.id !== postId));
   }
 }

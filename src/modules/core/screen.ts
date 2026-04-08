@@ -17,12 +17,12 @@ export const createScreen = (
 
   new Screen(root, {});
 
-  root.addEventListener("click", ({ target }) => {
-    if (!(target instanceof HTMLElement)) {
+  root.addEventListener("click", (event) => {
+    if (!(event.target instanceof Element)) {
       return;
     }
 
-    const source = target.closest("[data-action]");
+    const source = event.target.closest("[data-action]");
 
     if (!(source instanceof HTMLElement)) {
       return;
@@ -34,9 +34,11 @@ export const createScreen = (
       return;
     }
 
-    const payload = source.dataset.payload ? JSON.parse(source.dataset.payload) : null;
+    const payload = source.dataset.payload
+      ? JSON.parse(source.dataset.payload)
+      : null;
 
-    dispatcher.dispatch({ type, payload })
+    dispatcher.dispatch({ type, payload });
   });
 
   root.addEventListener("submit", (event) => {
@@ -59,7 +61,11 @@ export const createScreen = (
     }
 
     const formPayload = Object.fromEntries(new FormData(form));
-    const componentPayload = form.dataset.payload ? JSON.parse(form.dataset.payload) : null;
+
+    const componentPayload = form.dataset.payload
+      ? JSON.parse(form.dataset.payload)
+      : null;
+    
     const payload = { ...componentPayload, ...formPayload };
 
     dispatcher.dispatch({ type, payload })

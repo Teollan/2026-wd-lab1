@@ -3,9 +3,10 @@ import { createScreen } from "@/modules/core/screen";
 import { Header } from "@/modules/UI/Header";
 import { Footer } from "@/modules/UI/Footer";
 import { PostList } from "@/modules/posts/view/components/PostList";
-import "@/modules/comments/data/comments.store";
 import { myPostsStore } from "@/modules/posts/data/myPosts.store";
 import { authStore } from "@/modules/auth/data/auth.store";
+import "@/modules/comments/data/comments.store";
+import "@/modules/posts/data/posts.store"
 
 export class MyPostsScreen extends ReactiveComponent {
   protected onComponentDidMount(): void {

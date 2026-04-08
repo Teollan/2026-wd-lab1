@@ -16,7 +16,7 @@ export abstract class CommentsRepository {
     return comments
       .filter((comment) => comment.postId === postId)
       .map((dto) => {
-        const author = users.find((u) => u.id === dto.authorId);
+        const author = users.find((user) => user.id === dto.authorId);
 
         return {
           ...mapCommentDtoToComment(dto),
