@@ -31,17 +31,19 @@ export abstract class PostsRepository {
     const posts = Storage.getObject<PostDto[]>(Storage.keys.POSTS) ?? [];
     const users = Storage.getObject<UserDto[]>(Storage.keys.USERS) ?? [];
 
-    return posts.map((dto) => {
-      const author = users.find((user) => user.id === dto.authorId);
+    return posts
+      .map((dto) => {
+        const author = users.find((user) => user.id === dto.authorId);
 
-      return {
-        ...mapPostDtoToPost(dto),
-        author: author
-          ? mapUserDtoToUser(author)
-          : null!,
-        comments: CommentsRepository.getByPostId(dto.id),
-      };
-    });
+        return {
+          ...mapPostDtoToPost(dto),
+          author: author
+            ? mapUserDtoToUser(author)
+            : null!,
+          comments: CommentsRepository.getByPostId(dto.id),
+        };
+      })
+      .sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime());
   }
 
   static getMyPosts(): PostWithAuthorAndComments[] {
@@ -51,9 +53,21 @@ export abstract class PostsRepository {
       throw new Error("Must be authenticated to view posts");
     }
 
-    return PostsRepository.getFeed().filter(
-      (post) => post.authorId === user.id,
-    );
+    const users = Storage.getObject<UserDto[]>(Storage.keys.USERS) ?? [];
+
+    return PostsRepository.findByAuthorId(user.id)
+      .map((post) => {
+        const author = users.find((userDto) => userDto.id === post.authorId);
+
+        return {
+          ...post,
+          author: author
+            ? mapUserDtoToUser(author)
+            : null!,
+          comments: CommentsRepository.getByPostId(post.id),
+        };
+      })
+      .sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime());
   }
 
   static create(input: CreatePostInput): Post {

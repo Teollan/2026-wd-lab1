@@ -32,7 +32,8 @@ export abstract class CommentsRepository {
             ? mapUserDtoToUser(author)
             : null!,
         };
-      });
+      })
+      .sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime());
   }
 
   static create(input: CreateCommentInput): Comment {
