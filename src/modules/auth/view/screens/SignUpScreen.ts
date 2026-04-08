@@ -11,10 +11,10 @@ export class SignUpScreen extends ReactiveComponent {
   }
 
   protected getHtml(): string {
-    const isAuthenticated = Boolean(authStore.getState().user);
+    const { user } = authStore.getState();
 
     return /*html*/`
-      ${Header({ location: "sign-up", isAuthenticated })}
+      ${Header({ user })}
 
       <main class="mx-auto w-full max-w-5xl flex-1 px-4 py-12">
         ${SignUpForm()}

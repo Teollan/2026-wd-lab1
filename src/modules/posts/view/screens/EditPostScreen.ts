@@ -14,7 +14,7 @@ export class EditPostScreen extends ReactiveComponent {
   }
 
   protected getHtml(): string {
-    const isAuthenticated = Boolean(authStore.getState().user);
+    const { user } = authStore.getState();
     const postId = Number(new URLSearchParams(window.location.search).get("id"));
     const post = PostsRepository.findById(postId);
 
@@ -24,7 +24,7 @@ export class EditPostScreen extends ReactiveComponent {
     }
 
     return /*html*/`
-      ${Header({ location: "my-posts", isAuthenticated })}
+      ${Header({ user })}
 
       <main class="mx-auto w-full max-w-5xl flex-1 px-4 py-12">
         ${PostForm({

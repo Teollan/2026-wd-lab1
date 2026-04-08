@@ -16,7 +16,7 @@ export class AboutScreen extends ReactiveComponent {
     const isAuthenticated = Boolean(user);
 
     return /*html*/`
-      ${Header({ location: "about", isAuthenticated })}
+      ${Header({ user })}
 
       <main class="mx-auto w-full max-w-5xl flex-1 px-4 py-12">
         ${AboutHero({ isAuthenticated })}

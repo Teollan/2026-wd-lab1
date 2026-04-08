@@ -1,15 +1,15 @@
 import { PureComponent } from "@/modules/core/component";
+import { User } from "@/modules/user/model/User";
 import { DesktopNavBar } from "@/modules/UI/DesktopNavBar";
 import { IconMenu } from "@/modules/UI/icons/IconMenu";
 import { Logo } from "@/modules/UI/Logo";
 import { MobileNavBar } from "@/modules/UI/MobileNavBar";
 
 interface Props {
-  location: string;
-  isAuthenticated: boolean;
+  user: User | null;
 }
 
-export const Header: PureComponent<Props> = ({ location, isAuthenticated }) => {
+export const Header: PureComponent<Props> = ({ user }) => {
   return /*html*/`
     <header class="relative border-b border-stroke-primary bg-surface-primary">
       <div class="mx-auto flex max-w-5xl items-center justify-between px-4 py-4">
@@ -22,10 +22,10 @@ export const Header: PureComponent<Props> = ({ location, isAuthenticated }) => {
           ${IconMenu()}
         </button>
 
-        ${DesktopNavBar({ location, isAuthenticated })}
+        ${DesktopNavBar({ user })}
       </div>
 
-      ${MobileNavBar({ location, isAuthenticated })}
+      ${MobileNavBar({ user })}
     </header>
   `;
 }

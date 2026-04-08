@@ -16,15 +16,10 @@ export class MyPostsScreen extends ReactiveComponent {
 
   protected getHtml(): string {
     const { posts } = myPostsStore.getState();
-
     const { user } = authStore.getState();
-    const isAuthenticated = Boolean(user);
 
     return /*html*/`
-      ${Header({
-        location: "my-posts",
-        isAuthenticated,
-      })}
+      ${Header({ user })}
 
       <main class="mx-auto w-full max-w-5xl flex-1 px-4 py-12">
         ${PostList({

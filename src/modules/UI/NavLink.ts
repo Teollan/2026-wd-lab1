@@ -3,10 +3,11 @@ import { PureComponent } from "@/modules/core/component";
 interface Props {
   href: string;
   label: string;
-  isActive: boolean;
 }
 
-export const NavLink: PureComponent<Props> = ({ href, label, isActive }) => {
+export const NavLink: PureComponent<Props> = ({ href, label }) => {
+  const isActive = window.location.pathname.endsWith(href);
+
   return /*html*/`
     <a
       href="${href}"

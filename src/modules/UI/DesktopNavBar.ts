@@ -1,12 +1,15 @@
 import { PureComponent } from "@/modules/core/component";
+import { User } from "@/modules/user/model/User";
 import { NavLink } from "@/modules/UI/NavLink";
+import { getInitials } from "@/utility/string";
 
 interface Props {
-  location: string;
-  isAuthenticated: boolean;
+  user: User | null;
 }
 
-export const DesktopNavBar: PureComponent<Props> = ({ location, isAuthenticated }) => {
+export const DesktopNavBar: PureComponent<Props> = ({ user }) => {
+  const isProfileActive = window.location.pathname.endsWith("profile");
+
   return /*html*/`
     <nav
       id="nav-menu"
@@ -14,40 +17,40 @@ export const DesktopNavBar: PureComponent<Props> = ({ location, isAuthenticated 
     >
       <ul class="flex flex-col gap-1 md:flex-row md:gap-6">
         <li>
-          ${NavLink({ href: "./", label: "About", isActive: location === "about" })}
+          ${NavLink({ href: "./", label: "About" })}
         </li>
 
-        ${isAuthenticated ? /*html*/`
+        ${user ? /*html*/`
           <li>
-            ${NavLink({ href: "feed", label: "Feed", isActive: location === "feed" })}
+            ${NavLink({ href: "feed", label: "Feed" })}
           </li>
 
           <li>
-            ${NavLink({ href: "my-posts", label: "My Posts", isActive: location === "my-posts" })}
+            ${NavLink({ href: "my-posts", label: "My Posts" })}
           </li>
 
           <li>
-            ${NavLink({ href: "new-post", label: "New Post", isActive: location === "new-post" })}
+            ${NavLink({ href: "new-post", label: "New Post" })}
           </li>
         ` : /*html*/`
           <li>
-            ${NavLink({ href: "sign-in", label: "Sign In", isActive: location === "sign-in" })}
+            ${NavLink({ href: "sign-in", label: "Sign In" })}
           </li>
 
           <li>
-            ${NavLink({ href: "sign-up", label: "Sign Up", isActive: location === "sign-up" })}
+            ${NavLink({ href: "sign-up", label: "Sign Up" })}
           </li>
         `}
 
-        ${isAuthenticated ? /*html*/`
+        ${user ? /*html*/`
           <li>
             <a
               href="profile"
-              class="flex h-9 w-9 items-center justify-center rounded-full bg-accent/20 text-sm font-bold text-accent-hover ring-2 ${location === "profile"
+              class="flex h-9 w-9 items-center justify-center rounded-full bg-accent/20 text-sm font-bold text-accent-hover ring-2 ${isProfileActive
                 ? "ring-accent-hover"
                 : "ring-transparent hover:ring-accent/40"}"
             >
-              JD
+              ${getInitials(user.username)}
             </a>
           </li>
         ` : ""}

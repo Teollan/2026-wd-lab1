@@ -15,7 +15,6 @@ export class ProfileScreen extends ReactiveComponent {
 
   protected getHtml() {
     const { user } = authStore.getState();
-    const isAuthenticated = Boolean(user);
 
     if (!user) {
       window.location.href = ROUTES.SIGN_IN;
@@ -24,7 +23,7 @@ export class ProfileScreen extends ReactiveComponent {
     }
 
     return /*html*/`
-      ${Header({ location: "profile", isAuthenticated })}
+      ${Header({ user })}
 
       <main class="mx-auto max-w-5xl flex-1 px-4 py-12">
         <div class="mx-auto max-w-2xl">
