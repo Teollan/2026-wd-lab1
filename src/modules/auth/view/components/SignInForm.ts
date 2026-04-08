@@ -1,5 +1,6 @@
 import { AUTH_ACTION } from "@/modules/auth/data/auth.store";
 import { PureComponent } from "@/modules/core/component";
+import { ROUTES } from "@/utility/routes";
 
 export const SignInForm: PureComponent = () => {
   return /*html*/`
@@ -83,7 +84,7 @@ export const SignInForm: PureComponent = () => {
           Don't have an account?
 
           <a
-            href="sign-up"
+            href="${ROUTES.SIGN_UP}"
             class="text-accent-hover hover:text-accent-light"
           >
             Sign up

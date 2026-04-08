@@ -1,7 +1,7 @@
 import { User } from "@/modules/user/model/User";
 import { Store } from "@/modules/core/store";
 import { AuthRepository } from "@/modules/auth/data/auth.repository";
-import { BASE, ROUTES } from "@/utility/routes";
+import { ROUTES } from "@/utility/routes";
 
 interface AuthState {
   user: User | null;
@@ -23,7 +23,7 @@ authStore.addAction(
     try {
       AuthRepository.signIn(payload);
 
-      window.location.href = BASE + ROUTES.FEED
+      window.location.href = ROUTES.FEED
     } catch {}
   },
 );
@@ -34,7 +34,7 @@ authStore.addAction(
     try {
       AuthRepository.signUp(payload);
 
-      window.location.href = BASE + ROUTES.FEED
+      window.location.href = ROUTES.FEED
     } catch {}
   },
 );
@@ -46,6 +46,6 @@ authStore.addAction(
 
     AuthRepository.logOut();
 
-    window.location.href = BASE + ROUTES.HOME
+    window.location.href = ROUTES.HOME
   }
 );

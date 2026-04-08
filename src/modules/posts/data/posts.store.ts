@@ -1,6 +1,6 @@
 import { Store } from "@/modules/core/store";
 import { PostsRepository } from "@/modules/posts/data/posts.repository";
-import { BASE, ROUTES } from "@/utility/routes";
+import { ROUTES } from "@/utility/routes";
 
 export const POSTS_ACTION = {
   CREATE: "posts::create",
@@ -19,14 +19,14 @@ postsStore.addAction(
       content: payload.content,
     });
 
-    window.location.href = BASE + ROUTES.MY_POSTS;
+    window.location.href = ROUTES.MY_POSTS;
   },
 );
 
 postsStore.addAction(
   POSTS_ACTION.EDIT,
   (payload) => {
-    window.location.href = BASE + ROUTES.EDIT_POST + `?id=${payload.postId}`;
+    window.location.href = ROUTES.EDIT_POST + `?id=${payload.postId}`;
   },
 );
 
@@ -38,7 +38,7 @@ postsStore.addAction(
       content: payload.content,
     });
 
-    window.location.href = BASE + ROUTES.MY_POSTS;
+    window.location.href = ROUTES.MY_POSTS;
   },
 );
 

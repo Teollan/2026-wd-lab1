@@ -6,7 +6,7 @@ import { POSTS_ACTION } from "@/modules/posts/data/posts.store";
 import { Header } from "@/modules/UI/Header";
 import { Footer } from "@/modules/UI/Footer";
 import { authStore } from "@/modules/auth/data/auth.store";
-import { BASE, ROUTES } from "@/utility/routes";
+import { ROUTES } from "@/utility/routes";
 
 export class EditPostScreen extends ReactiveComponent {
   protected onComponentDidMount(): void {
@@ -19,7 +19,7 @@ export class EditPostScreen extends ReactiveComponent {
     const post = PostsRepository.findById(postId);
 
     if (!post) {
-      window.location.href = BASE + ROUTES.MY_POSTS;
+      window.location.href = ROUTES.MY_POSTS;
       return "";
     }
 

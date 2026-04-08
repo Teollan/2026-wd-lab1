@@ -1,4 +1,5 @@
 import { PureComponent } from "@/modules/core/component";
+import { ROUTES } from "@/utility/routes";
 
 interface Props {
   isAuthenticated: boolean;
@@ -27,7 +28,7 @@ export const AboutHero: PureComponent<Props> = ({ isAuthenticated }) => {
         ${isAuthenticated
           ? (/*html*/`
             <a
-              href="feed"
+              href="${ROUTES.FEED}"
               class="rounded-lg bg-accent px-6 py-2.5 font-medium text-content-primary hover:bg-accent-hover"
             >
               Browse the feed
@@ -35,7 +36,7 @@ export const AboutHero: PureComponent<Props> = ({ isAuthenticated }) => {
           `)
           : (/*html*/`
             <a
-              href="sign-up"
+              href="${ROUTES.SIGN_UP}"
               class="rounded-lg bg-accent px-6 py-2.5 font-medium text-content-primary hover:bg-accent-hover"
             >
               Get started

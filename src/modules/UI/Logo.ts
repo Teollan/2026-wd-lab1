@@ -1,13 +1,14 @@
 import { PureComponent } from "@/modules/core/component";
+import { BASE, ROUTES } from "@/utility/routes";
 
 export const Logo: PureComponent = () => {
   return /*html*/`
     <a
-      href="./"
+      href="${ROUTES.HOME}"
       class="flex items-center gap-2"
     >
       <img
-        src="/2026-wd-lab1/images/logo.svg"
+        src="${BASE}/images/logo.svg"
         alt="BlogSpace logo"
         class="h-8 w-8"
       />
