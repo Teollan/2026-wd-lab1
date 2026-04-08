@@ -32,10 +32,7 @@ export class ProfileScreen extends ReactiveComponent {
           </h1>
 
           <div class="rounded-xl border border-stroke-primary bg-surface-secondary p-6">
-            ${ProfileAvatar({
-              username: user.username,
-              createdAt: user.createdAt,
-            })}
+            ${ProfileAvatar({ user })}
 
             ${ProfileInfoTable({ entries: [
               { label: "Username", value: user.username },

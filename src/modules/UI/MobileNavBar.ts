@@ -2,7 +2,7 @@ import { PureComponent } from "@/modules/core/component";
 import { User } from "@/modules/user/model/User";
 import { Avatar } from "@/modules/UI/Avatar";
 import { NavLink } from "@/modules/UI/NavLink";
-import { getInitials } from "@/utility/string";
+
 
 interface Props {
   user: User | null;
@@ -25,7 +25,7 @@ export const MobileNavBar: PureComponent<Props> = ({ user }) => {
                 ? "text-accent-hover"
                 : "text-content-secondary hover:text-content-primary"}"
             >
-              ${Avatar({ initials: getInitials(user.username) })}
+              ${Avatar({ user })}
 
               <span class="font-medium text-lg">${user.username}</span>
             </a>

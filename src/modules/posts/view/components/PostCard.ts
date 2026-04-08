@@ -3,7 +3,6 @@ import { PostWithAuthorAndComments } from "@/modules/posts/model/Post";
 import { Avatar } from "@/modules/UI/Avatar";
 import { PostActions } from "@/modules/posts/view/components/PostActions";
 import { PostCommentSection } from "@/modules/posts/view/components/PostCommentSection";
-import { getInitials } from "@/utility/string";
 
 interface Props {
   post: PostWithAuthorAndComments;
@@ -17,9 +16,7 @@ export const PostCard: PureComponent<Props> = ({ post, withActions }) => {
         ? "justify-between"
         : "gap-3"}">
         <div class="flex items-center gap-3">
-          ${Avatar({
-            initials: getInitials(post.author.username),
-          })}
+          ${Avatar({ user: post.author })}
 
           <div>
             <p class="text-sm font-medium text-content-primary">

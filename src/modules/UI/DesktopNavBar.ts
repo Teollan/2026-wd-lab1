@@ -1,7 +1,7 @@
 import { PureComponent } from "@/modules/core/component";
 import { User } from "@/modules/user/model/User";
+import { Avatar } from "@/modules/UI/Avatar";
 import { NavLink } from "@/modules/UI/NavLink";
-import { getInitials } from "@/utility/string";
 
 interface Props {
   user: User | null;
@@ -46,11 +46,11 @@ export const DesktopNavBar: PureComponent<Props> = ({ user }) => {
           <li>
             <a
               href="profile"
-              class="flex h-9 w-9 items-center justify-center rounded-full bg-accent/20 text-sm font-bold text-accent-hover ring-2 ${isProfileActive
+              class="block rounded-full ring-2 ${isProfileActive
                 ? "ring-accent-hover"
                 : "ring-transparent hover:ring-accent/40"}"
             >
-              ${getInitials(user.username)}
+              ${Avatar({ user })}
             </a>
           </li>
         ` : ""}

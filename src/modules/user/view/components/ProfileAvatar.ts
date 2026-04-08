@@ -1,27 +1,23 @@
 import { PureComponent } from "@/modules/core/component";
+import { User } from "@/modules/user/model/User";
 import { Avatar } from "@/modules/UI/Avatar";
-import { getInitials } from "@/utility/string";
 
 interface Props {
-  username: string;
-  createdAt: Date;
+  user: User;
 }
 
-export const ProfileAvatar: PureComponent<Props> = ({ username, createdAt }) => {
+export const ProfileAvatar: PureComponent<Props> = ({ user }) => {
   return /*html*/`
     <div class="mb-6 flex items-center gap-4">
-      ${Avatar({
-        initials: getInitials(username),
-        size: "lg",
-      })}
+      ${Avatar({ user, size: "lg" })}
 
       <div>
         <h2 class="text-xl font-semibold text-content-primary">
-          ${username}
+          ${user.username}
         </h2>
 
         <p class="text-sm text-content-tertiary">
-          Member since ${formatDate(createdAt)}
+          Member since ${formatDate(user.createdAt)}
         </p>
       </div>
     </div>
