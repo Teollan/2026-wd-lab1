@@ -10,6 +10,14 @@ interface CreatePostInput {
 }
 
 export abstract class PostsRepository {
+  static findByAuthorId(authorId: number): Post[] {
+    const posts = Storage.getObject<PostDto[]>(Storage.keys.POSTS) ?? [];
+
+    return posts
+      .filter((post) => post.authorId === authorId)
+      .map(mapPostDtoToPost);
+  }
+
   static findById(postId: number): Post | null {
     const posts = Storage.getObject<PostDto[]>(Storage.keys.POSTS) ?? [];
     const dto = posts.find((post) => post.id === postId);

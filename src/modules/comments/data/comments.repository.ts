@@ -9,6 +9,14 @@ interface CreateCommentInput {
 }
 
 export abstract class CommentsRepository {
+  static findByAuthorId(authorId: number): Comment[] {
+    const comments = Storage.getObject<CommentDto[]>(Storage.keys.COMMENTS) ?? [];
+
+    return comments
+      .filter((comment) => comment.authorId === authorId)
+      .map(mapCommentDtoToComment);
+  }
+
   static getByPostId(postId: number): CommentWithAuthor[] {
     const comments = Storage.getObject<CommentDto[]>(Storage.keys.COMMENTS) ?? [];
     const users = Storage.getObject<UserDto[]>(Storage.keys.USERS) ?? [];
