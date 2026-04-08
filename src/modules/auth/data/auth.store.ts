@@ -14,7 +14,7 @@ export const AUTH_ACTION = {
 }
 
 export const authStore = new Store<AuthState>({ 
-  user: AuthRepository.getAuthUser(),
+  user: AuthRepository.findAuthUser(),
 })
 
 authStore.addAction(

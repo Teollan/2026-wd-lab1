@@ -10,6 +10,15 @@ interface CreatePostInput {
 }
 
 export abstract class PostsRepository {
+  static findById(postId: number): Post | null {
+    const posts = Storage.getObject<PostDto[]>(Storage.keys.POSTS) ?? [];
+    const dto = posts.find((post) => post.id === postId);
+
+    return dto
+      ? mapPostDtoToPost(dto)
+      : null;
+  }
+
   static getFeed(): PostWithAuthorAndComments[] {
     const posts = Storage.getObject<PostDto[]>(Storage.keys.POSTS) ?? [];
     const users = Storage.getObject<UserDto[]>(Storage.keys.USERS) ?? [];
@@ -19,7 +28,9 @@ export abstract class PostsRepository {
 
       return {
         ...mapPostDtoToPost(dto),
-        author: author ? mapUserDtoToUser(author) : null!,
+        author: author
+          ? mapUserDtoToUser(author)
+          : null!,
         comments: CommentsRepository.getByPostId(dto.id),
       };
     });
@@ -55,6 +66,19 @@ export abstract class PostsRepository {
     Storage.setObject(Storage.keys.POSTS, [...posts, post]);
 
     return post;
+  }
+
+  static update(postId: number, input: CreatePostInput): void {
+    const posts = Storage.getObject<PostDto[]>(Storage.keys.POSTS) ?? [];
+
+    Storage.setObject(
+      Storage.keys.POSTS,
+      posts.map((post) =>
+        post.id === postId
+          ? { ...post, ...input }
+          : post,
+      ),
+    );
   }
 
   static delete(postId: number): void {

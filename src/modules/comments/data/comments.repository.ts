@@ -20,7 +20,9 @@ export abstract class CommentsRepository {
 
         return {
           ...mapCommentDtoToComment(dto),
-          author: author ? mapUserDtoToUser(author) : null!,
+          author: author
+            ? mapUserDtoToUser(author)
+            : null!,
         };
       });
   }

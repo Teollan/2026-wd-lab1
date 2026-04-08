@@ -15,6 +15,31 @@ interface SignUpInput {
 }
 
 export abstract class AuthRepository {
+  static findAuthUser(): User | null {
+    const authUserId = parseInt(Storage.getItem(Storage.keys.AUTH_USER_ID) ?? '0');
+
+    if (!authUserId) {
+      return null;
+    }
+
+    const users = Storage.getObject<UserDto[]>(Storage.keys.USERS);
+    const authUserDto = users?.find((user) => (user.id === authUserId));
+
+    return authUserDto
+      ? mapUserDtoToUser(authUserDto)
+      : null;
+  }
+
+  static getAuthUser(): User {
+    const user = AuthRepository.findAuthUser();
+
+    if (!user) {
+      throw new Error('No authenticated user found');
+    }
+
+    return user;
+  }
+
   static signIn(input: SignInInput): User {
     const users = Storage.getObject<UserDto[]>(Storage.keys.USERS);
 
@@ -54,23 +79,5 @@ export abstract class AuthRepository {
 
   static logOut(): void {
     Storage.removeItem(Storage.keys.AUTH_USER_ID);
-  }
-
-  static getAuthUser(): User | null {
-    const authUserId = parseInt(Storage.getItem(Storage.keys.AUTH_USER_ID) ?? '0');
-
-    if (!authUserId) {
-      return null;
-    }
-
-    const users = Storage.getObject<UserDto[]>(Storage.keys.USERS);
-
-    const authUserDto = users?.find((user) => (user.id === authUserId));
-
-    if (!authUserDto) {
-      throw new Error('User does not exist');
-    }
-
-    return mapUserDtoToUser(authUserDto);
   }
 }

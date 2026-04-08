@@ -10,7 +10,11 @@ interface Props {
 export const PostActions: PureComponent<Props> = ({ postId }) => {
   return /*html*/`
     <div class="flex items-center gap-2">
-      <button class="text-content-tertiary hover:text-accent-hover">
+      <button
+        data-action="${POSTS_ACTION.EDIT}"
+        data-payload='${JSON.stringify({ postId })}'
+        class="text-content-tertiary hover:text-accent-hover"
+      >
         ${IconEdit()}
       </button>
 

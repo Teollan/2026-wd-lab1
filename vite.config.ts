@@ -25,6 +25,7 @@ export default defineConfig({
         feed: resolve(__dirname, "src/feed.html"),
         myPosts: resolve(__dirname, "src/my-posts.html"),
         newPost: resolve(__dirname, "src/new-post.html"),
+        editPost: resolve(__dirname, "src/edit-post.html"),
       },
     },
   },

@@ -43,7 +43,9 @@ export const DesktopNavBar: PureComponent<Props> = ({ location, isAuthenticated 
           <li>
             <a
               href="profile"
-              class="flex h-9 w-9 items-center justify-center rounded-full bg-accent/20 text-sm font-bold text-accent-hover ring-2 ${location === "profile" ? "ring-accent-hover" : "ring-transparent hover:ring-accent/40"}"
+              class="flex h-9 w-9 items-center justify-center rounded-full bg-accent/20 text-sm font-bold text-accent-hover ring-2 ${location === "profile"
+                ? "ring-accent-hover"
+                : "ring-transparent hover:ring-accent/40"}"
             >
               JD
             </a>

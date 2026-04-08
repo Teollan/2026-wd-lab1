@@ -18,7 +18,9 @@ export const MobileNavBar: PureComponent<Props> = ({ location, isAuthenticated }
           <li>
             <a
               href="profile"
-              class="flex items-center gap-3 px-3 py-2 ${location === "profile" ? "text-accent-hover" : "text-content-secondary hover:text-content-primary"}"
+              class="flex items-center gap-3 px-3 py-2 ${location === "profile"
+                ? "text-accent-hover"
+                : "text-content-secondary hover:text-content-primary"}"
             >
               ${Avatar({ initials: "JD" })}
 

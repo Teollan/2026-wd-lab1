@@ -13,7 +13,9 @@ interface Props {
 export const PostCard: PureComponent<Props> = ({ post, withActions }) => {
   return /*html*/`
     <article class="rounded-xl border border-stroke-primary bg-surface-secondary p-6">
-      <div class="mb-3 flex items-center ${withActions ? "justify-between" : "gap-3"}">
+      <div class="mb-3 flex items-center ${withActions
+        ? "justify-between"
+        : "gap-3"}">
         <div class="flex items-center gap-3">
           ${Avatar({
             initials: getInitials(post.author.username),
@@ -30,7 +32,9 @@ export const PostCard: PureComponent<Props> = ({ post, withActions }) => {
           </div>
         </div>
 
-        ${withActions ? PostActions({ postId: post.id }) : ""}
+        ${withActions
+          ? PostActions({ postId: post.id })
+          : ""}
       </div>
 
       <h2 class="mb-2 text-xl font-semibold text-content-primary">

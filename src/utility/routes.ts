@@ -9,4 +9,5 @@ export const ROUTES = {
   FEED: `/feed`,
   MY_POSTS: `/my-posts`,
   NEW_POST: `/new-post`,
+  EDIT_POST: `/edit-post`,
 }
