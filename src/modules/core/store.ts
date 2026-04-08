@@ -5,9 +5,16 @@ import { Publisher, Subscriber } from "@/modules/core/pubsub";
 export type SetFn<T> = (state: Partial<T>) => void;
 export type GetFn<T> = () => T;
 export type StateFactoryFn<T> = (set: SetFn<T>, get: GetFn<T>) => T;
-export type OldStore<T> = { getState: GetFn<T>, subscribe: (callback: Subscriber<T>) => void };
-export type State<T> = { value: T, setValue: SetFn<T> }
-export type ActionHandler<T> = (payload: any, set: SetFn<T>, get: GetFn<T>) => void;
+export type OldStore<T> = {
+  getState: GetFn<T>;
+  subscribe: (callback: Subscriber<T>) => void;
+};
+export type State<T> = { value: T; setValue: SetFn<T> };
+export type ActionHandler<T> = (
+  payload: any,
+  set: SetFn<T>,
+  get: GetFn<T>,
+) => void;
 
 export class Store<T> extends Publisher<T> {
   private state: T;
@@ -18,9 +25,7 @@ export class Store<T> extends Publisher<T> {
 
     this.state = initialState;
 
-    dispatcher.subscribe(
-      (action) => this.handleAction(action)
-    );
+    dispatcher.subscribe((action) => this.handleAction(action));
   }
 
   public getState() {
@@ -46,8 +51,8 @@ export class Store<T> extends Publisher<T> {
   }
 
   private setState(newState: Partial<T>) {
-      this.state = { ...this.state, ...newState };
+    this.state = { ...this.state, ...newState };
 
-      this.notify(this.state);
+    this.notify(this.state);
   }
 }

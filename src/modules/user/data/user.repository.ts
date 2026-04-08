@@ -7,8 +7,6 @@ export abstract class UserRepository {
 
     const targetUser = users.find((user) => user.id === userId);
 
-    return targetUser
-      ? mapUserDtoToUser(targetUser)
-      : null;
+    return targetUser ? mapUserDtoToUser(targetUser) : null;
   }
 }

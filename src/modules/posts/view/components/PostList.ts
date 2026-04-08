@@ -21,9 +21,8 @@ export const PostList: PureComponent<Props> = ({
   actions,
   EmptyState,
 }) => {
-
   if (!posts.length) {
-    return /*html*/`
+    return /*html*/ `
       <h1 class="mb-8 text-3xl font-bold text-content-primary">
         ${title}
       </h1>
@@ -32,15 +31,13 @@ export const PostList: PureComponent<Props> = ({
     `;
   }
 
-  return /*html*/`
+  return /*html*/ `
     <h1 class="mb-8 text-3xl font-bold text-content-primary">
       ${title}
     </h1>
 
     <div class="space-y-8">
-      ${posts.map((post) => (
-        PostCard({ post, actions })
-      )).join("")}
+      ${posts.map((post) => PostCard({ post, actions })).join("")}
     </div>
   `;
-}
+};

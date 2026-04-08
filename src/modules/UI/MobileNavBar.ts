@@ -12,32 +12,40 @@ interface Props {
 export const MobileNavBar: PureComponent<Props> = ({ user, isOpen }) => {
   const isProfileActive = window.location.pathname.endsWith(ROUTES.PROFILE);
 
-  return /*html*/`
+  return /*html*/ `
     <nav
       id="mobile-menu"
-      class="${isOpen ? "": "hidden"} absolute top-full left-0 w-full border-y border-stroke-primary bg-surface-primary md:hidden"
+      class="${isOpen ? "" : "hidden"} absolute top-full left-0 w-full border-y border-stroke-primary bg-surface-primary md:hidden"
     >
       <ul class="flex flex-col gap-1 px-4 py-3">
-        ${user ? /*html*/`
+        ${
+          user
+            ? /*html*/ `
           <li>
             <a
               href="${ROUTES.PROFILE}"
-              class="flex items-center gap-3 px-3 py-2 ${isProfileActive
-                ? "text-accent-hover"
-                : "text-content-secondary hover:text-content-primary"}"
+              class="flex items-center gap-3 px-3 py-2 ${
+                isProfileActive
+                  ? "text-accent-hover"
+                  : "text-content-secondary hover:text-content-primary"
+              }"
             >
               ${Avatar({ user })}
 
               <span class="font-medium text-lg">${user.username}</span>
             </a>
           </li>
-        ` : ""}
+        `
+            : ""
+        }
 
         <li>
           ${NavLink({ href: ROUTES.HOME, label: "About" })}
         </li>
 
-        ${user ? /*html*/`
+        ${
+          user
+            ? /*html*/ `
           <li>
             ${NavLink({ href: ROUTES.FEED, label: "Feed" })}
           </li>
@@ -49,7 +57,8 @@ export const MobileNavBar: PureComponent<Props> = ({ user, isOpen }) => {
           <li>
             ${NavLink({ href: ROUTES.NEW_POST, label: "New Post" })}
           </li>
-        ` : /*html*/`
+        `
+            : /*html*/ `
           <li>
             ${NavLink({ href: ROUTES.SIGN_IN, label: "Sign In" })}
           </li>
@@ -57,8 +66,9 @@ export const MobileNavBar: PureComponent<Props> = ({ user, isOpen }) => {
           <li>
             ${NavLink({ href: ROUTES.SIGN_UP, label: "Sign Up" })}
           </li>
-        `}
+        `
+        }
       </ul>
     </nav>
   `;
-}
+};

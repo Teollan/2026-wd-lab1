@@ -1,7 +1,7 @@
 import { PureComponent } from "@/modules/core/component";
 
 export const Footer: PureComponent = () => {
-  return /*html*/`
+  return /*html*/ `
     <footer class="border-t border-stroke-primary bg-surface-secondary">
       <div
         class="mx-auto max-w-5xl px-4 py-6 text-center text-sm text-content-tertiary"
@@ -10,4 +10,4 @@ export const Footer: PureComponent = () => {
       </div>
     </footer>
   `;
-}
+};

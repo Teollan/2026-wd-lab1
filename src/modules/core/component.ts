@@ -25,4 +25,6 @@ export abstract class ReactiveComponent {
   protected abstract getHtml(): string;
 }
 
-export type ReactiveComponentConstructor = new (parent: HTMLElement) => ReactiveComponent;
+export type ReactiveComponentConstructor = new (
+  parent: HTMLElement,
+) => ReactiveComponent;

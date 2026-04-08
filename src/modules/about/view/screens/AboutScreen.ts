@@ -17,7 +17,7 @@ export class AboutScreen extends ReactiveComponent {
     const { user } = authStore.getState();
     const isAuthenticated = Boolean(user);
 
-    return /*html*/`
+    return /*html*/ `
       ${Header()}
 
       <main class="mx-auto w-full max-w-5xl flex-1 px-4 py-12">

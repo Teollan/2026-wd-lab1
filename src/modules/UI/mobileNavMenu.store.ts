@@ -12,9 +12,6 @@ export const mobileNavMenuStore = new Store<MobileNavMenuState>({
   isOpen: false,
 });
 
-mobileNavMenuStore.addAction(
-  MOBILE_NAV_MENU_ACTION.TOGGLE,
-  (_, set, get) => {
-    set({ isOpen: !get().isOpen });
-  },
-);
+mobileNavMenuStore.addAction(MOBILE_NAV_MENU_ACTION.TOGGLE, (_, set, get) => {
+  set({ isOpen: !get().isOpen });
+});

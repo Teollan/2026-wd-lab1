@@ -1,9 +1,9 @@
 import { User, UserDto, mapUserDtoToUser } from "@/modules/user/model/User";
-import { Storage } from "@/utility/Storage"
+import { Storage } from "@/utility/Storage";
 
 interface SignInInput {
-  email: string,
-  password: string,
+  email: string;
+  password: string;
 }
 
 interface SignUpInput {
@@ -17,25 +17,25 @@ interface SignUpInput {
 
 export abstract class AuthRepository {
   static findAuthUser(): User | null {
-    const authUserId = parseInt(Storage.getItem(Storage.keys.AUTH_USER_ID) ?? '0');
+    const authUserId = parseInt(
+      Storage.getItem(Storage.keys.AUTH_USER_ID) ?? "0",
+    );
 
     if (!authUserId) {
       return null;
     }
 
     const users = Storage.getObject<UserDto[]>(Storage.keys.USERS);
-    const authUserDto = users?.find((user) => (user.id === authUserId));
+    const authUserDto = users?.find((user) => user.id === authUserId);
 
-    return authUserDto
-      ? mapUserDtoToUser(authUserDto)
-      : null;
+    return authUserDto ? mapUserDtoToUser(authUserDto) : null;
   }
 
   static getAuthUser(): User {
     const user = AuthRepository.findAuthUser();
 
     if (!user) {
-      throw new Error('No authenticated user found');
+      throw new Error("No authenticated user found");
     }
 
     return user;
@@ -44,12 +44,12 @@ export abstract class AuthRepository {
   static signIn(input: SignInInput): User {
     const users = Storage.getObject<UserDto[]>(Storage.keys.USERS);
 
-    const authUserDto = users?.find((user) => (
-      user.email === input.email && user.password === input.password
-    ));
+    const authUserDto = users?.find(
+      (user) => user.email === input.email && user.password === input.password,
+    );
 
     if (!authUserDto) {
-      throw new Error('Incorrect email or password');
+      throw new Error("Incorrect email or password");
     }
 
     Storage.setItem(Storage.keys.AUTH_USER_ID, authUserDto.id.toString());
@@ -62,14 +62,15 @@ export abstract class AuthRepository {
       id: Date.now(),
       ...input,
       createdAt: new Date(),
-    }
+    };
 
     const users = Storage.getObject<UserDto[]>(Storage.keys.USERS) ?? [];
 
-    const existingUser = users?.find((user) => user.email === input.email) ?? null;
+    const existingUser =
+      users?.find((user) => user.email === input.email) ?? null;
 
     if (existingUser) {
-      throw new Error('User with this email already exists');
+      throw new Error("User with this email already exists");
     }
 
     Storage.setItem(Storage.keys.USERS, JSON.stringify([...users, newUser]));

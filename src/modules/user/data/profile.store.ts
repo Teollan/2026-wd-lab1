@@ -8,11 +8,8 @@ export const PROFILE_ACTION = {
 
 export const profileStore = new Store({});
 
-profileStore.addAction(
-  PROFILE_ACTION.LOG_OUT,
-  () => {
-    AuthRepository.logOut();
+profileStore.addAction(PROFILE_ACTION.LOG_OUT, () => {
+  AuthRepository.logOut();
 
-    window.location.href = ROUTES.HOME;
-  },
-);
+  window.location.href = ROUTES.HOME;
+});

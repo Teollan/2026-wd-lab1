@@ -8,14 +8,11 @@ export const EDIT_POST_ACTION = {
 
 export const editPostStore = new Store({});
 
-editPostStore.addAction(
-  EDIT_POST_ACTION.UPDATE,
-  (payload) => {
-    PostsRepository.update(payload.postId, {
-      title: payload.title,
-      content: payload.content,
-    });
+editPostStore.addAction(EDIT_POST_ACTION.UPDATE, (payload) => {
+  PostsRepository.update(payload.postId, {
+    title: payload.title,
+    content: payload.content,
+  });
 
-    window.location.href = ROUTES.MY_POSTS;
-  },
-);
+  window.location.href = ROUTES.MY_POSTS;
+});

@@ -18,33 +18,24 @@ export const myPostsStore = new Store<MyPostsState>({
   posts: PostsRepository.getMyPosts(),
 });
 
-myPostsStore.addAction(
-  MY_POSTS_ACTION.CREATE_COMMENT,
-  (payload, set) => {
-    CommentsRepository.create({
-      postId: payload.postId,
-      content: payload.content,
-    });
+myPostsStore.addAction(MY_POSTS_ACTION.CREATE_COMMENT, (payload, set) => {
+  CommentsRepository.create({
+    postId: payload.postId,
+    content: payload.content,
+  });
 
-    set({ posts: PostsRepository.getMyPosts() });
-  },
-);
+  set({ posts: PostsRepository.getMyPosts() });
+});
 
-myPostsStore.addAction(
-  MY_POSTS_ACTION.EDIT_POST,
-  (payload) => {
-    window.location.href = ROUTES.EDIT_POST + `?id=${payload.postId}`;
-  },
-);
+myPostsStore.addAction(MY_POSTS_ACTION.EDIT_POST, (payload) => {
+  window.location.href = ROUTES.EDIT_POST + `?id=${payload.postId}`;
+});
 
-myPostsStore.addAction(
-  MY_POSTS_ACTION.DELETE_POST,
-  (payload, set) => {
-    if (!confirm("Are you sure you want to delete this post?")) {
-      return;
-    }
+myPostsStore.addAction(MY_POSTS_ACTION.DELETE_POST, (payload, set) => {
+  if (!confirm("Are you sure you want to delete this post?")) {
+    return;
+  }
 
-    PostsRepository.delete(payload.postId);
-    set({ posts: PostsRepository.getMyPosts() });
-  },
-);
+  PostsRepository.delete(payload.postId);
+  set({ posts: PostsRepository.getMyPosts() });
+});

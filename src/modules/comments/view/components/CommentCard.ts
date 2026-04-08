@@ -6,7 +6,7 @@ interface Props {
 }
 
 export const CommentCard: PureComponent<Props> = ({ comment }) => {
-  return /*html*/`
+  return /*html*/ `
     <div class="rounded-lg bg-surface-tertiary p-3">
       <div class="mb-1 flex items-center gap-2">
         <span class="text-sm font-medium text-content-primary">
@@ -23,7 +23,7 @@ export const CommentCard: PureComponent<Props> = ({ comment }) => {
       </p>
     </div>
   `;
-}
+};
 
 function formatDate(date: Date): string {
   return date.toLocaleDateString("en-US", {

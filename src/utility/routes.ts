@@ -10,4 +10,4 @@ export const ROUTES = {
   MY_POSTS: `${BASE}/my-posts`,
   NEW_POST: `${BASE}/new-post`,
   EDIT_POST: `${BASE}/edit-post`,
-}
+};

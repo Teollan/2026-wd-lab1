@@ -7,7 +7,7 @@ interface Props {
 }
 
 export const ProfileAvatar: PureComponent<Props> = ({ user }) => {
-  return /*html*/`
+  return /*html*/ `
     <div class="mb-6 flex items-center gap-4">
       ${Avatar({ user, size: "lg" })}
 
@@ -22,7 +22,7 @@ export const ProfileAvatar: PureComponent<Props> = ({ user }) => {
       </div>
     </div>
   `;
-}
+};
 
 function formatDate(date: Date): string {
   return date.toLocaleDateString("en-US", {

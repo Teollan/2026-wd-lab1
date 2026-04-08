@@ -8,8 +8,12 @@ interface Props {
   deleteAction: string;
 }
 
-export const PostActions: PureComponent<Props> = ({ postId, editAction, deleteAction }) => {
-  return /*html*/`
+export const PostActions: PureComponent<Props> = ({
+  postId,
+  editAction,
+  deleteAction,
+}) => {
+  return /*html*/ `
     <div class="flex items-center gap-2">
       <button
         data-action="${editAction}"
@@ -28,4 +32,4 @@ export const PostActions: PureComponent<Props> = ({ postId, editAction, deleteAc
       </button>
     </div>
   `;
-}
+};

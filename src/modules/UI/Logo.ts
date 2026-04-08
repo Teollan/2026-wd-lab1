@@ -2,7 +2,7 @@ import { PureComponent } from "@/modules/core/component";
 import { BASE, ROUTES } from "@/utility/routes";
 
 export const Logo: PureComponent = () => {
-  return /*html*/`
+  return /*html*/ `
     <a
       href="${ROUTES.HOME}"
       class="flex items-center gap-2"
@@ -15,4 +15,4 @@ export const Logo: PureComponent = () => {
       <span class="text-lg font-semibold text-content-primary">BlogSpace</span>
     </a>
   `;
-}
+};

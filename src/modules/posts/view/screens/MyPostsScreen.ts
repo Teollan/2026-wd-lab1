@@ -4,10 +4,12 @@ import { Header } from "@/modules/UI/Header";
 import { Footer } from "@/modules/UI/Footer";
 import { PostList } from "@/modules/posts/view/components/PostList";
 import { MyPostsEmptyState } from "@/modules/posts/view/components/MyPostsEmptyState";
-import { myPostsStore, MY_POSTS_ACTION } from "@/modules/posts/data/myPosts.store";
+import {
+  myPostsStore,
+  MY_POSTS_ACTION,
+} from "@/modules/posts/data/myPosts.store";
 import { authStore } from "@/modules/auth/data/auth.store";
 import { mobileNavMenuStore } from "@/modules/UI/mobileNavMenu.store";
-
 
 export class MyPostsScreen extends ReactiveComponent {
   protected onComponentDidMount(): void {
@@ -19,7 +21,7 @@ export class MyPostsScreen extends ReactiveComponent {
   protected getHtml(): string {
     const { posts } = myPostsStore.getState();
 
-    return /*html*/`
+    return /*html*/ `
       ${Header()}
 
       <main class="mx-auto w-full max-w-5xl flex-1 px-4 py-12">

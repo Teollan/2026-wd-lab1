@@ -2,7 +2,10 @@ import { ReactiveComponent } from "@/modules/core/component";
 import { createScreen } from "@/modules/core/screen";
 import { PostForm } from "@/modules/posts/view/components/PostForm";
 import { PostsRepository } from "@/modules/posts/data/posts.repository";
-import { editPostStore, EDIT_POST_ACTION } from "@/modules/posts/data/editPost.store";
+import {
+  editPostStore,
+  EDIT_POST_ACTION,
+} from "@/modules/posts/data/editPost.store";
 import { Header } from "@/modules/UI/Header";
 import { Footer } from "@/modules/UI/Footer";
 import { authStore } from "@/modules/auth/data/auth.store";
@@ -17,7 +20,9 @@ export class EditPostScreen extends ReactiveComponent {
   }
 
   protected getHtml(): string {
-    const postId = Number(new URLSearchParams(window.location.search).get("id"));
+    const postId = Number(
+      new URLSearchParams(window.location.search).get("id"),
+    );
     const post = PostsRepository.findById(postId);
 
     if (!post) {
@@ -25,7 +30,7 @@ export class EditPostScreen extends ReactiveComponent {
       return "";
     }
 
-    return /*html*/`
+    return /*html*/ `
       ${Header()}
 
       <main class="mx-auto w-full max-w-5xl flex-1 px-4 py-12">

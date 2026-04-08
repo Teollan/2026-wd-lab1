@@ -1,4 +1,4 @@
-export const IconMenu = () => (/*html*/`
+export const IconMenu = () => /*html*/ `
   <svg
     class="h-6 w-6"
     fill="none"
@@ -12,4 +12,4 @@ export const IconMenu = () => (/*html*/`
       d="M4 6h16M4 12h16M4 18h16"
     />
   </svg>
-`);
+`;

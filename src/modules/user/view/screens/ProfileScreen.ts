@@ -31,7 +31,7 @@ export class ProfileScreen extends ReactiveComponent {
     const postsCount = PostsRepository.findByAuthorId(user.id).length;
     const commentsCount = CommentsRepository.findByAuthorId(user.id).length;
 
-    return /*html*/`
+    return /*html*/ `
       ${Header()}
 
       <main class="mx-auto w-full max-w-5xl flex-1 px-4 py-12">
@@ -43,15 +43,17 @@ export class ProfileScreen extends ReactiveComponent {
           <div class="rounded-xl border border-stroke-primary bg-surface-secondary p-6">
             ${ProfileAvatar({ user })}
 
-            ${ProfileInfoTable({ entries: [
-              { label: "Username", value: user.username },
-              { label: "Email", value: user.email },
-              { label: "Gender", value: formatGender(user.gender) },
-              { label: "Date of birth", value: formatDate(user.dateOfBirth) },
-              { label: "Bio", value: user.bio },
-              { label: "Posts", value: postsCount.toString() },
-              { label: "Comments", value: commentsCount.toString() },
-            ]})}
+            ${ProfileInfoTable({
+              entries: [
+                { label: "Username", value: user.username },
+                { label: "Email", value: user.email },
+                { label: "Gender", value: formatGender(user.gender) },
+                { label: "Date of birth", value: formatDate(user.dateOfBirth) },
+                { label: "Bio", value: user.bio },
+                { label: "Posts", value: postsCount.toString() },
+                { label: "Comments", value: commentsCount.toString() },
+              ],
+            })}
 
             ${ProfileActions()}
           </div>
@@ -59,8 +61,8 @@ export class ProfileScreen extends ReactiveComponent {
       </main>
 
       ${Footer()}
-    `
-  };
+    `;
+  }
 }
 
 const formatGender = (gender: string) => {
@@ -74,7 +76,7 @@ const formatGender = (gender: string) => {
     default:
       return "Other";
   }
-}
+};
 
 function formatDate(date: Date): string {
   return date.toLocaleDateString("en-US", {

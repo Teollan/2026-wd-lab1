@@ -8,14 +8,11 @@ export const NEW_POST_ACTION = {
 
 export const newPostStore = new Store({});
 
-newPostStore.addAction(
-  NEW_POST_ACTION.CREATE,
-  (payload) => {
-    PostsRepository.create({
-      title: payload.title,
-      content: payload.content,
-    });
+newPostStore.addAction(NEW_POST_ACTION.CREATE, (payload) => {
+  PostsRepository.create({
+    title: payload.title,
+    content: payload.content,
+  });
 
-    window.location.href = ROUTES.MY_POSTS;
-  },
-);
+  window.location.href = ROUTES.MY_POSTS;
+});

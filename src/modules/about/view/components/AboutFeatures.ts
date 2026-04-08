@@ -5,7 +5,7 @@ import { IconComment } from "@/modules/UI/icons/IconComment";
 import { IconUser } from "@/modules/UI/icons/IconUser";
 
 export const AboutFeatures: PureComponent = () => {
-  return /*html*/`
+  return /*html*/ `
     <section>
       <h2 class="mb-8 text-center text-2xl font-bold text-content-primary">
         Features
@@ -32,4 +32,4 @@ export const AboutFeatures: PureComponent = () => {
       </div>
     </section>
   `;
-}
+};

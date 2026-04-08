@@ -5,7 +5,7 @@ const STORAGE_KEYS = {
   COMMENTS: "comments",
 } as const;
 
-export type StorageKey = typeof STORAGE_KEYS[keyof typeof STORAGE_KEYS];
+export type StorageKey = (typeof STORAGE_KEYS)[keyof typeof STORAGE_KEYS];
 
 export abstract class Storage {
   static readonly keys = STORAGE_KEYS;

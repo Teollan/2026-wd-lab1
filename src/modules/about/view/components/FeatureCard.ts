@@ -6,12 +6,8 @@ interface Props {
   body: string;
 }
 
-export const FeatureCard: PureComponent<Props> = ({
-  Icon,
-  title,
-  body,
-}) => {
-  return /*html*/`
+export const FeatureCard: PureComponent<Props> = ({ Icon, title, body }) => {
+  return /*html*/ `
     <div class="rounded-xl border border-stroke-primary bg-surface-secondary p-6">
       <div class="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-accent/10 text-accent-hover">
         ${Icon()}
@@ -26,4 +22,4 @@ export const FeatureCard: PureComponent<Props> = ({
       </p>
     </div>
   `;
-}
+};

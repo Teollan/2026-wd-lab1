@@ -18,11 +18,11 @@ interface Props {
 export const PostCard: PureComponent<Props> = ({ post, actions }) => {
   const showActions = Boolean(actions.editPost && actions.deletePost);
 
-  return /*html*/`
+  return /*html*/ `
     <article class="rounded-xl border border-stroke-primary bg-surface-secondary p-6">
-      <div class="mb-3 flex items-center ${showActions
-        ? "justify-between"
-        : "gap-3"}">
+      <div class="mb-3 flex items-center ${
+        showActions ? "justify-between" : "gap-3"
+      }">
         <div class="flex items-center gap-3">
           ${Avatar({ user: post.author })}
 
@@ -37,13 +37,15 @@ export const PostCard: PureComponent<Props> = ({ post, actions }) => {
           </div>
         </div>
 
-        ${showActions
-          ? PostActions({
-              postId: post.id,
-              editAction: actions.editPost!,
-              deleteAction: actions.deletePost!,
-            })
-          : ""}
+        ${
+          showActions
+            ? PostActions({
+                postId: post.id,
+                editAction: actions.editPost!,
+                deleteAction: actions.deletePost!,
+              })
+            : ""
+        }
       </div>
 
       <h2 class="mb-2 text-xl font-semibold text-content-primary">
@@ -61,7 +63,7 @@ export const PostCard: PureComponent<Props> = ({ post, actions }) => {
       })}
     </article>
   `;
-}
+};
 
 function formatDate(date: Date): string {
   return date.toLocaleDateString("en-US", {

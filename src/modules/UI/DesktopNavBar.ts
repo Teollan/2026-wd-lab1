@@ -11,7 +11,7 @@ interface Props {
 export const DesktopNavBar: PureComponent<Props> = ({ user }) => {
   const isProfileActive = window.location.pathname.endsWith(ROUTES.PROFILE);
 
-  return /*html*/`
+  return /*html*/ `
     <nav
       id="nav-menu"
       class="hidden md:block"
@@ -21,7 +21,9 @@ export const DesktopNavBar: PureComponent<Props> = ({ user }) => {
           ${NavLink({ href: ROUTES.HOME, label: "About" })}
         </li>
 
-        ${user ? /*html*/`
+        ${
+          user
+            ? /*html*/ `
           <li>
             ${NavLink({ href: ROUTES.FEED, label: "Feed" })}
           </li>
@@ -33,7 +35,8 @@ export const DesktopNavBar: PureComponent<Props> = ({ user }) => {
           <li>
             ${NavLink({ href: ROUTES.NEW_POST, label: "New Post" })}
           </li>
-        ` : /*html*/`
+        `
+            : /*html*/ `
           <li>
             ${NavLink({ href: ROUTES.SIGN_IN, label: "Sign In" })}
           </li>
@@ -41,21 +44,28 @@ export const DesktopNavBar: PureComponent<Props> = ({ user }) => {
           <li>
             ${NavLink({ href: ROUTES.SIGN_UP, label: "Sign Up" })}
           </li>
-        `}
+        `
+        }
 
-        ${user ? /*html*/`
+        ${
+          user
+            ? /*html*/ `
           <li>
             <a
               href="${ROUTES.PROFILE}"
-              class="block rounded-full ring-2 ${isProfileActive
-                ? "ring-accent-hover"
-                : "ring-transparent hover:ring-accent/40"}"
+              class="block rounded-full ring-2 ${
+                isProfileActive
+                  ? "ring-accent-hover"
+                  : "ring-transparent hover:ring-accent/40"
+              }"
             >
               ${Avatar({ user })}
             </a>
           </li>
-        ` : ""}
+        `
+            : ""
+        }
       </ul>
     </nav>
   `;
-}
+};

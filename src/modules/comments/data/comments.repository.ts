@@ -1,4 +1,9 @@
-import { Comment, CommentDto, CommentWithAuthor, mapCommentDtoToComment } from "@/modules/comments/model/Comment";
+import {
+  Comment,
+  CommentDto,
+  CommentWithAuthor,
+  mapCommentDtoToComment,
+} from "@/modules/comments/model/Comment";
 import { AuthRepository } from "@/modules/auth/data/auth.repository";
 import { UserDto, mapUserDtoToUser } from "@/modules/user/model/User";
 import { Storage } from "@/utility/Storage";
@@ -10,7 +15,8 @@ interface CreateCommentInput {
 
 export abstract class CommentsRepository {
   static findByAuthorId(authorId: number): Comment[] {
-    const comments = Storage.getObject<CommentDto[]>(Storage.keys.COMMENTS) ?? [];
+    const comments =
+      Storage.getObject<CommentDto[]>(Storage.keys.COMMENTS) ?? [];
 
     return comments
       .filter((comment) => comment.authorId === authorId)
@@ -18,7 +24,8 @@ export abstract class CommentsRepository {
   }
 
   static getByPostId(postId: number): CommentWithAuthor[] {
-    const comments = Storage.getObject<CommentDto[]>(Storage.keys.COMMENTS) ?? [];
+    const comments =
+      Storage.getObject<CommentDto[]>(Storage.keys.COMMENTS) ?? [];
     const users = Storage.getObject<UserDto[]>(Storage.keys.USERS) ?? [];
 
     return comments
@@ -28,9 +35,7 @@ export abstract class CommentsRepository {
 
         return {
           ...mapCommentDtoToComment(dto),
-          author: author
-            ? mapUserDtoToUser(author)
-            : null!,
+          author: author ? mapUserDtoToUser(author) : null!,
         };
       })
       .sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime());
@@ -50,7 +55,8 @@ export abstract class CommentsRepository {
       createdAt: new Date(),
     };
 
-    const comments = Storage.getObject<CommentDto[]>(Storage.keys.COMMENTS) ?? [];
+    const comments =
+      Storage.getObject<CommentDto[]>(Storage.keys.COMMENTS) ?? [];
     Storage.setObject(Storage.keys.COMMENTS, [...comments, comment]);
 
     return comment;

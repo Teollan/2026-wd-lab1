@@ -16,23 +16,15 @@ export const PostForm: PureComponent<Props> = ({
 } = {}) => {
   const isEditing = Boolean(postId);
 
-  const heading = isEditing
-    ? "Edit Post"
-    : "New Post";
+  const heading = isEditing ? "Edit Post" : "New Post";
 
-  const subheading = isEditing
-    ? "Update your post"
-    : "Create a new post";
+  const subheading = isEditing ? "Update your post" : "Create a new post";
 
-  const buttonLabel = isEditing
-    ? "Save changes"
-    : "Publish post";
+  const buttonLabel = isEditing ? "Save changes" : "Publish post";
 
-  const payload = postId
-    ? JSON.stringify({ postId })
-    : "";
+  const payload = postId ? JSON.stringify({ postId }) : "";
 
-  return /*html*/`
+  return /*html*/ `
     <div class="mx-auto max-w-2xl">
       <h1 class="mb-8 text-3xl font-bold text-content-primary">
         ${heading}
@@ -47,9 +39,7 @@ export const PostForm: PureComponent<Props> = ({
 
         <form
           data-submit-action="${action}"
-          ${payload
-            ? `data-payload='${payload}'`
-            : ""}
+          ${payload ? `data-payload='${payload}'` : ""}
           class="space-y-4"
         >
           <div>
@@ -99,4 +89,4 @@ export const PostForm: PureComponent<Props> = ({
       </section>
     </div>
   `;
-}
+};

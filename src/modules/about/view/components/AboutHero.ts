@@ -6,7 +6,7 @@ interface Props {
 }
 
 export const AboutHero: PureComponent<Props> = ({ isAuthenticated }) => {
-  return /*html*/`
+  return /*html*/ `
     <section class="mb-16 text-center">
       <img
         src="/2026-wd-lab1/images/logo.svg"
@@ -25,24 +25,26 @@ export const AboutHero: PureComponent<Props> = ({ isAuthenticated }) => {
       </p>
 
       <div class="mt-8 flex justify-center gap-4">
-        ${isAuthenticated
-          ? (/*html*/`
+        ${
+          isAuthenticated
+            ? /*html*/ `
             <a
               href="${ROUTES.FEED}"
               class="rounded-lg bg-accent px-6 py-2.5 font-medium text-content-primary hover:bg-accent-hover"
             >
               Browse the feed
             </a>
-          `)
-          : (/*html*/`
+          `
+            : /*html*/ `
             <a
               href="${ROUTES.SIGN_UP}"
               class="rounded-lg bg-accent px-6 py-2.5 font-medium text-content-primary hover:bg-accent-hover"
             >
               Get started
             </a>
-          `)}
+          `
+        }
       </div>
     </section>
   `;
-}
+};

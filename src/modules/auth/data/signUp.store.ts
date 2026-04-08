@@ -14,15 +14,12 @@ export const signUpStore = new Store<SignUpState>({
   error: null,
 });
 
-signUpStore.addAction(
-  SIGN_UP_ACTION.SUBMIT,
-  (payload, set) => {
-    try {
-      AuthRepository.signUp(payload);
+signUpStore.addAction(SIGN_UP_ACTION.SUBMIT, (payload, set) => {
+  try {
+    AuthRepository.signUp(payload);
 
-      window.location.href = ROUTES.FEED;
-    } catch (error) {
-      set({ error: (error as Error).message });
-    }
-  },
-);
+    window.location.href = ROUTES.FEED;
+  } catch (error) {
+    set({ error: (error as Error).message });
+  }
+});

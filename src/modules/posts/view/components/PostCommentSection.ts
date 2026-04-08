@@ -8,8 +8,12 @@ interface Props {
   createCommentAction: string;
 }
 
-export const PostCommentSection: PureComponent<Props> = ({ postId, comments, createCommentAction }) => {
-  return /*html*/`
+export const PostCommentSection: PureComponent<Props> = ({
+  postId,
+  comments,
+  createCommentAction,
+}) => {
+  return /*html*/ `
     <div class="border-t border-stroke-primary pt-4">
       <h3 class="mb-3 text-sm font-semibold text-content-secondary">
         Comments (${comments.length})
@@ -35,13 +39,14 @@ export const PostCommentSection: PureComponent<Props> = ({ postId, comments, cre
         </button>
       </form>
 
-      ${comments.length > 0
-        ? /*html*/`
+      ${
+        comments.length > 0
+          ? /*html*/ `
           <div class="space-y-3">
             ${comments.map((comment) => CommentCard({ comment })).join("")}
           </div>
         `
-        : /*html*/`
+          : /*html*/ `
           <p class="text-sm text-content-tertiary">
             No comments yet. Be the first to share your thoughts!
           </p>
@@ -49,4 +54,4 @@ export const PostCommentSection: PureComponent<Props> = ({ postId, comments, cre
       }
     </div>
   `;
-}
+};

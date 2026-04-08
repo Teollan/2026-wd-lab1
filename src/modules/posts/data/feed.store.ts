@@ -15,14 +15,11 @@ export const feedStore = new Store<FeedState>({
   posts: PostsRepository.getFeed(),
 });
 
-feedStore.addAction(
-  FEED_ACTION.CREATE_COMMENT,
-  (payload, set) => {
-    CommentsRepository.create({
-      postId: payload.postId,
-      content: payload.content,
-    });
+feedStore.addAction(FEED_ACTION.CREATE_COMMENT, (payload, set) => {
+  CommentsRepository.create({
+    postId: payload.postId,
+    content: payload.content,
+  });
 
-    set({ posts: PostsRepository.getFeed() });
-  },
-);
+  set({ posts: PostsRepository.getFeed() });
+});

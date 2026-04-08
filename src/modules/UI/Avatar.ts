@@ -32,9 +32,9 @@ export function getAvatarColor(userId: number): string {
 export const Avatar: PureComponent<Props> = ({ user, size = "sm" }) => {
   const color = getAvatarColor(user.id);
 
-  return /*html*/`
+  return /*html*/ `
     <div class="flex items-center justify-center rounded-full font-bold ${sizes[size]} ${color}">
       ${getInitials(user.username)}
     </div>
   `;
-}
+};

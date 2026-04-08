@@ -10,7 +10,7 @@ interface Props {
 }
 
 const InfoTableEntry: PureComponent<InfoEntry> = ({ label, value }) => {
-  return /*html*/`
+  return /*html*/ `
     <tr class="align-top">
       <td class="py-3 pr-4 font-medium text-content-secondary whitespace-nowrap">
         ${label}
@@ -21,16 +21,14 @@ const InfoTableEntry: PureComponent<InfoEntry> = ({ label, value }) => {
       </td>
     </tr>
   `;
-}
+};
 
 export const ProfileInfoTable: PureComponent<Props> = ({ entries }) => {
-  return /*html*/`
+  return /*html*/ `
     <table class="w-full">
       <tbody class="divide-y divide-stroke-primary text-sm text-content-primary">
-        ${entries.map((entry) => (
-          InfoTableEntry(entry)
-        )).join("")}
+        ${entries.map((entry) => InfoTableEntry(entry)).join("")}
       </tbody>
     </table>
   `;
-}
+};

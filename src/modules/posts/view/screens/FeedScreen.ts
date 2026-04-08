@@ -18,7 +18,7 @@ export class FeedScreen extends ReactiveComponent {
   protected getHtml(): string {
     const { posts } = feedStore.getState();
 
-    return /*html*/`
+    return /*html*/ `
       ${Header()}
 
       <main class="mx-auto w-full max-w-5xl flex-1 px-4 py-12">

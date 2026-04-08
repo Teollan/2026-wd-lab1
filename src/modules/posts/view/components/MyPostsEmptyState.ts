@@ -2,7 +2,7 @@ import { PureComponent } from "@/modules/core/component";
 import { ROUTES } from "@/utility/routes";
 
 export const MyPostsEmptyState: PureComponent = () => {
-  return /*html*/`
+  return /*html*/ `
     <div class="rounded-xl border border-stroke-primary bg-surface-secondary p-10 text-center">
       <p class="text-lg text-content-tertiary">
         You haven't posted anything yet.
@@ -15,4 +15,4 @@ export const MyPostsEmptyState: PureComponent = () => {
       </p>
     </div>
   `;
-}
+};

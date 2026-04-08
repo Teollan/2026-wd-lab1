@@ -1,4 +1,9 @@
-import { Post, PostDto, PostWithAuthorAndComments, mapPostDtoToPost } from "@/modules/posts/model/Post";
+import {
+  Post,
+  PostDto,
+  PostWithAuthorAndComments,
+  mapPostDtoToPost,
+} from "@/modules/posts/model/Post";
 import { CommentsRepository } from "@/modules/comments/data/comments.repository";
 import { UserDto, mapUserDtoToUser } from "@/modules/user/model/User";
 import { AuthRepository } from "@/modules/auth/data/auth.repository";
@@ -22,9 +27,7 @@ export abstract class PostsRepository {
     const posts = Storage.getObject<PostDto[]>(Storage.keys.POSTS) ?? [];
     const dto = posts.find((post) => post.id === postId);
 
-    return dto
-      ? mapPostDtoToPost(dto)
-      : null;
+    return dto ? mapPostDtoToPost(dto) : null;
   }
 
   static getFeed(): PostWithAuthorAndComments[] {
@@ -37,9 +40,7 @@ export abstract class PostsRepository {
 
         return {
           ...mapPostDtoToPost(dto),
-          author: author
-            ? mapUserDtoToUser(author)
-            : null!,
+          author: author ? mapUserDtoToUser(author) : null!,
           comments: CommentsRepository.getByPostId(dto.id),
         };
       })
@@ -61,9 +62,7 @@ export abstract class PostsRepository {
 
         return {
           ...post,
-          author: author
-            ? mapUserDtoToUser(author)
-            : null!,
+          author: author ? mapUserDtoToUser(author) : null!,
           comments: CommentsRepository.getByPostId(post.id),
         };
       })
@@ -95,16 +94,15 @@ export abstract class PostsRepository {
 
     Storage.setObject(
       Storage.keys.POSTS,
-      posts.map((post) =>
-        post.id === postId
-          ? { ...post, ...input }
-          : post,
-      ),
+      posts.map((post) => (post.id === postId ? { ...post, ...input } : post)),
     );
   }
 
   static delete(postId: number): void {
     const posts = Storage.getObject<PostDto[]>(Storage.keys.POSTS) ?? [];
-    Storage.setObject(Storage.keys.POSTS, posts.filter((post) => post.id !== postId));
+    Storage.setObject(
+      Storage.keys.POSTS,
+      posts.filter((post) => post.id !== postId),
+    );
   }
 }

@@ -3,7 +3,7 @@ import { PureComponent } from "@/modules/core/component";
 import { ROUTES } from "@/utility/routes";
 
 export const ProfileActions: PureComponent = () => {
-  return /*html*/`
+  return /*html*/ `
     <div class="mt-6 flex gap-3">
       <a
         href="${ROUTES.MY_POSTS}"
@@ -20,4 +20,4 @@ export const ProfileActions: PureComponent = () => {
       </button>
     </div>
   `;
-}
+};

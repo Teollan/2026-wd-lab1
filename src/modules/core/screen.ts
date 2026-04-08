@@ -1,9 +1,9 @@
-import { ReactiveComponentConstructor } from "@/modules/core/component"
+import { ReactiveComponentConstructor } from "@/modules/core/component";
 import { dispatcher } from "@/modules/core/dispatcher";
 
 export const createScreen = (
   rootNodeId: string,
-  Screen: ReactiveComponentConstructor
+  Screen: ReactiveComponentConstructor,
 ) => {
   const root = document.getElementById(rootNodeId);
 
@@ -63,9 +63,9 @@ export const createScreen = (
     const componentPayload = form.dataset.payload
       ? JSON.parse(form.dataset.payload)
       : null;
-    
+
     const payload = { ...componentPayload, ...formPayload };
 
-    dispatcher.dispatch({ type, payload })
-  })
-}
+    dispatcher.dispatch({ type, payload });
+  });
+};

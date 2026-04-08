@@ -8,14 +8,16 @@ interface Props {
 export const NavLink: PureComponent<Props> = ({ href, label }) => {
   const isActive = window.location.pathname.endsWith(href);
 
-  return /*html*/`
+  return /*html*/ `
     <a
       href="${href}"
-      class="block px-3 py-2 ${isActive
-        ? "text-accent-hover"
-        : "text-content-secondary hover:text-content-primary"}"
+      class="block px-3 py-2 ${
+        isActive
+          ? "text-accent-hover"
+          : "text-content-secondary hover:text-content-primary"
+      }"
     >
       ${label}
     </a>
   `;
-}
+};
