@@ -1,4 +1,5 @@
 import { authStore } from "@/modules/auth/data/auth.store";
+import { mobileNavMenuStore } from "@/modules/UI/mobileNavMenu.store";
 import { ReactiveComponent } from "@/modules/core/component";
 import { createScreen } from "@/modules/core/screen";
 import { Header } from "@/modules/UI/Header";
@@ -13,6 +14,7 @@ import { ROUTES } from "@/utility/routes";
 export class ProfileScreen extends ReactiveComponent {
   protected onComponentDidMount(): void {
     this.useStore(authStore);
+    this.useStore(mobileNavMenuStore);
   }
 
   protected getHtml() {
@@ -28,7 +30,7 @@ export class ProfileScreen extends ReactiveComponent {
     const commentsCount = CommentsRepository.findByAuthorId(user.id).length;
 
     return /*html*/`
-      ${Header({ user })}
+      ${Header()}
 
       <main class="mx-auto max-w-5xl flex-1 px-4 py-12">
         <div class="mx-auto max-w-2xl">

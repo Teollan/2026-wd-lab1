@@ -5,10 +5,12 @@ import { AboutHero } from "@/modules/about/view/components/AboutHero";
 import { Header } from "@/modules/UI/Header";
 import { Footer } from "@/modules/UI/Footer";
 import { authStore } from "@/modules/auth/data/auth.store";
+import { mobileNavMenuStore } from "@/modules/UI/mobileNavMenu.store";
 
 export class AboutScreen extends ReactiveComponent {
   protected onComponentDidMount() {
     this.useStore(authStore);
+    this.useStore(mobileNavMenuStore);
   }
 
   protected getHtml(): string {
@@ -16,7 +18,7 @@ export class AboutScreen extends ReactiveComponent {
     const isAuthenticated = Boolean(user);
 
     return /*html*/`
-      ${Header({ user })}
+      ${Header()}
 
       <main class="mx-auto w-full max-w-5xl flex-1 px-4 py-12">
         ${AboutHero({ isAuthenticated })}

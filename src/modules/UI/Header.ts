@@ -1,23 +1,24 @@
-import { PureComponent } from "@/modules/core/component";
-import { User } from "@/modules/user/model/User";
 import { DesktopNavBar } from "@/modules/UI/DesktopNavBar";
 import { IconMenu } from "@/modules/UI/icons/IconMenu";
 import { Logo } from "@/modules/UI/Logo";
 import { MobileNavBar } from "@/modules/UI/MobileNavBar";
+import { MOBILE_NAV_MENU_ACTION, mobileNavMenuStore } from "@/modules/UI/mobileNavMenu.store";
+import { authStore } from "@/modules/auth/data/auth.store";
 
-interface Props {
-  user: User | null;
-}
+export const Header = () => {
+  const { user } = authStore.getState();
+  const { isOpen } = mobileNavMenuStore.getState();
 
-export const Header: PureComponent<Props> = ({ user }) => {
   return /*html*/`
     <header class="relative border-b border-stroke-primary bg-surface-primary">
       <div class="mx-auto flex max-w-5xl items-center justify-between px-4 py-4">
         ${Logo()}
 
         <button
-          id="menu-toggle"
-          class="text-content-secondary hover:text-content-primary md:hidden"
+          data-action="${MOBILE_NAV_MENU_ACTION.TOGGLE}"
+          class="md:hidden ${isOpen
+            ? "text-accent-hover"
+            : "text-content-secondary hover:text-content-primary"}"
         >
           ${IconMenu()}
         </button>
@@ -25,7 +26,7 @@ export const Header: PureComponent<Props> = ({ user }) => {
         ${DesktopNavBar({ user })}
       </div>
 
-      ${MobileNavBar({ user })}
+      ${MobileNavBar({ user, isOpen })}
     </header>
   `;
 }

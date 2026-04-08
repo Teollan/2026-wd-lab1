@@ -6,15 +6,16 @@ import { ROUTES } from "@/utility/routes";
 
 interface Props {
   user: User | null;
+  isOpen: boolean;
 }
 
-export const MobileNavBar: PureComponent<Props> = ({ user }) => {
+export const MobileNavBar: PureComponent<Props> = ({ user, isOpen }) => {
   const isProfileActive = window.location.pathname.endsWith(ROUTES.PROFILE);
 
   return /*html*/`
     <nav
       id="mobile-menu"
-      class="hidden absolute top-full left-0 w-full border-y border-stroke-primary bg-surface-primary md:hidden"
+      class="${isOpen ? "": "hidden"} absolute top-full left-0 w-full border-y border-stroke-primary bg-surface-primary md:hidden"
     >
       <ul class="flex flex-col gap-1 px-4 py-3">
         ${user ? /*html*/`

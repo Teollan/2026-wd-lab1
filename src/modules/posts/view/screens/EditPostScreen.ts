@@ -6,16 +6,17 @@ import { editPostStore, EDIT_POST_ACTION } from "@/modules/posts/data/editPost.s
 import { Header } from "@/modules/UI/Header";
 import { Footer } from "@/modules/UI/Footer";
 import { authStore } from "@/modules/auth/data/auth.store";
+import { mobileNavMenuStore } from "@/modules/UI/mobileNavMenu.store";
 import { ROUTES } from "@/utility/routes";
 
 export class EditPostScreen extends ReactiveComponent {
   protected onComponentDidMount(): void {
     this.useStore(editPostStore);
     this.useStore(authStore);
+    this.useStore(mobileNavMenuStore);
   }
 
   protected getHtml(): string {
-    const { user } = authStore.getState();
     const postId = Number(new URLSearchParams(window.location.search).get("id"));
     const post = PostsRepository.findById(postId);
 
@@ -25,7 +26,7 @@ export class EditPostScreen extends ReactiveComponent {
     }
 
     return /*html*/`
-      ${Header({ user })}
+      ${Header()}
 
       <main class="mx-auto w-full max-w-5xl flex-1 px-4 py-12">
         ${PostForm({
