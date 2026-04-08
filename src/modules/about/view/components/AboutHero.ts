@@ -8,7 +8,7 @@ export const AboutHero: PureComponent<Props> = ({ isAuthenticated }) => {
   return /*html*/`
     <section class="mb-16 text-center">
       <img
-        src="/images/logo.svg"
+        src="/2026-wd-lab1/images/logo.svg"
         alt="BlogSpace logo"
         class="mx-auto mb-6 h-20 w-20"
       />

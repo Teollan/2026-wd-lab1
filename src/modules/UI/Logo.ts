@@ -7,7 +7,7 @@ export const Logo: PureComponent = () => {
       class="flex items-center gap-2"
     >
       <img
-        src="/images/logo.svg"
+        src="/2026-wd-lab1/images/logo.svg"
         alt="BlogSpace logo"
         class="h-8 w-8"
       />
