@@ -9,7 +9,7 @@ interface Props {
 }
 
 export const DesktopNavBar: PureComponent<Props> = ({ user }) => {
-  const isProfileActive = window.location.pathname.endsWith("profile");
+  const isProfileActive = window.location.pathname.endsWith(ROUTES.PROFILE);
 
   return /*html*/`
     <nav

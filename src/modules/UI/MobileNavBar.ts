@@ -9,12 +9,12 @@ interface Props {
 }
 
 export const MobileNavBar: PureComponent<Props> = ({ user }) => {
-  const isProfileActive = window.location.pathname.endsWith("profile");
+  const isProfileActive = window.location.pathname.endsWith(ROUTES.PROFILE);
 
   return /*html*/`
     <nav
       id="mobile-menu"
-      class="absolute top-full left-0 w-full border-y border-stroke-primary bg-surface-primary md:hidden"
+      class="hidden absolute top-full left-0 w-full border-y border-stroke-primary bg-surface-primary md:hidden"
     >
       <ul class="flex flex-col gap-1 px-4 py-3">
         ${user ? /*html*/`

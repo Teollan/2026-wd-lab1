@@ -22,6 +22,13 @@ export const createScreen = (
       return;
     }
 
+    const menuToggle = event.target.closest("#menu-toggle");
+
+    if (menuToggle) {
+      document.getElementById("mobile-menu")?.classList.toggle("hidden");
+      return;
+    }
+
     const source = event.target.closest("[data-action]");
 
     if (!(source instanceof HTMLElement)) {
