@@ -1,5 +1,6 @@
 import { PureComponent } from "@/modules/core/component";
 import { NEW_POST_ACTION } from "@/modules/posts/data/newPost.store";
+import { escapeHtml } from "@/utility/string";
 
 interface Props {
   action?: string;
@@ -55,7 +56,7 @@ export const PostForm: PureComponent<Props> = ({
               type="text"
               id="post-title"
               required
-              value="${title}"
+              value="${escapeHtml(title)}"
               placeholder="Your post title"
               class="w-full rounded-lg border border-stroke-secondary bg-surface-tertiary px-4 py-2.5 text-content-primary placeholder-content-tertiary focus:border-accent focus:ring-2 focus:ring-accent/20 focus:outline-none"
             />
@@ -76,7 +77,7 @@ export const PostForm: PureComponent<Props> = ({
               required
               placeholder="Write your thoughts..."
               class="min-h-50 resize-none w-full rounded-lg border border-stroke-secondary bg-surface-tertiary px-4 py-2.5 text-content-primary placeholder-content-tertiary focus:border-accent focus:ring-2 focus:ring-accent/20 focus:outline-none"
-            >${content}</textarea>
+            >${escapeHtml(content)}</textarea>
           </div>
 
           <button

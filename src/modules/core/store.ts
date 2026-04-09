@@ -4,12 +4,6 @@ import { Publisher, Subscriber } from "@/modules/core/pubsub";
 
 export type SetFn<T> = (state: Partial<T>) => void;
 export type GetFn<T> = () => T;
-export type StateFactoryFn<T> = (set: SetFn<T>, get: GetFn<T>) => T;
-export type OldStore<T> = {
-  getState: GetFn<T>;
-  subscribe: (callback: Subscriber<T>) => void;
-};
-export type State<T> = { value: T; setValue: SetFn<T> };
 export type ActionHandler<T> = (
   payload: any,
   set: SetFn<T>,

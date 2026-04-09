@@ -3,6 +3,7 @@ import { PostWithAuthorAndComments } from "@/modules/posts/model/Post";
 import { Avatar } from "@/modules/UI/Avatar";
 import { PostActions } from "@/modules/posts/view/components/PostActions";
 import { PostCommentSection } from "@/modules/posts/view/components/PostCommentSection";
+import { escapeHtml } from "@/utility/string";
 
 interface Actions {
   createComment: string;
@@ -28,7 +29,7 @@ export const PostCard: PureComponent<Props> = ({ post, actions }) => {
 
           <div>
             <p class="text-sm font-medium text-content-primary">
-              ${post.author.username}
+              ${escapeHtml(post.author.username)}
             </p>
 
             <p class="text-xs text-content-tertiary">
@@ -49,11 +50,11 @@ export const PostCard: PureComponent<Props> = ({ post, actions }) => {
       </div>
 
       <h2 class="mb-2 text-xl font-semibold text-content-primary">
-        ${post.title}
+        ${escapeHtml(post.title)}
       </h2>
 
       <p class="mb-4 text-content-secondary">
-        ${post.content}
+        ${escapeHtml(post.content)}
       </p>
 
       ${PostCommentSection({

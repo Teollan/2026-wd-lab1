@@ -1,6 +1,20 @@
 import { ReactiveComponentConstructor } from "@/modules/core/component";
 import { dispatcher } from "@/modules/core/dispatcher";
 
+function parsePayload(raw: string | undefined): Record<string, unknown> | null {
+  if (!raw) {
+    return null;
+  }
+
+  try {
+    return JSON.parse(raw);
+  } catch {
+    console.error("Failed to parse data-payload:", raw);
+
+    return null;
+  }
+}
+
 export const createScreen = (
   rootNodeId: string,
   Screen: ReactiveComponentConstructor,
@@ -32,9 +46,7 @@ export const createScreen = (
       return;
     }
 
-    const payload = source.dataset.payload
-      ? JSON.parse(source.dataset.payload)
-      : null;
+    const payload = parsePayload(source.dataset.payload);
 
     dispatcher.dispatch({ type, payload });
   });
@@ -60,9 +72,7 @@ export const createScreen = (
 
     const formPayload = Object.fromEntries(new FormData(form));
 
-    const componentPayload = form.dataset.payload
-      ? JSON.parse(form.dataset.payload)
-      : null;
+    const componentPayload = parsePayload(form.dataset.payload);
 
     const payload = { ...componentPayload, ...formPayload };
 

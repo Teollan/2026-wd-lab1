@@ -59,7 +59,7 @@ export abstract class AuthRepository {
 
   static signUp(input: SignUpInput): User {
     const newUser: User = {
-      id: Date.now(),
+      id: Storage.nextId(),
       ...input,
       createdAt: new Date(),
     };
@@ -73,7 +73,7 @@ export abstract class AuthRepository {
       throw new Error("User with this email already exists");
     }
 
-    Storage.setItem(Storage.keys.USERS, JSON.stringify([...users, newUser]));
+    Storage.setObject(Storage.keys.USERS, [...users, newUser]);
     Storage.setItem(Storage.keys.AUTH_USER_ID, newUser.id.toString());
 
     return newUser;

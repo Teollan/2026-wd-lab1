@@ -1,6 +1,7 @@
 import { PureComponent } from "@/modules/core/component";
 import { User } from "@/modules/user/model/User";
 import { Avatar } from "@/modules/UI/Avatar";
+import { escapeHtml } from "@/utility/string";
 
 interface Props {
   user: User;
@@ -13,7 +14,7 @@ export const ProfileAvatar: PureComponent<Props> = ({ user }) => {
 
       <div>
         <h2 class="text-xl font-semibold text-content-primary">
-          ${user.username}
+          ${escapeHtml(user.username)}
         </h2>
 
         <p class="text-sm text-content-tertiary">

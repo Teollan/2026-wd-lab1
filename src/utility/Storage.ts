@@ -3,6 +3,7 @@ const STORAGE_KEYS = {
   USERS: "users",
   POSTS: "posts",
   COMMENTS: "comments",
+  ID_COUNTER: "id_counter",
 } as const;
 
 export type StorageKey = (typeof STORAGE_KEYS)[keyof typeof STORAGE_KEYS];
@@ -34,5 +35,14 @@ export abstract class Storage {
 
   static removeItem(key: StorageKey) {
     localStorage.removeItem(key);
+  }
+
+  static nextId(): number {
+    const current = parseInt(this.getItem(this.keys.ID_COUNTER) ?? "0");
+    const next = current + 1;
+
+    this.setItem(this.keys.ID_COUNTER, next.toString());
+
+    return next;
   }
 }

@@ -30,12 +30,16 @@ export abstract class CommentsRepository {
 
     return comments
       .filter((comment) => comment.postId === postId)
-      .map((dto) => {
+      .flatMap((dto) => {
         const author = users.find((user) => user.id === dto.authorId);
+
+        if (!author) {
+          return [];
+        }
 
         return {
           ...mapCommentDtoToComment(dto),
-          author: author ? mapUserDtoToUser(author) : null!,
+          author: mapUserDtoToUser(author),
         };
       })
       .sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime());
@@ -49,7 +53,7 @@ export abstract class CommentsRepository {
     }
 
     const comment: Comment = {
-      id: Date.now(),
+      id: Storage.nextId(),
       authorId: user.id,
       ...input,
       createdAt: new Date(),

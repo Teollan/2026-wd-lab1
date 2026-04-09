@@ -1,6 +1,6 @@
 import { PureComponent } from "@/modules/core/component";
 import { User } from "@/modules/user/model/User";
-import { getInitials } from "@/utility/string";
+import { escapeHtml, getInitials } from "@/utility/string";
 
 interface Props {
   user: User;
@@ -34,7 +34,7 @@ export const Avatar: PureComponent<Props> = ({ user, size = "sm" }) => {
 
   return /*html*/ `
     <div class="flex items-center justify-center rounded-full font-bold ${sizes[size]} ${color}">
-      ${getInitials(user.username)}
+      ${escapeHtml(getInitials(user.username))}
     </div>
   `;
 };

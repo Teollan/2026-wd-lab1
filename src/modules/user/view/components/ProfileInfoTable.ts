@@ -1,4 +1,5 @@
 import { PureComponent } from "@/modules/core/component";
+import { escapeHtml } from "@/utility/string";
 
 interface InfoEntry {
   label: string;
@@ -17,7 +18,7 @@ const InfoTableEntry: PureComponent<InfoEntry> = ({ label, value }) => {
       </td>
 
       <td class="w-full py-3">
-        ${value}
+        ${escapeHtml(value)}
       </td>
     </tr>
   `;

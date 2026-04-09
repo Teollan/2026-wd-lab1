@@ -3,6 +3,7 @@ import { User } from "@/modules/user/model/User";
 import { Avatar } from "@/modules/UI/Avatar";
 import { NavLink } from "@/modules/UI/NavLink";
 import { ROUTES } from "@/utility/routes";
+import { escapeHtml } from "@/utility/string";
 
 interface Props {
   user: User | null;
@@ -32,7 +33,7 @@ export const MobileNavBar: PureComponent<Props> = ({ user, isOpen }) => {
             >
               ${Avatar({ user })}
 
-              <span class="font-medium text-lg">${user.username}</span>
+              <span class="font-medium text-lg">${escapeHtml(user.username)}</span>
             </a>
           </li>
         `

@@ -35,12 +35,16 @@ export abstract class PostsRepository {
     const users = Storage.getObject<UserDto[]>(Storage.keys.USERS) ?? [];
 
     return posts
-      .map((dto) => {
+      .flatMap((dto) => {
         const author = users.find((user) => user.id === dto.authorId);
+
+        if (!author) {
+          return [];
+        }
 
         return {
           ...mapPostDtoToPost(dto),
-          author: author ? mapUserDtoToUser(author) : null!,
+          author: mapUserDtoToUser(author),
           comments: CommentsRepository.getByPostId(dto.id),
         };
       })
@@ -57,12 +61,16 @@ export abstract class PostsRepository {
     const users = Storage.getObject<UserDto[]>(Storage.keys.USERS) ?? [];
 
     return PostsRepository.findByAuthorId(user.id)
-      .map((post) => {
+      .flatMap((post) => {
         const author = users.find((userDto) => userDto.id === post.authorId);
+
+        if (!author) {
+          return [];
+        }
 
         return {
           ...post,
-          author: author ? mapUserDtoToUser(author) : null!,
+          author: mapUserDtoToUser(author),
           comments: CommentsRepository.getByPostId(post.id),
         };
       })
@@ -77,7 +85,7 @@ export abstract class PostsRepository {
     }
 
     const post: Post = {
-      id: Date.now(),
+      id: Storage.nextId(),
       authorId: user.id,
       ...input,
       createdAt: new Date(),

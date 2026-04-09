@@ -1,5 +1,6 @@
 import { PureComponent } from "@/modules/core/component";
 import { CommentWithAuthor } from "@/modules/comments/model/Comment";
+import { escapeHtml } from "@/utility/string";
 
 interface Props {
   comment: CommentWithAuthor;
@@ -10,7 +11,7 @@ export const CommentCard: PureComponent<Props> = ({ comment }) => {
     <div class="rounded-lg bg-surface-tertiary p-3">
       <div class="mb-1 flex items-center gap-2">
         <span class="text-sm font-medium text-content-primary">
-          ${comment.author.username}
+          ${escapeHtml(comment.author.username)}
         </span>
 
         <span class="text-xs text-content-tertiary">
@@ -19,7 +20,7 @@ export const CommentCard: PureComponent<Props> = ({ comment }) => {
       </div>
 
       <p class="text-sm text-content-secondary">
-        ${comment.content}
+        ${escapeHtml(comment.content)}
       </p>
     </div>
   `;
