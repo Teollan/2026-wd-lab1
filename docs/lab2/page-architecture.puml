@@ -1,0 +1,74 @@
+@startuml Архітектура сторінки — приклад My Posts
+skinparam classAttributeIconSize 0
+skinparam defaultFontName monospaced
+skinparam classFontSize 13
+skinparam style strictuml
+hide empty members
+left to right direction
+
+' === Flux-подібний цикл (зліва направо) ===
+
+package "Подання (View)" {
+  class MyPostsScreen <<ReactiveComponent>> {
+    # onComponentDidMount(): void
+    # getHtml(): string
+  }
+
+  together {
+    class Header <<PureComponent>>
+    class Footer <<PureComponent>>
+    class PostList <<PureComponent>>
+  }
+}
+
+class Dispatcher {
++ dispatch(action: Action): void
+}
+
+
+class "myPostsStore: Store<MyPostsState>" as myPostsStore <<instance>> {
+  state.posts: PostWithAuthorAndComments[]
+  --
+  MY_POSTS_ACTION.CREATE_COMMENT
+  MY_POSTS_ACTION.EDIT_POST
+  MY_POSTS_ACTION.DELETE_POST
+}
+
+package "Дані (Data)" {
+  class PostsRepository <<abstract>> {
+    + {static} getMyPosts()
+    + {static} create(input)
+    + {static} update(postId, input)
+    + {static} delete(postId)
+  }
+
+  class CommentsRepository <<abstract>> {
+    + {static} getByPostId(postId)
+    + {static} create(input)
+  }
+
+  class Storage <<abstract>> {
+    + {static} getObject<T>(key)
+    + {static} setObject<T>(key, value)
+    + {static} nextId(): number
+  }
+}
+
+' === Flux-цикл ===
+
+MyPostsScreen -right-> Dispatcher : дія користувача
+Dispatcher -right-> myPostsStore : передає
+myPostsStore -left-> MyPostsScreen : перемальовує
+
+' === Допоміжні зв'язки ===
+
+MyPostsScreen ..> Header
+MyPostsScreen ..> Footer : компонує
+MyPostsScreen ..> PostList
+
+myPostsStore ..> PostsRepository
+myPostsStore ..> CommentsRepository
+PostsRepository ..> Storage
+CommentsRepository ..> Storage
+
+@enduml

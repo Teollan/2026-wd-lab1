@@ -1,0 +1,47 @@
+@startuml Ядро реактивності — Однонаправлений потік даних
+skinparam classAttributeIconSize 0
+skinparam defaultFontName monospaced
+skinparam classFontSize 13
+skinparam style strictuml
+hide empty members
+left to right direction
+
+class "Action\n(data-action)" as Action {
+  type: string
+  payload: any
+}
+
+class Dispatcher extends Publisher {
+  + dispatch(action: Action): void
+}
+
+class Store<T> extends Publisher {
+  - state: T
+  - actionHandlers: Map<string, ActionHandler<T>>
+  + getState(): T
+  + addAction(type, handler): void
+  - handleAction(action: Action): void
+  - setState(newState: Partial<T>): void
+}
+
+abstract class ReactiveComponent <<View>> {
+  # parent: HTMLElement
+  # useStore(store: Store): void
+  # render(): void
+  # {abstract} getHtml(): string
+}
+
+class Publisher<T> {
+  - subscribers: Subscriber<T>[]
+  + subscribe(callback): Unsubscribe
+  # notify(payload: T): void
+}
+
+' === Flux-подібний цикл ===
+
+Action -right-> Dispatcher : передається
+Dispatcher -right-> Store : розсилає
+Store -right-> ReactiveComponent : перемальовує
+ReactiveComponent -left[hidden]-> Action
+
+@enduml
